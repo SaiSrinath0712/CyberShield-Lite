@@ -159,6 +159,9 @@
                                     <div>Drag & Drop text/msg file (.txt/.eml/.html/.json)</div>
                                     <input type="file" id="email-file-input" style="display: none;" accept=".txt,.eml,.msg,.html,.json,.md" onchange="handleEmailSelect(event)" onclick="event.stopPropagation()">
                                 </div>
+                                <div class="file-info-label" id="email-file-info" style="display: none; margin-top: 8px; font-size: 0.75rem; color: var(--neon-cyan); text-align: center;">
+                                    <i class="fa-solid fa-file-circle-check"></i> Loaded: <span class="filename-span"></span>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%;">
                                 Analyse Email <i class="fa-solid fa-magnifying-glass"></i>
@@ -212,6 +215,9 @@
                                     <i class="fa-solid fa-file-import" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
                                     <div>Drag & Drop URL link/text file (.txt/.html/.json/.csv)</div>
                                     <input type="file" id="url-file-input" style="display: none;" accept=".txt,.html,.url,.json,.csv,.log,.md,.lnk" onchange="handleUrlSelect(event)" onclick="event.stopPropagation()">
+                                </div>
+                                <div class="file-info-label" id="url-file-info" style="display: none; margin-top: 8px; font-size: 0.75rem; color: var(--neon-cyan); text-align: center;">
+                                    <i class="fa-solid fa-file-circle-check"></i> Loaded: <span class="filename-span"></span>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%;">
@@ -270,6 +276,9 @@
                                     <i class="fa-solid fa-file-shield" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
                                     <div>Drag & Drop ANY file to extract name & extension</div>
                                     <input type="file" id="file-file-input" style="display: none;" onchange="handleFileSelect(event)" onclick="event.stopPropagation()">
+                                </div>
+                                <div class="file-info-label" id="file-file-info" style="display: none; margin-top: 8px; font-size: 0.75rem; color: var(--neon-cyan); text-align: center;">
+                                    <i class="fa-solid fa-file-circle-check"></i> Loaded: <span class="filename-span"></span>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%;">
@@ -473,6 +482,9 @@
                                     <div>Drag & Drop script file (.sql/.js/.html/.py/.sh/.txt)</div>
                                     <input type="file" id="injection-file-input" style="display: none;" accept=".sql,.js,.html,.xml,.json,.txt,.php,.asp,.py,.sh,.bat,.md" onchange="handleInjectionSelect(event)" onclick="event.stopPropagation()">
                                 </div>
+                                <div class="file-info-label" id="injection-file-info" style="display: none; margin-top: 8px; font-size: 0.75rem; color: var(--neon-cyan); text-align: center;">
+                                    <i class="fa-solid fa-file-circle-check"></i> Loaded: <span class="filename-span"></span>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%;">
                                 Audit Input Payload <i class="fa-solid fa-code"></i>
@@ -534,6 +546,9 @@
                                     <i class="fa-solid fa-file-import" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
                                     <div>Drag & Drop log/text/json file to load fields</div>
                                     <input type="file" id="login-file-input" style="display: none;" accept=".txt,.log,.csv,.json,.xml" onchange="handleLoginSelect(event)" onclick="event.stopPropagation()">
+                                </div>
+                                <div class="file-info-label" id="login-file-info" style="display: none; margin-top: 8px; font-size: 0.75rem; color: var(--neon-cyan); text-align: center;">
+                                    <i class="fa-solid fa-file-circle-check"></i> Loaded: <span class="filename-span"></span>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%;">

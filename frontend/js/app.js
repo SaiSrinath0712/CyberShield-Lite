@@ -813,6 +813,7 @@ function processEmailFile(file) {
         }
         document.getElementById("email-subject-input").value = subject;
         document.getElementById("email-body-input").value = body;
+        showLoadedFileInfo("email", file.name);
         document.getElementById("email-form").dispatchEvent(new Event("submit"));
     };
     reader.readAsText(file);
@@ -837,6 +838,7 @@ function processUrlFile(file) {
     reader.onload = function(evt) {
         const text = evt.target.result.trim();
         document.getElementById("url-input").value = text;
+        showLoadedFileInfo("url", file.name);
         document.getElementById("url-form").dispatchEvent(new Event("submit"));
     };
     reader.readAsText(file);
@@ -863,6 +865,7 @@ function processFileExt(file) {
     
     document.getElementById("file-name-input").value = filename;
     document.getElementById("file-ext-input").value = ext;
+    showLoadedFileInfo("file", file.name);
     document.getElementById("file-form").dispatchEvent(new Event("submit"));
 }
 
@@ -892,6 +895,7 @@ function processInjectionFile(file) {
         } else if (ext === 'js' || ext === 'html') {
             document.getElementById("inj-type").value = "xss";
         }
+        showLoadedFileInfo("injection", file.name);
         document.getElementById("injection-form").dispatchEvent(new Event("submit"));
     };
     reader.readAsText(file);
@@ -934,8 +938,18 @@ function processLoginFile(file) {
         document.getElementById("log-user").value = user;
         document.getElementById("log-ip").value = ip;
         document.getElementById("log-count").value = count;
+        showLoadedFileInfo("login", file.name);
         document.getElementById("login-form").dispatchEvent(new Event("submit"));
     };
     reader.readAsText(file);
+}
+
+// Helper to render file details info tag below dropzone cards
+function showLoadedFileInfo(prefix, filename) {
+    const el = document.getElementById(`${prefix}-file-info`);
+    if (el) {
+        el.style.display = "block";
+        el.querySelector(".filename-span").textContent = filename;
+    }
 }
 
