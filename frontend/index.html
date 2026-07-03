@@ -157,7 +157,7 @@
                                 <div class="drop-zone" id="email-drop-zone" ondragover="event.preventDefault(); this.style.borderColor='var(--neon-cyan)';" ondragleave="this.style.borderColor='var(--border-color)';" ondrop="handleEmailDrop(event)" onclick="document.getElementById('email-file-input').click()">
                                     <i class="fa-solid fa-file-import" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
                                     <div>Drag & Drop text/msg file (.txt/.eml/.html/.json)</div>
-                                    <input type="file" id="email-file-input" style="display: none;" accept=".txt,.eml,.msg,.html,.json,.md" onchange="handleEmailSelect(event)">
+                                    <input type="file" id="email-file-input" style="display: none;" accept=".txt,.eml,.msg,.html,.json,.md" onchange="handleEmailSelect(event)" onclick="event.stopPropagation()">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%;">
@@ -211,7 +211,7 @@
                                 <div class="drop-zone" id="url-drop-zone" ondragover="event.preventDefault(); this.style.borderColor='var(--neon-cyan)';" ondragleave="this.style.borderColor='var(--border-color)';" ondrop="handleUrlDrop(event)" onclick="document.getElementById('url-file-input').click()">
                                     <i class="fa-solid fa-file-import" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
                                     <div>Drag & Drop URL link/text file (.txt/.html/.json/.csv)</div>
-                                    <input type="file" id="url-file-input" style="display: none;" accept=".txt,.html,.url,.json,.csv,.log,.md,.lnk" onchange="handleUrlSelect(event)">
+                                    <input type="file" id="url-file-input" style="display: none;" accept=".txt,.html,.url,.json,.csv,.log,.md,.lnk" onchange="handleUrlSelect(event)" onclick="event.stopPropagation()">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%;">
@@ -269,7 +269,7 @@
                                 <div class="drop-zone" id="file-drop-zone" ondragover="event.preventDefault(); this.style.borderColor='var(--neon-cyan)';" ondragleave="this.style.borderColor='var(--border-color)';" ondrop="handleFileDrop(event)" onclick="document.getElementById('file-file-input').click()">
                                     <i class="fa-solid fa-file-shield" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
                                     <div>Drag & Drop ANY file to extract name & extension</div>
-                                    <input type="file" id="file-file-input" style="display: none;" onchange="handleFileSelect(event)">
+                                    <input type="file" id="file-file-input" style="display: none;" onchange="handleFileSelect(event)" onclick="event.stopPropagation()">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%;">
@@ -471,7 +471,7 @@
                                 <div class="drop-zone" id="injection-drop-zone" ondragover="event.preventDefault(); this.style.borderColor='var(--neon-cyan)';" ondragleave="this.style.borderColor='var(--border-color)';" ondrop="handleInjectionDrop(event)" onclick="document.getElementById('injection-file-input').click()">
                                     <i class="fa-solid fa-file-import" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
                                     <div>Drag & Drop script file (.sql/.js/.html/.py/.sh/.txt)</div>
-                                    <input type="file" id="injection-file-input" style="display: none;" accept=".sql,.js,.html,.xml,.json,.txt,.php,.asp,.py,.sh,.bat,.md" onchange="handleInjectionSelect(event)">
+                                    <input type="file" id="injection-file-input" style="display: none;" accept=".sql,.js,.html,.xml,.json,.txt,.php,.asp,.py,.sh,.bat,.md" onchange="handleInjectionSelect(event)" onclick="event.stopPropagation()">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%;">
@@ -533,7 +533,7 @@
                                 <div class="drop-zone" id="login-drop-zone" ondragover="event.preventDefault(); this.style.borderColor='var(--neon-cyan)';" ondragleave="this.style.borderColor='var(--border-color)';" ondrop="handleLoginDrop(event)" onclick="document.getElementById('login-file-input').click()">
                                     <i class="fa-solid fa-file-import" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
                                     <div>Drag & Drop log/text/json file to load fields</div>
-                                    <input type="file" id="login-file-input" style="display: none;" accept=".txt,.log,.csv,.json,.xml" onchange="handleLoginSelect(event)">
+                                    <input type="file" id="login-file-input" style="display: none;" accept=".txt,.log,.csv,.json,.xml" onchange="handleLoginSelect(event)" onclick="event.stopPropagation()">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%;">
