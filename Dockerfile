@@ -22,7 +22,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Run the machine learning training script to build models and populate database metrics
-RUN python scripts/train_models.py
+RUN python utils/train_models.py
 
 # Expose port
 EXPOSE 8000
