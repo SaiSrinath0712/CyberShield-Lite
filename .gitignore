@@ -1,0 +1,8 @@
+cybershield_lite.db
+__pycache__/
+*.pyc
+.gemini/
+.agents/
+.vscode/
+venv/
+env/

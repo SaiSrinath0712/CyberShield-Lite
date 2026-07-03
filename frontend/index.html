@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield AI Lite - Cybersecurity Platform</title>
+    <!-- FontAwesome & Chart.js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-shield-halved"></i> CyberShield Lite
+            </div>
+            <ul class="sidebar-menu">
+                <li>
+                    <button class="sidebar-btn active" onclick="switchTab('overview')">
+                        <i class="fa-solid fa-chart-pie"></i> Console Dashboard
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-btn" onclick="switchTab('email-scanner')">
+                        <i class="fa-solid fa-envelope-open-text"></i> Email Scanner
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-btn" onclick="switchTab('url-scanner')">
+                        <i class="fa-solid fa-link"></i> URL Scanner
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-btn" onclick="switchTab('file-scanner')">
+                        <i class="fa-solid fa-file-shield"></i> File Analyzer
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-btn" onclick="switchTab('ids-scanner')">
+                        <i class="fa-solid fa-network-wired"></i> IDS Analyser
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-btn" onclick="switchTab('injection-scanner')">
+                        <i class="fa-solid fa-code"></i> Injection Check
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-btn" onclick="switchTab('login-scanner')">
+                        <i class="fa-solid fa-user-lock"></i> Login Monitor
+                    </button>
+                </li>
+                <li>
+                    <button class="sidebar-btn" onclick="switchTab('history-logs')">
+                        <i class="fa-solid fa-clock-rotate-left"></i> Scans History
+                    </button>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                Version 1.0.0 (Lite)
+            </div>
+        </aside>
+
+        <!-- MAIN WORKSPACE -->
+        <main class="main-content">
+            <!-- PAGE HEADER -->
+            <header class="page-header">
+                <div>
+                    <h2 id="page-title">Security Command Console</h2>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px;">Lightweight Explainable Artificial Intelligence Threat Management System.</p>
+                </div>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <button class="btn btn-secondary" onclick="triggerTelemetryRefresh()" style="padding: 6px 12px; font-size: 0.8rem;" title="Refresh Data">
+                        <i class="fa-solid fa-rotate"></i> Refresh Telemetry
+                    </button>
+                    <div class="date-badge">
+                        <i class="fa-solid fa-calendar-days"></i> <span id="display-date">Active Telemetry Session</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ================= OVERVIEW PANEL ================= -->
+            <div id="overview" class="tab-panel active">
+                <div class="stats-grid">
+                    <div class="glass-card stat-card">
+                        <span class="stat-title">Total Scans Run</span>
+                        <span class="stat-val" id="cnt-total-scans">0</span>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <span class="stat-title">Threats Flagged</span>
+                        <span class="stat-val" id="cnt-total-threats" style="color: var(--neon-red);">0</span>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <span class="stat-title">Blocked URLs</span>
+                        <span class="stat-val" id="cnt-blocked-urls" style="color: var(--neon-orange);">0</span>
+                    </div>
+                    <div class="glass-card stat-card">
+                        <span class="stat-title">Network Intrusion Blocks</span>
+                        <span class="stat-val" id="cnt-network-attacks" style="color: var(--neon-cyan);">0</span>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="glass-card">
+                        <h3 style="margin-bottom: 12px;">Threat Category breakdown</h3>
+                        <div style="height: 250px; position: relative;">
+                            <canvas id="threatPieChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="glass-card">
+                        <h3 style="margin-bottom: 12px;">Threat frequency by Module</h3>
+                        <div style="height: 250px; position: relative;">
+                            <canvas id="threatBarChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Alerts Feed -->
+                <div class="glass-card">
+                    <h3 style="margin-bottom: 14px;">Recent Telemetry Warnings</h3>
+                    <div class="table-wrapper">
+                        <table class="custom-table" id="recent-alerts-table">
+                            <thead>
+                                <tr>
+                                    <th>Threat Module</th>
+                                    <th>Risk Level</th>
+                                    <th>Diagnostic reasons</th>
+                                    <th>Payload sample</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="4" style="text-align: center; color: var(--text-muted);">Loading warning feeds...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= EMAIL SCANNER ================= -->
+            <div id="email-scanner" class="tab-panel">
+                <div class="scanner-grid">
+                    <div class="glass-card">
+                        <h3>Inspect Email Content</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.85rem;">Scans subject and body texts for social engineering and spam signature markers.</p>
+                        <form id="email-form">
+                            <div class="form-group">
+                                <label class="form-label" for="email-subject-input">Subject Line</label>
+                                <input type="text" id="email-subject-input" class="form-input" placeholder="e.g. Account Suspension Warning">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="email-body-input">Email Body</label>
+                                <textarea id="email-body-input" class="form-input" style="height: 120px; resize: none;" placeholder="Paste email content here..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="drop-zone" id="email-drop-zone" ondragover="event.preventDefault(); this.style.borderColor='var(--neon-cyan)';" ondragleave="this.style.borderColor='var(--border-color)';" ondrop="handleEmailDrop(event)" onclick="document.getElementById('email-file-input').click()">
+                                    <i class="fa-solid fa-file-import" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
+                                    <div>Drag & Drop text/msg file (.txt/.eml/.html/.json)</div>
+                                    <input type="file" id="email-file-input" style="display: none;" accept=".txt,.eml,.msg,.html,.json,.md" onchange="handleEmailSelect(event)">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Analyse Email <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Email Scan Output -->
+                    <div class="glass-card">
+                        <h3>Semantic Diagnostics Panel</h3>
+                        <div style="margin-top: 15px;">
+                            <div class="result-empty" id="email-placeholder">
+                                <i class="fa-solid fa-envelope-open-text fa-3x" style="margin-bottom: 8px;"></i>
+                                <p>Submit an email body to invoke the Naive Bayes vectorizer scanning script.</p>
+                            </div>
+                            <div id="email-results" style="display: none;">
+                                <div class="verdict-header">
+                                    <span class="reasons-title">Scan Verdict</span>
+                                    <span id="email-verdict-badge" class="badge">Safe</span>
+                                </div>
+                                <div class="confidence-tracker">
+                                    <label class="form-label" id="email-confidence-val">0% Probability</label>
+                                    <div class="progress-bar-container">
+                                        <div id="email-confidence-bar" class="progress-bar-fill"></div>
+                                    </div>
+                                    <span id="email-risk-level" style="font-size: 0.8rem; color: var(--text-secondary); display: block; margin-top: 6px;">Severity: Low</span>
+                                </div>
+                                <h4 class="reasons-title">Explainable Indicators matched:</h4>
+                                <ul class="reasons-list" id="email-reasons"></ul>
+                                <h4 class="reasons-title">Remediation Tips:</h4>
+                                <ul class="tips-list" id="email-tips"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= URL SCANNER ================= -->
+            <div id="url-scanner" class="tab-panel">
+                <div class="scanner-grid">
+                    <div class="glass-card">
+                        <h3>Inspect Target URL</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.85rem;">Checks address parameters, length, subdomain count, and HSTS security status.</p>
+                        <form id="url-form">
+                            <div class="form-group">
+                                <label class="form-label" for="url-input">Website URL</label>
+                                <input type="text" id="url-input" class="form-input" placeholder="e.g. http://login.secure-bank-update.com/paypal" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="drop-zone" id="url-drop-zone" ondragover="event.preventDefault(); this.style.borderColor='var(--neon-cyan)';" ondragleave="this.style.borderColor='var(--border-color)';" ondrop="handleUrlDrop(event)" onclick="document.getElementById('url-file-input').click()">
+                                    <i class="fa-solid fa-file-import" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
+                                    <div>Drag & Drop URL link/text file (.txt/.html/.json/.csv)</div>
+                                    <input type="file" id="url-file-input" style="display: none;" accept=".txt,.html,.url,.json,.csv,.log,.md,.lnk" onchange="handleUrlSelect(event)">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Execute URL Scan <i class="fa-solid fa-link"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- URL Scan Output -->
+                    <div class="glass-card">
+                        <h3>URL Diagnostics Panel</h3>
+                        <div style="margin-top: 15px;">
+                            <div class="result-empty" id="url-placeholder">
+                                <i class="fa-solid fa-link-slash fa-3x" style="margin-bottom: 8px;"></i>
+                                <p>Submit a URL address string to compile random forest classification features.</p>
+                            </div>
+                            <div id="url-results" style="display: none;">
+                                <div class="verdict-header">
+                                    <span class="reasons-title">Scan Verdict</span>
+                                    <span id="url-verdict-badge" class="badge">Safe</span>
+                                </div>
+                                <div class="confidence-tracker">
+                                    <label class="form-label" id="url-confidence-val">0% Probability</label>
+                                    <div class="progress-bar-container">
+                                        <div id="url-confidence-bar" class="progress-bar-fill"></div>
+                                    </div>
+                                    <span id="url-risk-level" style="font-size: 0.8rem; color: var(--text-secondary); display: block; margin-top: 6px;">Severity: Low</span>
+                                </div>
+                                <h4 class="reasons-title">Triggered structural anomalies:</h4>
+                                <ul class="reasons-list" id="url-reasons"></ul>
+                                <h4 class="reasons-title">Recommended Safety Playbook:</h4>
+                                <ul class="tips-list" id="url-tips"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= FILE ANALYZER ================= -->
+            <div id="file-scanner" class="tab-panel">
+                <div class="scanner-grid">
+                    <div class="glass-card">
+                        <h3>Analyze File Extension</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.85rem;">Validates filename characters and checks for double extension spoofing or script executors.</p>
+                        <form id="file-form">
+                            <div class="form-group">
+                                <label class="form-label" for="file-name-input">Filename</label>
+                                <input type="text" id="file-name-input" class="form-input" placeholder="e.g. invoice.pdf" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="file-ext-input">Extension</label>
+                                <input type="text" id="file-ext-input" class="form-input" placeholder="e.g. exe or .bat" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="drop-zone" id="file-drop-zone" ondragover="event.preventDefault(); this.style.borderColor='var(--neon-cyan)';" ondragleave="this.style.borderColor='var(--border-color)';" ondrop="handleFileDrop(event)" onclick="document.getElementById('file-file-input').click()">
+                                    <i class="fa-solid fa-file-shield" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
+                                    <div>Drag & Drop ANY file to extract name & extension</div>
+                                    <input type="file" id="file-file-input" style="display: none;" onchange="handleFileSelect(event)">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Check Extension <i class="fa-solid fa-file-shield"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- File Output -->
+                    <div class="glass-card">
+                        <h3>File Diagnostics Panel</h3>
+                        <div style="margin-top: 15px;">
+                            <div class="result-empty" id="file-placeholder">
+                                <i class="fa-solid fa-file-zipper fa-3x" style="margin-bottom: 8px;"></i>
+                                <p>Provide filename parameters to run extension white-list checks.</p>
+                            </div>
+                            <div id="file-results" style="display: none;">
+                                <div class="verdict-header">
+                                    <span class="reasons-title">Scan Verdict</span>
+                                    <span id="file-verdict-badge" class="badge">Safe</span>
+                                </div>
+                                <div class="confidence-tracker">
+                                    <label class="form-label" id="file-confidence-val">0% Probability</label>
+                                    <div class="progress-bar-container">
+                                        <div id="file-confidence-bar" class="progress-bar-fill"></div>
+                                    </div>
+                                    <span id="file-risk-level" style="font-size: 0.8rem; color: var(--text-secondary); display: block; margin-top: 6px;">Severity: Low</span>
+                                </div>
+                                <h4 class="reasons-title">Extension rules matched:</h4>
+                                <ul class="reasons-list" id="file-reasons"></ul>
+                                <h4 class="reasons-title">File Security Playbook:</h4>
+                                <ul class="tips-list" id="file-tips"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= IDS ANALYSER ================= -->
+            <div id="ids-scanner" class="tab-panel">
+                <div class="scanner-grid">
+                    <div class="glass-card">
+                        <h3>IDS Traffic Capture Telemetry</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.85rem;">Ingest flow telemetry packet statistics using manual inputs, file imports, or live captures.</p>
+                        
+                        <!-- Input mode segment switcher -->
+                        <div style="display: flex; gap: 8px; margin-bottom: 20px;">
+                            <button class="btn btn-secondary" id="btn-ids-manual" onclick="toggleIdsInputMode('manual')" style="flex: 1; font-size: 0.75rem; padding: 6px 8px; border-color: var(--neon-cyan); color: white;">Manual Form</button>
+                            <button class="btn btn-secondary" id="btn-ids-csv" onclick="toggleIdsInputMode('csv')" style="flex: 1; font-size: 0.75rem; padding: 6px 8px;">CSV Import</button>
+                            <button class="btn btn-secondary" id="btn-ids-sniffer" onclick="toggleIdsInputMode('sniffer')" style="flex: 1; font-size: 0.75rem; padding: 6px 8px;">Auto Sniffer</button>
+                        </div>
+
+                        <!-- PANEL 1: MANUAL FORM -->
+                        <div id="ids-mode-manual">
+                            <form id="ids-form">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                    <div class="form-group">
+                                        <label class="form-label" for="ids-protocol">Protocol</label>
+                                        <select id="ids-protocol" class="form-input">
+                                            <option value="tcp">TCP</option>
+                                            <option value="udp">UDP</option>
+                                            <option value="icmp">ICMP</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="ids-service">Service</label>
+                                        <select id="ids-service" class="form-input">
+                                            <option value="http">HTTP</option>
+                                            <option value="smtp">SMTP</option>
+                                            <option value="ftp">FTP</option>
+                                            <option value="private">Private</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                    <div class="form-group">
+                                        <label class="form-label" for="ids-srcbytes">Source Bytes</label>
+                                        <input type="number" id="ids-srcbytes" class="form-input" value="0">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="ids-dstbytes">Destination Bytes</label>
+                                        <input type="number" id="ids-dstbytes" class="form-input" value="0">
+                                    </div>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                    <div class="form-group">
+                                        <label class="form-label" for="ids-count">Connections Count</label>
+                                        <input type="number" id="ids-count" class="form-input" value="1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="ids-flag">Connection Flag</label>
+                                        <select id="ids-flag" class="form-input">
+                                            <option value="SF">SF (SF Connection)</option>
+                                            <option value="S0">S0 (SYN Error)</option>
+                                            <option value="REJ">REJ (Rejected)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                                    <div class="form-group">
+                                        <label class="form-label" for="ids-serror">SYN Error Rate</label>
+                                        <input type="number" id="ids-serror" class="form-input" value="0.0" min="0" max="1" step="0.1">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="ids-logins">Failed Logins count</label>
+                                        <input type="number" id="ids-logins" class="form-input" value="0" min="0">
+                                    </div>
+                                </div>
+                                <div class="form-group" style="display: none;">
+                                    <input type="number" id="ids-duration" class="form-input" value="0.0">
+                                </div>
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                    Check IDS Signature <i class="fa-solid fa-network-wired"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- PANEL 2: CSV IMPORT -->
+                        <div id="ids-mode-csv" style="display: none;">
+                            <div id="ids-drop-zone" style="border: 2px dashed var(--border-color); border-radius: 8px; padding: 40px 20px; text-align: center; cursor: pointer; transition: var(--transition);" ondragover="event.preventDefault(); this.style.borderColor='var(--neon-cyan)'; this.style.background='rgba(0,242,254,0.02)';" ondragleave="this.style.borderColor='var(--border-color)'; this.style.background='transparent';" ondrop="handleIdsCsvDrop(event)" onclick="document.getElementById('ids-csv-file-input').click()">
+                                <i class="fa-solid fa-cloud-arrow-up fa-3x" style="color: var(--neon-cyan); margin-bottom: 12px;"></i>
+                                <p style="font-size: 0.9rem; font-weight: 500; color: var(--text-primary);">Drag & Drop Network Telemetry CSV file</p>
+                                <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 4px;">or click to select file from folders</p>
+                                <input type="file" id="ids-csv-file-input" style="display: none;" accept=".csv" onchange="handleIdsCsvSelect(event)">
+                            </div>
+                            <div id="ids-csv-status" style="margin-top: 16px; font-size: 0.85rem; display: none; padding: 12px; background: rgba(255,255,255,0.02); border-radius: 6px; border: 1px solid var(--border-color);"></div>
+                        </div>
+
+                        <!-- PANEL 3: AUTO SNIFFER -->
+                        <div id="ids-mode-sniffer" style="display: none;">
+                            <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                                <button class="btn btn-primary" id="btn-sniffer-start" onclick="startTrafficSniffer()" style="flex: 1; font-size: 0.8rem; padding: 8px 12px;">
+                                    <i class="fa-solid fa-play"></i> Start Sniffer
+                                </button>
+                                <button class="btn btn-secondary" id="btn-sniffer-stop" onclick="stopTrafficSniffer()" style="flex: 1; font-size: 0.8rem; padding: 8px 12px; border-color: var(--neon-red); color: var(--neon-red);" disabled>
+                                    <i class="fa-solid fa-stop"></i> Stop Sniffer
+                                </button>
+                            </div>
+                            <button class="btn btn-secondary" id="btn-sniffer-download" onclick="downloadSniffedCsv()" style="width: 100%; font-size: 0.8rem; padding: 8px 12px;" disabled>
+                                <i class="fa-solid fa-download"></i> Download Sniffed Traffic (CSV)
+                            </button>
+
+                            <div id="sniffer-console" style="background: #03050c; border: 1px solid var(--border-color); border-radius: 8px; height: 180px; overflow-y: auto; padding: 12px; font-family: monospace; font-size: 0.75rem; margin-top: 16px; color: #a2b0c4; line-height: 1.4; scroll-behavior: smooth;">
+                                <div style="color: var(--text-muted);">[SYSTEM] Capture interface initialized. Click 'Start Sniffer' above...</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- IDS Output -->
+                    <div class="glass-card">
+                        <h3>IDS Diagnostics Panel</h3>
+                        <div style="margin-top: 15px;">
+                            <div class="result-empty" id="ids-placeholder">
+                                <i class="fa-solid fa-server fa-3x" style="margin-bottom: 8px;"></i>
+                                <p>Submit network flow parameters to execute classifier evaluations.</p>
+                            </div>
+                            <div id="ids-results" style="display: none;">
+                                <div class="verdict-header">
+                                    <span class="reasons-title">Traffic Verdict</span>
+                                    <span id="ids-verdict-badge" class="badge">Safe</span>
+                                </div>
+                                <div class="confidence-tracker">
+                                    <label class="form-label" id="ids-confidence-val">0% Probability</label>
+                                    <div class="progress-bar-container">
+                                        <div id="ids-confidence-bar" class="progress-bar-fill"></div>
+                                    </div>
+                                    <span id="ids-risk-level" style="font-size: 0.8rem; color: var(--text-secondary); display: block; margin-top: 6px;">Severity: Low</span>
+                                </div>
+                                <h4 class="reasons-title">Anomaly parameters:</h4>
+                                <ul class="reasons-list" id="ids-reasons"></ul>
+                                <h4 class="reasons-title">Network Isolation Playbook:</h4>
+                                <ul class="tips-list" id="ids-tips"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= INJECTION SCANNER ================= -->
+            <div id="injection-scanner" class="tab-panel">
+                <div class="scanner-grid">
+                    <div class="glass-card">
+                        <h3>Injection Check</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.85rem;">Audits text inputs for database query manipulations (SQLi) or cross-site scripting markup (XSS).</p>
+                        <form id="injection-form">
+                            <div class="form-group">
+                                <label class="form-label" for="inj-type">Scanner Mode</label>
+                                <select id="inj-type" class="form-input">
+                                    <option value="sqli">SQL Injection (SQLi)</option>
+                                    <option value="xss">Cross-Site Scripting (XSS)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="inj-payload-input">Payload Text</label>
+                                <textarea id="inj-payload-input" class="form-input" style="height: 120px; resize: none;" placeholder="e.g. SELECT * FROM users WHERE username = 'admin' OR '1'='1' --" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <div class="drop-zone" id="injection-drop-zone" ondragover="event.preventDefault(); this.style.borderColor='var(--neon-cyan)';" ondragleave="this.style.borderColor='var(--border-color)';" ondrop="handleInjectionDrop(event)" onclick="document.getElementById('injection-file-input').click()">
+                                    <i class="fa-solid fa-file-import" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
+                                    <div>Drag & Drop script file (.sql/.js/.html/.py/.sh/.txt)</div>
+                                    <input type="file" id="injection-file-input" style="display: none;" accept=".sql,.js,.html,.xml,.json,.txt,.php,.asp,.py,.sh,.bat,.md" onchange="handleInjectionSelect(event)">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Audit Input Payload <i class="fa-solid fa-code"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Injection Output -->
+                    <div class="glass-card">
+                        <h3>Grammar Diagnostics Panel</h3>
+                        <div style="margin-top: 15px;">
+                            <div class="result-empty" id="injection-placeholder">
+                                <i class="fa-solid fa-terminal fa-3x" style="margin-bottom: 8px;"></i>
+                                <p>Submit injection payload to parse token grammar expressions.</p>
+                            </div>
+                            <div id="injection-results" style="display: none;">
+                                <div class="verdict-header">
+                                    <span class="reasons-title">Auditor Verdict</span>
+                                    <span id="injection-verdict-badge" class="badge">Safe</span>
+                                </div>
+                                <div class="confidence-tracker">
+                                    <label class="form-label" id="injection-confidence-val">0% Probability</label>
+                                    <div class="progress-bar-container">
+                                        <div id="injection-confidence-bar" class="progress-bar-fill"></div>
+                                    </div>
+                                    <span id="injection-risk-level" style="font-size: 0.8rem; color: var(--text-secondary); display: block; margin-top: 6px;">Severity: Low</span>
+                                </div>
+                                <h4 class="reasons-title">Anomalous sequences matched:</h4>
+                                <ul class="reasons-list" id="injection-reasons"></ul>
+                                <h4 class="reasons-title">Secure Coding Playbook:</h4>
+                                <ul class="tips-list" id="injection-tips"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= LOGIN MONITOR ================= -->
+            <div id="login-scanner" class="tab-panel">
+                <div class="scanner-grid">
+                    <div class="glass-card">
+                        <h3>Login Attack Audit</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.85rem;">Tracks and evaluates brute-force or rapid sequential login attempts on recorded client nodes.</p>
+                        <form id="login-form">
+                            <div class="form-group">
+                                <label class="form-label" for="log-user">Username</label>
+                                <input type="text" id="log-user" class="form-input" placeholder="e.g. admin" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="log-ip">Client IP Address</label>
+                                <input type="text" id="log-ip" class="form-input" placeholder="e.g. 192.168.1.15" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="log-count">Failed Logins count (1 min window)</label>
+                                <input type="number" id="log-count" class="form-input" value="1" min="0" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="drop-zone" id="login-drop-zone" ondragover="event.preventDefault(); this.style.borderColor='var(--neon-cyan)';" ondragleave="this.style.borderColor='var(--border-color)';" ondrop="handleLoginDrop(event)" onclick="document.getElementById('login-file-input').click()">
+                                    <i class="fa-solid fa-file-import" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
+                                    <div>Drag & Drop log/text/json file to load fields</div>
+                                    <input type="file" id="login-file-input" style="display: none;" accept=".txt,.log,.csv,.json,.xml" onchange="handleLoginSelect(event)">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                Audit Logins <i class="fa-solid fa-user-lock"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Login Output -->
+                    <div class="glass-card">
+                        <h3>Login Diagnostics Panel</h3>
+                        <div style="margin-top: 15px;">
+                            <div class="result-empty" id="login-placeholder">
+                                <i class="fa-solid fa-shield-halved fa-3x" style="margin-bottom: 8px;"></i>
+                                <p>Submit login metrics data to inspect credential tracking metrics.</p>
+                            </div>
+                            <div id="login-results" style="display: none;">
+                                <div class="verdict-header">
+                                    <span class="reasons-title">Auditor Verdict</span>
+                                    <span id="login-verdict-badge" class="badge">Safe</span>
+                                </div>
+                                <div class="confidence-tracker">
+                                    <label class="form-label" id="login-confidence-val">0% Probability</label>
+                                    <div class="progress-bar-container">
+                                        <div id="login-confidence-bar" class="progress-bar-fill"></div>
+                                    </div>
+                                    <span id="login-risk-level" style="font-size: 0.8rem; color: var(--text-secondary); display: block; margin-top: 6px;">Severity: Low</span>
+                                </div>
+                                <h4 class="reasons-title">Anomaly warning parameters:</h4>
+                                <ul class="reasons-list" id="login-reasons"></ul>
+                                <h4 class="reasons-title">Credential Safety Suggestions:</h4>
+                                <ul class="tips-list" id="login-tips"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= LOGS HISTORY ================= -->
+            <div id="history-logs" class="tab-panel">
+                <div class="glass-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h3>Prediction History Database</h3>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn btn-secondary" onclick="exportCSV()"><i class="fa-solid fa-file-csv"></i> Export CSV</button>
+                            <button class="btn btn-secondary" onclick="exportJSON()"><i class="fa-solid fa-file-code"></i> Export JSON</button>
+                            <button class="btn btn-primary" onclick="printReport()"><i class="fa-solid fa-print"></i> Print Report (PDF)</button>
+                        </div>
+                    </div>
+
+                    <!-- Search and filters -->
+                    <div class="search-row">
+                        <input type="text" id="history-search-input" class="form-input search-input-field" placeholder="Search logs history payload or results..." onkeyup="loadHistoryLogs()">
+                        <select id="history-filter-module" class="form-input" style="width: 180px;" onchange="loadHistoryLogs()">
+                            <option value="">All Modules</option>
+                            <option value="Email Spam/Phishing">Email</option>
+                            <option value="Malicious URL">URL</option>
+                            <option value="Suspicious File">File</option>
+                            <option value="Network IDS">IDS</option>
+                            <option value="SQLi Injection">SQLi</option>
+                            <option value="XSS Attack">XSS</option>
+                            <option value="Login Monitor">Login</option>
+                        </select>
+                        <select id="history-filter-verdict" class="form-input" style="width: 140px;" onchange="loadHistoryLogs()">
+                            <option value="">All Verdicts</option>
+                            <option value="Safe">Safe</option>
+                            <option value="Suspicious">Suspicious</option>
+                            <option value="Dangerous">Dangerous</option>
+                        </select>
+                    </div>
+
+                    <!-- Logs Table -->
+                    <div class="table-wrapper">
+                        <table class="custom-table" id="history-table">
+                            <thead>
+                                <tr>
+                                    <th>Timestamp</th>
+                                    <th>Threat Module</th>
+                                    <th>Scanned Input Payload</th>
+                                    <th>Verdict</th>
+                                    <th>Risk Level</th>
+                                    <th>Certainty</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="6" style="text-align: center; color: var(--text-muted);">Loading logs history...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Toast Notification container -->
+    <div class="toast-container" id="toast-notifications-container"></div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
