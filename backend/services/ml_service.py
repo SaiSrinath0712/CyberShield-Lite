@@ -5,12 +5,24 @@ import math
 import re
 from typing import Dict, Any, List
 
-# Target folder for ML models
-ML_MODELS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "ml_models")
-PHISHING_MODEL_PATH = os.path.join(ML_MODELS_DIR, "phishing_model.pkl")
-PHISHING_VEC_PATH = os.path.join(ML_MODELS_DIR, "vectorizer.pkl")
-URL_MODEL_PATH = os.path.join(ML_MODELS_DIR, "url_model.pkl")
-IDS_MODEL_PATH = os.path.join(ML_MODELS_DIR, "ids_model.pkl")
+# Target folders for ML models
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+ML_MODELS_DIR = os.path.join(PROJECT_ROOT, "ml_models")
+BACKEND_MODELS_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "models")
+
+def _resolve_model_path(filename: str) -> str:
+    primary = os.path.join(ML_MODELS_DIR, filename)
+    if os.path.exists(primary):
+        return primary
+    fallback = os.path.join(BACKEND_MODELS_DIR, filename)
+    if os.path.exists(fallback):
+        return fallback
+    return primary
+
+PHISHING_MODEL_PATH = _resolve_model_path("phishing_model.pkl")
+PHISHING_VEC_PATH = _resolve_model_path("vectorizer.pkl")
+URL_MODEL_PATH = _resolve_model_path("url_model.pkl")
+IDS_MODEL_PATH = _resolve_model_path("ids_model.pkl")
 
 # Heuristic Fallback Classifiers (ensures code runs before train script completes)
 class HeuristicPhishingClassifier:
@@ -284,17 +296,26 @@ class MLService:
 
         if hasattr(self.ids_model, "predict"):
             pred_idx = self.ids_model.predict(feats_arr)[0]
-            if hasattr(self.ids_model, "predict_proba"):
-                proba = self.ids_model.predict_proba(feats_arr)[0]
-                confidence = float(np.max(proba)) * 100.0
-            else:
-                confidence = 90.0
-            
-            # Map index
-            if isinstance(pred_idx, (int, np.integer)):
+            if isinstance(pred_idx, (int, np.integer)) and int(pred_idx) < len(attack_classes):
                 pred_label = attack_classes[int(pred_idx)]
             else:
                 pred_label = str(pred_idx)
+
+            if hasattr(self.ids_model, "predict_proba"):
+                proba = self.ids_model.predict_proba(feats_arr)[0]
+                if isinstance(pred_idx, (int, np.integer)) and int(pred_idx) < len(proba):
+                    raw_conf = float(proba[int(pred_idx)]) * 100.0
+                else:
+                    raw_conf = float(np.max(proba)) * 100.0
+                
+                # For normal traffic, confidence in safety is 100% minus total threat likelihood
+                if pred_label == "normal" and len(proba) > 1:
+                    total_threat_prob = sum(proba[1:])
+                    confidence = max(raw_conf, round((1.0 - total_threat_prob) * 100.0, 2))
+                else:
+                    confidence = raw_conf
+            else:
+                confidence = 95.0
         else:
             pred_label = "normal"
             confidence = 95.0
@@ -339,6 +360,40 @@ class MLService:
                     "failed_logins": int(packet.get("num_failed_logins", 0))
                 }
             }
+        }
+
+    # Wrapper convenience methods for router compatibility
+    def predict_phishing_email(self, email_text: str) -> Dict[str, Any]:
+        res = self.check_email("", email_text)
+        return {
+            "prediction": res["verdict"],
+            "is_phishing": res["is_phishing"],
+            "explanation": res["explanation"]
+        }
+
+    def predict_phishing_sms(self, sms_text: str) -> Dict[str, Any]:
+        res = self.check_email("SMS", sms_text)
+        return {
+            "prediction": res["verdict"],
+            "is_phishing": res["is_phishing"],
+            "explanation": res["explanation"]
+        }
+
+    def predict_url(self, url: str) -> Dict[str, Any]:
+        res = self.check_url(url)
+        return {
+            "prediction": res["verdict"],
+            "is_malicious": res["is_malicious"],
+            "explanation": res["explanation"]
+        }
+
+    def predict_ids(self, packet: Dict[str, Any]) -> Dict[str, Any]:
+        res = self.check_intrusion(packet)
+        return {
+            "prediction": res["verdict"],
+            "is_attack": res["is_attack"],
+            "attack_type": res["attack_type"],
+            "explanation": res["explanation"]
         }
 
 

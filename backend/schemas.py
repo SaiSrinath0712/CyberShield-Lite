@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import List, Dict, Any, Optional
 import datetime
 
@@ -91,10 +91,43 @@ class LoginScanResponse(BaseModel):
     is_brute_force: bool
     explanation: XAIExplanation
 
+# Compatibility aliases for legacy routers
+PhishingEmailRequest = EmailScanRequest
+PhishingEmailResponse = EmailScanResponse
+
+class PhishingSMSRequest(BaseModel):
+    sms_text: str
+
+class PhishingSMSResponse(BaseModel):
+    prediction: str
+    is_phishing: bool
+    explanation: XAIExplanation
+
+URLRequest = URLScanRequest
+URLResponse = URLScanResponse
+IDSRequest = IntrusionScanRequest
+IDSResponse = IntrusionScanResponse
+SQLRequest = SQLScanRequest
+SQLResponse = SQLScanResponse
+XSSRequest = XSSScanRequest
+XSSResponse = XSSScanResponse
+
+class WebsiteRequest(BaseModel):
+    url: str
+
+class WebsiteResponse(BaseModel):
+    url: str
+    risk_level: str
+    risk_score: float
+    checks_passed: List[str]
+    checks_failed: List[str]
+    recommendations: List[str]
 
 # --- OUTPUT HISTORY & DASHBOARD SCHEMAS ---
 
 class PredictionHistoryOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     threat_type: str
     input_payload: str
@@ -104,19 +137,15 @@ class PredictionHistoryOut(BaseModel):
     explanation: str
     created_at: datetime.datetime
 
-    class Config:
-        from_attributes = True
-
 class AlertLogOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
     id: int
     threat_type: str
     risk_level: str
     description: str
     payload_sample: str
     created_at: datetime.datetime
-
-    class Config:
-        from_attributes = True
 
 class DashboardStats(BaseModel):
     total_scans: int

@@ -277,3 +277,29 @@ def check_xss_injection(
     )
     
     return result
+
+@router.post("/file", response_model=schemas.FileScanResponse)
+def check_file_extension(
+    payload: schemas.FileScanRequest,
+    request: Request,
+    db: Session = Depends(get_db),
+    user: Optional[models.User] = Depends(get_current_user_optional)
+):
+    from backend.services.rule_service import scan_file_extension
+    ip_address = request.client.host if request.client else "127.0.0.1"
+
+    result = scan_file_extension(payload.filename, payload.extension)
+
+    log_prediction_and_alert(
+        db=db,
+        threat_type="Suspicious File",
+        input_data=f"File: {payload.filename} (Ext: {payload.extension})",
+        prediction_output=result["verdict"],
+        confidence_score=result["explanation"]["confidence"],
+        explanation_dict=result["explanation"],
+        is_malicious=result["is_unsafe"],
+        user=user,
+        ip_address=ip_address
+    )
+
+    return result

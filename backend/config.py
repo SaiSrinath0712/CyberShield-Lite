@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     
     # Database Settings
     # Defaulting to sqlite local database inside the project workspace
-    DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite:///c:/Users/unknown/OneDrive/Desktop/Cyber/cybershield.db")
+    DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite:///./cybershield_lite.db")
     
     # Rate Limiting & Admin Credentials (Default Setup)
     RATE_LIMIT_REQUESTS: int = 100

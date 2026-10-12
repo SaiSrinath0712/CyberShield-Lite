@@ -120,7 +120,7 @@ def check_file(payload: schemas.FileScanRequest, db: Session = Depends(get_db)):
 
 @app.post("/predict/intrusion", response_model=schemas.IntrusionScanResponse)
 def check_intrusion(payload: schemas.IntrusionScanRequest, db: Session = Depends(get_db)):
-    packet_dict = payload.dict()
+    packet_dict = payload.model_dump()
     result = ml_service.check_intrusion(packet_dict)
     
     log_scan_transaction(
@@ -207,7 +207,7 @@ def get_dashboard_data(db: Session = Depends(get_db)):
 
     # Get recent 10 alerts
     recent_alerts_models = db.query(models.AlertLog).order_by(models.AlertLog.created_at.desc()).limit(10).all()
-    recent_alerts = [schemas.AlertLogOut.from_orm(a) for a in recent_alerts_models]
+    recent_alerts = [schemas.AlertLogOut.model_validate(a) for a in recent_alerts_models]
 
     dist_query = db.query(
         models.PredictionHistory.threat_type,

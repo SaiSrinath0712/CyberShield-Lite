@@ -204,11 +204,27 @@ function setupFormHandlers() {
     });
 
     // FILE
+    const fileNameInput = document.getElementById("file-name-input");
+    const fileExtInput = document.getElementById("file-ext-input");
+    if (fileNameInput && fileExtInput) {
+        fileNameInput.addEventListener("input", () => {
+            const val = fileNameInput.value.trim();
+            const lastDot = val.lastIndexOf(".");
+            if (lastDot !== -1 && lastDot < val.length - 1) {
+                fileExtInput.value = val.substring(lastDot + 1);
+            }
+        });
+    }
+
     document.getElementById("file-form").addEventListener("submit", async (e) => {
         e.preventDefault();
         toggleScannerLoader("file", true);
-        const filename = document.getElementById("file-name-input").value;
-        const extension = document.getElementById("file-ext-input").value;
+        const filename = document.getElementById("file-name-input").value.trim();
+        let extension = document.getElementById("file-ext-input").value.trim();
+        if (!extension && filename.includes(".")) {
+            extension = filename.substring(filename.lastIndexOf(".") + 1);
+            document.getElementById("file-ext-input").value = extension;
+        }
 
         try {
             const response = await fetch("/predict/file", {

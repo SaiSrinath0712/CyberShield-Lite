@@ -23,3 +23,17 @@ class AlertLog(Base):
     description = Column(Text, nullable=False)
     payload_sample = Column(String(255), nullable=False)
     created_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+class TrainingRun(Base):
+    __tablename__ = "training_runs"
+
+    id = Column(Integer, primary_key=True, index=True)
+    model_name = Column(String(50), nullable=False)
+    trained_at = Column(DateTime, default=datetime.datetime.utcnow)
+    accuracy = Column(Float, nullable=False)
+    precision = Column(Float, nullable=False)
+    recall = Column(Float, nullable=False)
+    f1_score = Column(Float, nullable=False)
+    dataset_size = Column(Integer, nullable=False)
+    status = Column(String(50), nullable=False)
+    notes = Column(Text, nullable=True)

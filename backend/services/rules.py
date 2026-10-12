@@ -5,6 +5,7 @@ import requests
 from sqlalchemy.orm import Session
 from backend.models import PredictionLog, Alert
 import datetime
+from backend.services.rule_service import scan_file_extension
 
 # --- SQL INJECTION DETECTION RULES ---
 SQL_PATTERNS = [
