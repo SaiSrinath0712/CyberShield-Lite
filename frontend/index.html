@@ -479,8 +479,8 @@
                             <div class="form-group">
                                 <div class="drop-zone" id="injection-drop-zone" ondragover="event.preventDefault(); this.style.borderColor='var(--neon-cyan)';" ondragleave="this.style.borderColor='var(--border-color)';" ondrop="handleInjectionDrop(event)" onclick="document.getElementById('injection-file-input').click()">
                                     <i class="fa-solid fa-file-import" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
-                                    <div>Drag & Drop script file (.sql/.js/.html/.py/.sh/.txt)</div>
-                                    <input type="file" id="injection-file-input" style="display: none;" accept=".sql,.js,.html,.xml,.json,.txt,.php,.asp,.py,.sh,.bat,.md" onchange="handleInjectionSelect(event)" onclick="event.stopPropagation()">
+                                    <div>Drag & Drop script file (.sql/.js/.html/.py/.sh/.txt/.csv)</div>
+                                    <input type="file" id="injection-file-input" style="display: none;" accept=".sql,.js,.html,.xml,.json,.txt,.php,.asp,.py,.sh,.bat,.md,.csv" onchange="handleInjectionSelect(event)" onclick="event.stopPropagation()">
                                 </div>
                                 <div class="file-info-label" id="injection-file-info" style="display: none; margin-top: 8px; font-size: 0.75rem; color: var(--neon-cyan); text-align: center;">
                                     <i class="fa-solid fa-file-circle-check"></i> Loaded: <span class="filename-span"></span>

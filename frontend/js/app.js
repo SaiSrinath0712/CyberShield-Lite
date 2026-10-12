@@ -904,15 +904,39 @@ function handleInjectionSelect(e) {
 function processInjectionFile(file) {
     const reader = new FileReader();
     reader.onload = function(evt) {
-        const text = evt.target.result.trim();
-        document.getElementById("inj-payload-input").value = text;
-        
+        let text = evt.target.result.trim();
         const ext = file.name.split('.').pop().toLowerCase();
-        if (ext === 'sql') {
+
+        // If user loaded a CSV dataset, extract the first sample payload instead of raw CSV headers
+        if (ext === 'csv') {
+            const lines = text.split("\n").map(l => l.trim()).filter(l => l.length > 0);
+            if (lines.length > 1) {
+                // Header is lines[0] (payload,attack_type,...). First data row is lines[1]
+                const firstRow = lines[1];
+                // CSV parsing: extract first column (payload)
+                let extractedPayload = firstRow;
+                if (firstRow.startsWith('"')) {
+                    const match = firstRow.match(/^"([^"]+)"/);
+                    if (match) extractedPayload = match[1];
+                } else {
+                    const parts = firstRow.split(",");
+                    extractedPayload = parts[0];
+                }
+                text = extractedPayload;
+                // Auto-detect if it looks like XSS or SQLi
+                if (text.includes("<") || text.includes("javascript:")) {
+                    document.getElementById("inj-type").value = "xss";
+                } else {
+                    document.getElementById("inj-type").value = "sqli";
+                }
+            }
+        } else if (ext === 'sql') {
             document.getElementById("inj-type").value = "sqli";
         } else if (ext === 'js' || ext === 'html') {
             document.getElementById("inj-type").value = "xss";
         }
+
+        document.getElementById("inj-payload-input").value = text;
         showLoadedFileInfo("injection", file.name);
     };
     reader.readAsText(file);
