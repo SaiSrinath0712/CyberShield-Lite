@@ -1,0 +1,251 @@
+username,ip_address,failed_attempts,window_seconds,verdict,risk_level,attack_type,is_brute_force,action_taken
+support_rep,10.0.0.12,0,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+devops_service,192.168.1.100,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+guest,10.0.0.12,2,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+billing_admin,10.0.0.12,1,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+admin,192.168.1.45,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+jsmith,142.250.190.46,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+billing_admin,192.168.1.100,2,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+guest,142.250.190.46,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+bob,151.101.1.69,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+administrator,98.140.22.10,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+administrator,192.168.1.100,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+root,98.140.22.10,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+saisrinath,151.101.1.69,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+guest,72.14.201.5,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+alice,10.0.0.12,1,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+support_rep,151.101.1.69,0,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+jsmith,10.0.0.12,0,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+jsmith,10.0.4.88,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+root,98.140.22.10,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+support_rep,24.120.45.67,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+saisrinath,192.168.1.100,2,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+guest,10.0.0.12,1,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+administrator,142.250.190.46,2,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+administrator,72.14.201.5,1,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+support_rep,142.250.190.46,0,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+saisrinath,192.168.1.45,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+saisrinath,98.140.22.10,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+jsmith,151.101.1.69,2,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+jsmith,72.14.201.5,1,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+bob,172.16.0.5,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+jsmith,142.250.190.46,1,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+guest,151.101.1.69,1,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+alice,24.120.45.67,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+billing_admin,72.14.201.5,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+root,172.16.0.5,2,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+support_rep,98.140.22.10,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+alice,98.140.22.10,1,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+billing_admin,10.0.4.88,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+support_rep,10.0.0.12,2,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+devops_service,24.120.45.67,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+alice,172.16.0.5,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+guest,10.0.4.88,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+billing_admin,10.0.0.12,2,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+support_rep,142.250.190.46,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+administrator,24.120.45.67,0,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+billing_admin,192.168.1.45,1,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+bob,192.168.1.45,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+devops_service,192.168.1.100,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+finance_user,10.0.0.12,0,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+bob,10.0.0.12,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+administrator,72.14.201.5,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+devops_service,142.250.190.46,1,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+jsmith,142.250.190.46,2,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+jsmith,10.0.4.88,1,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+support_rep,24.120.45.67,1,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+bob,10.0.0.12,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+root,24.120.45.67,0,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+billing_admin,192.168.1.100,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+admin,10.0.0.12,2,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+admin,192.168.1.100,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+saisrinath,10.0.0.12,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+devops_service,72.14.201.5,0,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+administrator,151.101.1.69,1,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+jsmith,72.14.201.5,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+root,10.0.0.12,2,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+saisrinath,98.140.22.10,1,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+guest,192.168.1.45,2,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+support_rep,10.0.0.12,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+guest,24.120.45.67,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+jsmith,192.168.1.100,1,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+administrator,98.140.22.10,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+bob,192.168.1.100,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+billing_admin,10.0.0.12,0,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+billing_admin,192.168.1.45,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+administrator,98.140.22.10,1,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+jsmith,98.140.22.10,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+alice,192.168.1.45,1,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+bob,10.0.4.88,1,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+guest,142.250.190.46,2,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+bob,172.16.0.5,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+jsmith,192.168.1.45,1,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+billing_admin,192.168.1.45,2,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+admin,192.168.1.45,1,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+billing_admin,142.250.190.46,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+billing_admin,10.0.0.12,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+finance_user,10.0.0.12,2,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+alice,10.0.0.12,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+finance_user,151.101.1.69,0,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+root,98.140.22.10,2,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+finance_user,142.250.190.46,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+jsmith,24.120.45.67,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+alice,172.16.0.5,2,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+devops_service,72.14.201.5,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+admin,72.14.201.5,1,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+root,10.0.0.12,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+billing_admin,10.0.4.88,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+root,192.168.1.100,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+administrator,72.14.201.5,1,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+devops_service,151.101.1.69,2,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+admin,142.250.190.46,0,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+root,172.16.0.5,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+root,142.250.190.46,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+devops_service,151.101.1.69,0,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+saisrinath,192.168.1.100,2,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+devops_service,142.250.190.46,1,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+admin,10.0.0.12,2,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+devops_service,192.168.1.45,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+administrator,10.0.4.88,0,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+bob,142.250.190.46,2,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+billing_admin,192.168.1.45,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+guest,172.16.0.5,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+saisrinath,151.101.1.69,1,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+alice,172.16.0.5,0,120,Safe,Low,Normal Login Activity,0,Allow login attempt
+saisrinath,192.168.1.45,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+support_rep,192.168.1.100,2,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+saisrinath,142.250.190.46,1,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+guest,172.16.0.5,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+administrator,98.140.22.10,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+guest,24.120.45.67,1,300,Safe,Low,Normal Login Activity,0,Allow login attempt
+guest,192.168.1.100,0,60,Safe,Low,Normal Login Activity,0,Allow login attempt
+guest,45.33.32.156,4,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+bob,103.224.182.242,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+saisrinath,194.26.29.112,3,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+admin,142.250.190.46,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+saisrinath,194.26.29.112,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+saisrinath,142.250.190.46,4,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+admin,45.33.32.156,4,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+finance_user,194.26.29.112,3,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+finance_user,217.182.197.8,4,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+alice,72.14.201.5,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+finance_user,103.224.182.242,4,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+guest,217.182.197.8,3,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+saisrinath,217.182.197.8,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+finance_user,178.128.242.19,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+billing_admin,194.26.29.112,4,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+alice,151.101.1.69,4,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+jsmith,217.182.197.8,4,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+finance_user,72.14.201.5,4,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+billing_admin,185.220.101.5,4,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+jsmith,217.182.197.8,4,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+bob,24.120.45.67,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+guest,91.240.118.12,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+billing_admin,142.250.190.46,4,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+jsmith,142.250.190.46,4,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+jsmith,91.240.118.12,3,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+jsmith,24.120.45.67,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+alice,142.250.190.46,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+bob,217.182.197.8,3,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+support_rep,151.101.1.69,3,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+alice,103.224.182.242,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+admin,98.140.22.10,3,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+bob,91.240.118.12,4,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+bob,72.14.201.5,4,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+administrator,151.101.1.69,4,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+devops_service,103.224.182.242,4,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+support_rep,103.224.182.242,4,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+root,151.101.1.69,4,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+devops_service,178.128.242.19,4,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+administrator,91.240.118.12,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+guest,91.240.118.12,3,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+alice,217.182.197.8,4,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+alice,185.220.101.5,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+alice,72.14.201.5,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+bob,185.220.101.5,4,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+alice,217.182.197.8,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+jsmith,194.26.29.112,4,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+admin,217.182.197.8,4,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+guest,91.240.118.12,4,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+finance_user,98.140.22.10,3,60,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+finance_user,72.14.201.5,3,30,Suspicious,Medium,Multiple Failed Logins Anomaly,1,Require CAPTCHA / Alert User
+support_rep,45.33.32.156,34,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,103.224.182.242,25,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,91.240.118.12,29,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,217.182.197.8,10,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,91.240.118.12,19,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,217.182.197.8,6,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,194.26.29.112,14,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,178.128.242.19,12,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+jsmith,178.128.242.19,21,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,217.182.197.8,15,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,91.240.118.12,41,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+alice,178.128.242.19,17,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,185.220.101.5,24,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,217.182.197.8,41,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+saisrinath,178.128.242.19,28,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,185.220.101.5,31,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,91.240.118.12,45,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,103.224.182.242,16,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,194.26.29.112,39,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+bob,217.182.197.8,42,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,217.182.197.8,10,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,217.182.197.8,34,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+finance_user,91.240.118.12,6,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,103.224.182.242,18,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,91.240.118.12,43,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,194.26.29.112,17,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+jsmith,103.224.182.242,40,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+guest,178.128.242.19,36,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,91.240.118.12,19,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,91.240.118.12,42,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,103.224.182.242,40,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+saisrinath,91.240.118.12,24,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,178.128.242.19,17,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,45.33.32.156,18,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,178.128.242.19,42,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,185.220.101.5,17,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,45.33.32.156,24,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,91.240.118.12,7,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,178.128.242.19,13,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,217.182.197.8,5,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+devops_service,103.224.182.242,33,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,91.240.118.12,35,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,103.224.182.242,9,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,45.33.32.156,14,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,45.33.32.156,12,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,217.182.197.8,38,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+bob,91.240.118.12,42,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,194.26.29.112,11,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,91.240.118.12,10,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,194.26.29.112,9,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,103.224.182.242,43,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,45.33.32.156,23,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+devops_service,185.220.101.5,19,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,103.224.182.242,12,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,91.240.118.12,14,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,217.182.197.8,24,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,103.224.182.242,12,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,178.128.242.19,30,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+billing_admin,103.224.182.242,10,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,178.128.242.19,25,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,185.220.101.5,19,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,217.182.197.8,22,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,103.224.182.242,38,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,45.33.32.156,42,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+support_rep,185.220.101.5,35,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,91.240.118.12,11,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+saisrinath,178.128.242.19,36,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+support_rep,217.182.197.8,40,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,91.240.118.12,21,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,217.182.197.8,37,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+support_rep,103.224.182.242,8,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,194.26.29.112,36,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,45.33.32.156,22,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,103.224.182.242,36,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+root,178.128.242.19,15,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,194.26.29.112,31,15,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+admin,103.224.182.242,12,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,178.128.242.19,23,60,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+administrator,103.224.182.242,35,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
+jsmith,194.26.29.112,14,30,Dangerous,Critical,Brute Force / Password Spray Attack,1,Lock Account & IP Firewall Block
