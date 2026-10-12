@@ -275,7 +275,24 @@ function setupFormHandlers() {
         toggleScannerLoader("injection", true);
         
         const type = document.getElementById("inj-type").value;
-        const payloadVal = document.getElementById("inj-payload-input").value;
+        let payloadVal = document.getElementById("inj-payload-input").value.trim();
+        
+        // If user pasted or dragged a CSV with headers into the textarea, auto-extract the query
+        if (payloadVal.startsWith("payload,") || payloadVal.includes("\npayload,")) {
+            const lines = payloadVal.split("\n").map(l => l.trim()).filter(l => l.length > 0);
+            if (lines.length > 1) {
+                const firstRow = lines[1];
+                let extracted = firstRow;
+                if (firstRow.startsWith('"')) {
+                    const match = firstRow.match(/^"([^"]+)"/);
+                    if (match) extracted = match[1];
+                } else {
+                    extracted = firstRow.split(",")[0];
+                }
+                payloadVal = extracted;
+                document.getElementById("inj-payload-input").value = payloadVal;
+            }
+        }
         
         let endpoint = "/predict/injection";
         let bodyKey = "payload_text";
