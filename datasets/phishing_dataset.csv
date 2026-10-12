@@ -1,0 +1,433 @@
+text,label,is_phishing
+URGENT: Your Wells Fargo checking account has been temporarily locked due to 3 suspicious login attempts. Verify your identity at http://wellsfargo-verify-login.com to restore access immediately.,phishing,1
+ATTENTION: URGENT: Your Wells Fargo checking account has been temporarily locked due to 3 suspicious login attempts. Verify your identity at http://wellsfargo-verify-login.com to restore access immediately.,phishing,1
+CRITICAL SECURITY ALERT: URGENT: Your Wells Fargo checking account has been temporarily locked due to 3 suspicious login attempts. Verify your identity at http://wellsfargo-verify-login.com to restore access immediately.,phishing,1
+[Urgent Notification] URGENT: Your Wells Fargo checking account has been temporarily locked due to 3 suspicious login attempts. Verify your identity at http://wellsfargo-verify-login.com to restore access immediately.,phishing,1
+URGENT: Your Wells Fargo checking account has been temporarily locked due to 3 suspicious login attempts. Verify your identity at http://wellsfargo-verify-login.com to restore access immediately. Please respond within 12 hours.,phishing,1
+Action Required: URGENT: Your Wells Fargo checking account has been temporarily locked due to 3 suspicious login attempts. Verify your identity at http://wellsfargo-verify-login.com to restore access immediately.,phishing,1
+"Security Notice from Chase Bank: Unusual wire transfer of $2,450.00 initiated to an overseas recipient. If you did not authorize this, cancel immediately at http://chase-security-cancel.net",phishing,1
+"ATTENTION: Security Notice from Chase Bank: Unusual wire transfer of $2,450.00 initiated to an overseas recipient. If you did not authorize this, cancel immediately at http://chase-security-cancel.net",phishing,1
+"CRITICAL SECURITY ALERT: Security Notice from Chase Bank: Unusual wire transfer of $2,450.00 initiated to an overseas recipient. If you did not authorize this, cancel immediately at http://chase-security-cancel.net",phishing,1
+"[Urgent Notification] Security Notice from Chase Bank: Unusual wire transfer of $2,450.00 initiated to an overseas recipient. If you did not authorize this, cancel immediately at http://chase-security-cancel.net",phishing,1
+"Security Notice from Chase Bank: Unusual wire transfer of $2,450.00 initiated to an overseas recipient. If you did not authorize this, cancel immediately at http://chase-security-cancel.net Please respond within 12 hours.",phishing,1
+"Action Required: Security Notice from Chase Bank: Unusual wire transfer of $2,450.00 initiated to an overseas recipient. If you did not authorize this, cancel immediately at http://chase-security-cancel.net",phishing,1
+PayPal Alert: Your account privileges have been restricted due to violation of our terms of service. Submit photo ID and credit card statement at http://paypal-resolution-center-update.com,phishing,1
+ATTENTION: PayPal Alert: Your account privileges have been restricted due to violation of our terms of service. Submit photo ID and credit card statement at http://paypal-resolution-center-update.com,phishing,1
+CRITICAL SECURITY ALERT: PayPal Alert: Your account privileges have been restricted due to violation of our terms of service. Submit photo ID and credit card statement at http://paypal-resolution-center-update.com,phishing,1
+[Urgent Notification] PayPal Alert: Your account privileges have been restricted due to violation of our terms of service. Submit photo ID and credit card statement at http://paypal-resolution-center-update.com,phishing,1
+PayPal Alert: Your account privileges have been restricted due to violation of our terms of service. Submit photo ID and credit card statement at http://paypal-resolution-center-update.com Please respond within 12 hours.,phishing,1
+Action Required: PayPal Alert: Your account privileges have been restricted due to violation of our terms of service. Submit photo ID and credit card statement at http://paypal-resolution-center-update.com,phishing,1
+Bank of America: Debit card ending in 4192 blocked due to suspected fraudulent transaction at Walmart. Click here to unblock: http://boa-card-unlock.info,phishing,1
+ATTENTION: Bank of America: Debit card ending in 4192 blocked due to suspected fraudulent transaction at Walmart. Click here to unblock: http://boa-card-unlock.info,phishing,1
+CRITICAL SECURITY ALERT: Bank of America: Debit card ending in 4192 blocked due to suspected fraudulent transaction at Walmart. Click here to unblock: http://boa-card-unlock.info,phishing,1
+[Urgent Notification] Bank of America: Debit card ending in 4192 blocked due to suspected fraudulent transaction at Walmart. Click here to unblock: http://boa-card-unlock.info,phishing,1
+Bank of America: Debit card ending in 4192 blocked due to suspected fraudulent transaction at Walmart. Click here to unblock: http://boa-card-unlock.info Please respond within 12 hours.,phishing,1
+Action Required: Bank of America: Debit card ending in 4192 blocked due to suspected fraudulent transaction at Walmart. Click here to unblock: http://boa-card-unlock.info,phishing,1
+"Stripe Notification: Your merchant payout of $4,820.00 is currently on hold. Verify tax identification number within 24 hours to prevent account closure.",phishing,1
+"ATTENTION: Stripe Notification: Your merchant payout of $4,820.00 is currently on hold. Verify tax identification number within 24 hours to prevent account closure.",phishing,1
+"CRITICAL SECURITY ALERT: Stripe Notification: Your merchant payout of $4,820.00 is currently on hold. Verify tax identification number within 24 hours to prevent account closure.",phishing,1
+"[Urgent Notification] Stripe Notification: Your merchant payout of $4,820.00 is currently on hold. Verify tax identification number within 24 hours to prevent account closure.",phishing,1
+"Stripe Notification: Your merchant payout of $4,820.00 is currently on hold. Verify tax identification number within 24 hours to prevent account closure. Please respond within 12 hours.",phishing,1
+"Action Required: Stripe Notification: Your merchant payout of $4,820.00 is currently on hold. Verify tax identification number within 24 hours to prevent account closure.",phishing,1
+"Coinbase Security: A new device from Moscow, Russia logged into your cryptocurrency wallet. If this was not you, freeze account immediately at http://coinbase-auth-protect.cc",phishing,1
+"ATTENTION: Coinbase Security: A new device from Moscow, Russia logged into your cryptocurrency wallet. If this was not you, freeze account immediately at http://coinbase-auth-protect.cc",phishing,1
+"CRITICAL SECURITY ALERT: Coinbase Security: A new device from Moscow, Russia logged into your cryptocurrency wallet. If this was not you, freeze account immediately at http://coinbase-auth-protect.cc",phishing,1
+"[Urgent Notification] Coinbase Security: A new device from Moscow, Russia logged into your cryptocurrency wallet. If this was not you, freeze account immediately at http://coinbase-auth-protect.cc",phishing,1
+"Coinbase Security: A new device from Moscow, Russia logged into your cryptocurrency wallet. If this was not you, freeze account immediately at http://coinbase-auth-protect.cc Please respond within 12 hours.",phishing,1
+"Action Required: Coinbase Security: A new device from Moscow, Russia logged into your cryptocurrency wallet. If this was not you, freeze account immediately at http://coinbase-auth-protect.cc",phishing,1
+MetaMask Notification: Immediate wallet KYC synchronization required. Unverified wallets will be permanently deleted after 48 hours.,phishing,1
+ATTENTION: MetaMask Notification: Immediate wallet KYC synchronization required. Unverified wallets will be permanently deleted after 48 hours.,phishing,1
+CRITICAL SECURITY ALERT: MetaMask Notification: Immediate wallet KYC synchronization required. Unverified wallets will be permanently deleted after 48 hours.,phishing,1
+[Urgent Notification] MetaMask Notification: Immediate wallet KYC synchronization required. Unverified wallets will be permanently deleted after 48 hours.,phishing,1
+MetaMask Notification: Immediate wallet KYC synchronization required. Unverified wallets will be permanently deleted after 48 hours. Please respond within 12 hours.,phishing,1
+Action Required: MetaMask Notification: Immediate wallet KYC synchronization required. Unverified wallets will be permanently deleted after 48 hours.,phishing,1
+CitiBank Alert: Your credit card transaction of $840.50 at BestBuy requires immediate phone verification or card cancelation.,phishing,1
+ATTENTION: CitiBank Alert: Your credit card transaction of $840.50 at BestBuy requires immediate phone verification or card cancelation.,phishing,1
+CRITICAL SECURITY ALERT: CitiBank Alert: Your credit card transaction of $840.50 at BestBuy requires immediate phone verification or card cancelation.,phishing,1
+[Urgent Notification] CitiBank Alert: Your credit card transaction of $840.50 at BestBuy requires immediate phone verification or card cancelation.,phishing,1
+CitiBank Alert: Your credit card transaction of $840.50 at BestBuy requires immediate phone verification or card cancelation. Please respond within 12 hours.,phishing,1
+Action Required: CitiBank Alert: Your credit card transaction of $840.50 at BestBuy requires immediate phone verification or card cancelation.,phishing,1
+"American Express Security: Suspicious charge of $1,200.00 flagged. Re-activate your online profile by confirming billing card info.",phishing,1
+"ATTENTION: American Express Security: Suspicious charge of $1,200.00 flagged. Re-activate your online profile by confirming billing card info.",phishing,1
+"CRITICAL SECURITY ALERT: American Express Security: Suspicious charge of $1,200.00 flagged. Re-activate your online profile by confirming billing card info.",phishing,1
+"[Urgent Notification] American Express Security: Suspicious charge of $1,200.00 flagged. Re-activate your online profile by confirming billing card info.",phishing,1
+"American Express Security: Suspicious charge of $1,200.00 flagged. Re-activate your online profile by confirming billing card info. Please respond within 12 hours.",phishing,1
+"Action Required: American Express Security: Suspicious charge of $1,200.00 flagged. Re-activate your online profile by confirming billing card info.",phishing,1
+Capital One Alert: Your account has been suspended due to unverified billing address changes. Sign in to reactivate.,phishing,1
+ATTENTION: Capital One Alert: Your account has been suspended due to unverified billing address changes. Sign in to reactivate.,phishing,1
+CRITICAL SECURITY ALERT: Capital One Alert: Your account has been suspended due to unverified billing address changes. Sign in to reactivate.,phishing,1
+[Urgent Notification] Capital One Alert: Your account has been suspended due to unverified billing address changes. Sign in to reactivate.,phishing,1
+Capital One Alert: Your account has been suspended due to unverified billing address changes. Sign in to reactivate. Please respond within 12 hours.,phishing,1
+Action Required: Capital One Alert: Your account has been suspended due to unverified billing address changes. Sign in to reactivate.,phishing,1
+Microsoft 365 Security Team: Your work email password will expire in 2 hours. Keep your existing password by confirming your credentials at http://office365-pass-keep.com,phishing,1
+ATTENTION: Microsoft 365 Security Team: Your work email password will expire in 2 hours. Keep your existing password by confirming your credentials at http://office365-pass-keep.com,phishing,1
+CRITICAL SECURITY ALERT: Microsoft 365 Security Team: Your work email password will expire in 2 hours. Keep your existing password by confirming your credentials at http://office365-pass-keep.com,phishing,1
+[Urgent Notification] Microsoft 365 Security Team: Your work email password will expire in 2 hours. Keep your existing password by confirming your credentials at http://office365-pass-keep.com,phishing,1
+Microsoft 365 Security Team: Your work email password will expire in 2 hours. Keep your existing password by confirming your credentials at http://office365-pass-keep.com Please respond within 12 hours.,phishing,1
+Action Required: Microsoft 365 Security Team: Your work email password will expire in 2 hours. Keep your existing password by confirming your credentials at http://office365-pass-keep.com,phishing,1
+"Google Workspace Administrator: New sign-in detected on Windows NT in Shenzhen, China. Confirm your identity or your account will be suspended.",phishing,1
+"ATTENTION: Google Workspace Administrator: New sign-in detected on Windows NT in Shenzhen, China. Confirm your identity or your account will be suspended.",phishing,1
+"CRITICAL SECURITY ALERT: Google Workspace Administrator: New sign-in detected on Windows NT in Shenzhen, China. Confirm your identity or your account will be suspended.",phishing,1
+"[Urgent Notification] Google Workspace Administrator: New sign-in detected on Windows NT in Shenzhen, China. Confirm your identity or your account will be suspended.",phishing,1
+"Google Workspace Administrator: New sign-in detected on Windows NT in Shenzhen, China. Confirm your identity or your account will be suspended. Please respond within 12 hours.",phishing,1
+"Action Required: Google Workspace Administrator: New sign-in detected on Windows NT in Shenzhen, China. Confirm your identity or your account will be suspended.",phishing,1
+DocuSign: Executive Vice President has shared '2026 Q3 Bonus Compensation & Stock Grants.pdf' for your signature. Review document at http://docusign-secure-signing.xyz,phishing,1
+ATTENTION: DocuSign: Executive Vice President has shared '2026 Q3 Bonus Compensation & Stock Grants.pdf' for your signature. Review document at http://docusign-secure-signing.xyz,phishing,1
+CRITICAL SECURITY ALERT: DocuSign: Executive Vice President has shared '2026 Q3 Bonus Compensation & Stock Grants.pdf' for your signature. Review document at http://docusign-secure-signing.xyz,phishing,1
+[Urgent Notification] DocuSign: Executive Vice President has shared '2026 Q3 Bonus Compensation & Stock Grants.pdf' for your signature. Review document at http://docusign-secure-signing.xyz,phishing,1
+DocuSign: Executive Vice President has shared '2026 Q3 Bonus Compensation & Stock Grants.pdf' for your signature. Review document at http://docusign-secure-signing.xyz Please respond within 12 hours.,phishing,1
+Action Required: DocuSign: Executive Vice President has shared '2026 Q3 Bonus Compensation & Stock Grants.pdf' for your signature. Review document at http://docusign-secure-signing.xyz,phishing,1
+IT Support Desk: Mandatory VPN certificate renewal required for all remote staff before end of day. Download and install update from http://internal-vpn-portal.top,phishing,1
+ATTENTION: IT Support Desk: Mandatory VPN certificate renewal required for all remote staff before end of day. Download and install update from http://internal-vpn-portal.top,phishing,1
+CRITICAL SECURITY ALERT: IT Support Desk: Mandatory VPN certificate renewal required for all remote staff before end of day. Download and install update from http://internal-vpn-portal.top,phishing,1
+[Urgent Notification] IT Support Desk: Mandatory VPN certificate renewal required for all remote staff before end of day. Download and install update from http://internal-vpn-portal.top,phishing,1
+IT Support Desk: Mandatory VPN certificate renewal required for all remote staff before end of day. Download and install update from http://internal-vpn-portal.top Please respond within 12 hours.,phishing,1
+Action Required: IT Support Desk: Mandatory VPN certificate renewal required for all remote staff before end of day. Download and install update from http://internal-vpn-portal.top,phishing,1
+Okta Identity Verification: Your single sign-on token has expired. Re-authenticate to access corporate Slack and Jira portals.,phishing,1
+ATTENTION: Okta Identity Verification: Your single sign-on token has expired. Re-authenticate to access corporate Slack and Jira portals.,phishing,1
+CRITICAL SECURITY ALERT: Okta Identity Verification: Your single sign-on token has expired. Re-authenticate to access corporate Slack and Jira portals.,phishing,1
+[Urgent Notification] Okta Identity Verification: Your single sign-on token has expired. Re-authenticate to access corporate Slack and Jira portals.,phishing,1
+Okta Identity Verification: Your single sign-on token has expired. Re-authenticate to access corporate Slack and Jira portals. Please respond within 12 hours.,phishing,1
+Action Required: Okta Identity Verification: Your single sign-on token has expired. Re-authenticate to access corporate Slack and Jira portals.,phishing,1
+SharePoint Notification: Payroll Department shared 'Direct Deposit Banking Form 2026.xlsx'. Click to sign and confirm routing number.,phishing,1
+ATTENTION: SharePoint Notification: Payroll Department shared 'Direct Deposit Banking Form 2026.xlsx'. Click to sign and confirm routing number.,phishing,1
+CRITICAL SECURITY ALERT: SharePoint Notification: Payroll Department shared 'Direct Deposit Banking Form 2026.xlsx'. Click to sign and confirm routing number.,phishing,1
+[Urgent Notification] SharePoint Notification: Payroll Department shared 'Direct Deposit Banking Form 2026.xlsx'. Click to sign and confirm routing number.,phishing,1
+SharePoint Notification: Payroll Department shared 'Direct Deposit Banking Form 2026.xlsx'. Click to sign and confirm routing number. Please respond within 12 hours.,phishing,1
+Action Required: SharePoint Notification: Payroll Department shared 'Direct Deposit Banking Form 2026.xlsx'. Click to sign and confirm routing number.,phishing,1
+Zoom Video Communications: You missed an urgent recorded board meeting with CEO. Download the meeting audio recording at http://zoom-recording-cloud.online,phishing,1
+ATTENTION: Zoom Video Communications: You missed an urgent recorded board meeting with CEO. Download the meeting audio recording at http://zoom-recording-cloud.online,phishing,1
+CRITICAL SECURITY ALERT: Zoom Video Communications: You missed an urgent recorded board meeting with CEO. Download the meeting audio recording at http://zoom-recording-cloud.online,phishing,1
+[Urgent Notification] Zoom Video Communications: You missed an urgent recorded board meeting with CEO. Download the meeting audio recording at http://zoom-recording-cloud.online,phishing,1
+Zoom Video Communications: You missed an urgent recorded board meeting with CEO. Download the meeting audio recording at http://zoom-recording-cloud.online Please respond within 12 hours.,phishing,1
+Action Required: Zoom Video Communications: You missed an urgent recorded board meeting with CEO. Download the meeting audio recording at http://zoom-recording-cloud.online,phishing,1
+Adobe Acrobat Cloud: Contract Document #INV-92819 shared with you. Sign in with your work email to view.,phishing,1
+ATTENTION: Adobe Acrobat Cloud: Contract Document #INV-92819 shared with you. Sign in with your work email to view.,phishing,1
+CRITICAL SECURITY ALERT: Adobe Acrobat Cloud: Contract Document #INV-92819 shared with you. Sign in with your work email to view.,phishing,1
+[Urgent Notification] Adobe Acrobat Cloud: Contract Document #INV-92819 shared with you. Sign in with your work email to view.,phishing,1
+Adobe Acrobat Cloud: Contract Document #INV-92819 shared with you. Sign in with your work email to view. Please respond within 12 hours.,phishing,1
+Action Required: Adobe Acrobat Cloud: Contract Document #INV-92819 shared with you. Sign in with your work email to view.,phishing,1
+Slack Security: An external admin added an integration to your private workspace. Authorize third-party OAuth access here.,phishing,1
+ATTENTION: Slack Security: An external admin added an integration to your private workspace. Authorize third-party OAuth access here.,phishing,1
+CRITICAL SECURITY ALERT: Slack Security: An external admin added an integration to your private workspace. Authorize third-party OAuth access here.,phishing,1
+[Urgent Notification] Slack Security: An external admin added an integration to your private workspace. Authorize third-party OAuth access here.,phishing,1
+Slack Security: An external admin added an integration to your private workspace. Authorize third-party OAuth access here. Please respond within 12 hours.,phishing,1
+Action Required: Slack Security: An external admin added an integration to your private workspace. Authorize third-party OAuth access here.,phishing,1
+Duo Security Challenge: Push notification declined from unknown IP. Re-verify your biometric credentials immediately.,phishing,1
+ATTENTION: Duo Security Challenge: Push notification declined from unknown IP. Re-verify your biometric credentials immediately.,phishing,1
+CRITICAL SECURITY ALERT: Duo Security Challenge: Push notification declined from unknown IP. Re-verify your biometric credentials immediately.,phishing,1
+[Urgent Notification] Duo Security Challenge: Push notification declined from unknown IP. Re-verify your biometric credentials immediately.,phishing,1
+Duo Security Challenge: Push notification declined from unknown IP. Re-verify your biometric credentials immediately. Please respond within 12 hours.,phishing,1
+Action Required: Duo Security Challenge: Push notification declined from unknown IP. Re-verify your biometric credentials immediately.,phishing,1
+FedEx Delivery Notification: Your package #FX-928192-US could not be delivered due to incorrect street address. Pay $1.99 redelivery fee at http://fedex-redelivery-fee.site,phishing,1
+ATTENTION: FedEx Delivery Notification: Your package #FX-928192-US could not be delivered due to incorrect street address. Pay $1.99 redelivery fee at http://fedex-redelivery-fee.site,phishing,1
+CRITICAL SECURITY ALERT: FedEx Delivery Notification: Your package #FX-928192-US could not be delivered due to incorrect street address. Pay $1.99 redelivery fee at http://fedex-redelivery-fee.site,phishing,1
+[Urgent Notification] FedEx Delivery Notification: Your package #FX-928192-US could not be delivered due to incorrect street address. Pay $1.99 redelivery fee at http://fedex-redelivery-fee.site,phishing,1
+FedEx Delivery Notification: Your package #FX-928192-US could not be delivered due to incorrect street address. Pay $1.99 redelivery fee at http://fedex-redelivery-fee.site Please respond within 12 hours.,phishing,1
+Action Required: FedEx Delivery Notification: Your package #FX-928192-US could not be delivered due to incorrect street address. Pay $1.99 redelivery fee at http://fedex-redelivery-fee.site,phishing,1
+"Amazon.com: Your order #112-9281729 for Apple iPhone 15 Pro Max ($1,199.00) has been placed. If you did not make this purchase, call support or dispute transaction here.",phishing,1
+"ATTENTION: Amazon.com: Your order #112-9281729 for Apple iPhone 15 Pro Max ($1,199.00) has been placed. If you did not make this purchase, call support or dispute transaction here.",phishing,1
+"CRITICAL SECURITY ALERT: Amazon.com: Your order #112-9281729 for Apple iPhone 15 Pro Max ($1,199.00) has been placed. If you did not make this purchase, call support or dispute transaction here.",phishing,1
+"[Urgent Notification] Amazon.com: Your order #112-9281729 for Apple iPhone 15 Pro Max ($1,199.00) has been placed. If you did not make this purchase, call support or dispute transaction here.",phishing,1
+"Amazon.com: Your order #112-9281729 for Apple iPhone 15 Pro Max ($1,199.00) has been placed. If you did not make this purchase, call support or dispute transaction here. Please respond within 12 hours.",phishing,1
+"Action Required: Amazon.com: Your order #112-9281729 for Apple iPhone 15 Pro Max ($1,199.00) has been placed. If you did not make this purchase, call support or dispute transaction here.",phishing,1
+DHL Express: Customs duty tax payment ($3.45) required for international shipment clearance. Click to pay before parcel is returned to sender.,phishing,1
+ATTENTION: DHL Express: Customs duty tax payment ($3.45) required for international shipment clearance. Click to pay before parcel is returned to sender.,phishing,1
+CRITICAL SECURITY ALERT: DHL Express: Customs duty tax payment ($3.45) required for international shipment clearance. Click to pay before parcel is returned to sender.,phishing,1
+[Urgent Notification] DHL Express: Customs duty tax payment ($3.45) required for international shipment clearance. Click to pay before parcel is returned to sender.,phishing,1
+DHL Express: Customs duty tax payment ($3.45) required for international shipment clearance. Click to pay before parcel is returned to sender. Please respond within 12 hours.,phishing,1
+Action Required: DHL Express: Customs duty tax payment ($3.45) required for international shipment clearance. Click to pay before parcel is returned to sender.,phishing,1
+UPS Express Tracking: Driver tried delivering parcel today at 11:30 AM. Reschedule delivery date here: http://ups-parcel-track-update.com,phishing,1
+ATTENTION: UPS Express Tracking: Driver tried delivering parcel today at 11:30 AM. Reschedule delivery date here: http://ups-parcel-track-update.com,phishing,1
+CRITICAL SECURITY ALERT: UPS Express Tracking: Driver tried delivering parcel today at 11:30 AM. Reschedule delivery date here: http://ups-parcel-track-update.com,phishing,1
+[Urgent Notification] UPS Express Tracking: Driver tried delivering parcel today at 11:30 AM. Reschedule delivery date here: http://ups-parcel-track-update.com,phishing,1
+UPS Express Tracking: Driver tried delivering parcel today at 11:30 AM. Reschedule delivery date here: http://ups-parcel-track-update.com Please respond within 12 hours.,phishing,1
+Action Required: UPS Express Tracking: Driver tried delivering parcel today at 11:30 AM. Reschedule delivery date here: http://ups-parcel-track-update.com,phishing,1
+Walmart Order Confirmation: Your order for Sony PlayStation 5 console is confirmed. Click here to cancel if unauthorized.,phishing,1
+ATTENTION: Walmart Order Confirmation: Your order for Sony PlayStation 5 console is confirmed. Click here to cancel if unauthorized.,phishing,1
+CRITICAL SECURITY ALERT: Walmart Order Confirmation: Your order for Sony PlayStation 5 console is confirmed. Click here to cancel if unauthorized.,phishing,1
+[Urgent Notification] Walmart Order Confirmation: Your order for Sony PlayStation 5 console is confirmed. Click here to cancel if unauthorized.,phishing,1
+Walmart Order Confirmation: Your order for Sony PlayStation 5 console is confirmed. Click here to cancel if unauthorized. Please respond within 12 hours.,phishing,1
+Action Required: Walmart Order Confirmation: Your order for Sony PlayStation 5 console is confirmed. Click here to cancel if unauthorized.,phishing,1
+"Apple Store: You purchased 10,000 App Store Gems for $99.99 on an unauthorized iPhone. Click here to request immediate refund.",phishing,1
+"ATTENTION: Apple Store: You purchased 10,000 App Store Gems for $99.99 on an unauthorized iPhone. Click here to request immediate refund.",phishing,1
+"CRITICAL SECURITY ALERT: Apple Store: You purchased 10,000 App Store Gems for $99.99 on an unauthorized iPhone. Click here to request immediate refund.",phishing,1
+"[Urgent Notification] Apple Store: You purchased 10,000 App Store Gems for $99.99 on an unauthorized iPhone. Click here to request immediate refund.",phishing,1
+"Apple Store: You purchased 10,000 App Store Gems for $99.99 on an unauthorized iPhone. Click here to request immediate refund. Please respond within 12 hours.",phishing,1
+"Action Required: Apple Store: You purchased 10,000 App Store Gems for $99.99 on an unauthorized iPhone. Click here to request immediate refund.",phishing,1
+eBay Security: Your bid of $650.00 was accepted. Click here to complete payment with Western Union or crypto.,phishing,1
+ATTENTION: eBay Security: Your bid of $650.00 was accepted. Click here to complete payment with Western Union or crypto.,phishing,1
+CRITICAL SECURITY ALERT: eBay Security: Your bid of $650.00 was accepted. Click here to complete payment with Western Union or crypto.,phishing,1
+[Urgent Notification] eBay Security: Your bid of $650.00 was accepted. Click here to complete payment with Western Union or crypto.,phishing,1
+eBay Security: Your bid of $650.00 was accepted. Click here to complete payment with Western Union or crypto. Please respond within 12 hours.,phishing,1
+Action Required: eBay Security: Your bid of $650.00 was accepted. Click here to complete payment with Western Union or crypto.,phishing,1
+"Internal Revenue Service (IRS): Final Notice - Outstanding federal tax penalty of $1,850.00 pending. Legal warrant will be issued if unpaid within 24 hours.",phishing,1
+"ATTENTION: Internal Revenue Service (IRS): Final Notice - Outstanding federal tax penalty of $1,850.00 pending. Legal warrant will be issued if unpaid within 24 hours.",phishing,1
+"CRITICAL SECURITY ALERT: Internal Revenue Service (IRS): Final Notice - Outstanding federal tax penalty of $1,850.00 pending. Legal warrant will be issued if unpaid within 24 hours.",phishing,1
+"[Urgent Notification] Internal Revenue Service (IRS): Final Notice - Outstanding federal tax penalty of $1,850.00 pending. Legal warrant will be issued if unpaid within 24 hours.",phishing,1
+"Internal Revenue Service (IRS): Final Notice - Outstanding federal tax penalty of $1,850.00 pending. Legal warrant will be issued if unpaid within 24 hours. Please respond within 12 hours.",phishing,1
+"Action Required: Internal Revenue Service (IRS): Final Notice - Outstanding federal tax penalty of $1,850.00 pending. Legal warrant will be issued if unpaid within 24 hours.",phishing,1
+Subpoena Notice: You have been named as a witness in federal case #CR-9281. Download subpoena summons document immediately.,phishing,1
+ATTENTION: Subpoena Notice: You have been named as a witness in federal case #CR-9281. Download subpoena summons document immediately.,phishing,1
+CRITICAL SECURITY ALERT: Subpoena Notice: You have been named as a witness in federal case #CR-9281. Download subpoena summons document immediately.,phishing,1
+[Urgent Notification] Subpoena Notice: You have been named as a witness in federal case #CR-9281. Download subpoena summons document immediately.,phishing,1
+Subpoena Notice: You have been named as a witness in federal case #CR-9281. Download subpoena summons document immediately. Please respond within 12 hours.,phishing,1
+Action Required: Subpoena Notice: You have been named as a witness in federal case #CR-9281. Download subpoena summons document immediately.,phishing,1
+URGENT BLACKMAIL NOTICE: I have hacked your computer and recorded webcam video while you visited adult websites. Send $500 in Bitcoin to my wallet address or video will be emailed to all your contacts.,phishing,1
+ATTENTION: URGENT BLACKMAIL NOTICE: I have hacked your computer and recorded webcam video while you visited adult websites. Send $500 in Bitcoin to my wallet address or video will be emailed to all your contacts.,phishing,1
+CRITICAL SECURITY ALERT: URGENT BLACKMAIL NOTICE: I have hacked your computer and recorded webcam video while you visited adult websites. Send $500 in Bitcoin to my wallet address or video will be emailed to all your contacts.,phishing,1
+[Urgent Notification] URGENT BLACKMAIL NOTICE: I have hacked your computer and recorded webcam video while you visited adult websites. Send $500 in Bitcoin to my wallet address or video will be emailed to all your contacts.,phishing,1
+URGENT BLACKMAIL NOTICE: I have hacked your computer and recorded webcam video while you visited adult websites. Send $500 in Bitcoin to my wallet address or video will be emailed to all your contacts. Please respond within 12 hours.,phishing,1
+Action Required: URGENT BLACKMAIL NOTICE: I have hacked your computer and recorded webcam video while you visited adult websites. Send $500 in Bitcoin to my wallet address or video will be emailed to all your contacts.,phishing,1
+"Congratulations! You have been selected as the official $1,000,000 Google International Lottery winner. Send full passport details to claim prize.",phishing,1
+"ATTENTION: Congratulations! You have been selected as the official $1,000,000 Google International Lottery winner. Send full passport details to claim prize.",phishing,1
+"CRITICAL SECURITY ALERT: Congratulations! You have been selected as the official $1,000,000 Google International Lottery winner. Send full passport details to claim prize.",phishing,1
+"[Urgent Notification] Congratulations! You have been selected as the official $1,000,000 Google International Lottery winner. Send full passport details to claim prize.",phishing,1
+"Congratulations! You have been selected as the official $1,000,000 Google International Lottery winner. Send full passport details to claim prize. Please respond within 12 hours.",phishing,1
+"Action Required: Congratulations! You have been selected as the official $1,000,000 Google International Lottery winner. Send full passport details to claim prize.",phishing,1
+CEO Urgent Request: Are you at your desk right now? I need you to purchase five $100 Apple gift cards for a client presentation immediately.,phishing,1
+ATTENTION: CEO Urgent Request: Are you at your desk right now? I need you to purchase five $100 Apple gift cards for a client presentation immediately.,phishing,1
+CRITICAL SECURITY ALERT: CEO Urgent Request: Are you at your desk right now? I need you to purchase five $100 Apple gift cards for a client presentation immediately.,phishing,1
+[Urgent Notification] CEO Urgent Request: Are you at your desk right now? I need you to purchase five $100 Apple gift cards for a client presentation immediately.,phishing,1
+CEO Urgent Request: Are you at your desk right now? I need you to purchase five $100 Apple gift cards for a client presentation immediately. Please respond within 12 hours.,phishing,1
+Action Required: CEO Urgent Request: Are you at your desk right now? I need you to purchase five $100 Apple gift cards for a client presentation immediately.,phishing,1
+HR Notice: Termination list and severance package documents uploaded. Enter network password to verify your employment status.,phishing,1
+ATTENTION: HR Notice: Termination list and severance package documents uploaded. Enter network password to verify your employment status.,phishing,1
+CRITICAL SECURITY ALERT: HR Notice: Termination list and severance package documents uploaded. Enter network password to verify your employment status.,phishing,1
+[Urgent Notification] HR Notice: Termination list and severance package documents uploaded. Enter network password to verify your employment status.,phishing,1
+HR Notice: Termination list and severance package documents uploaded. Enter network password to verify your employment status. Please respond within 12 hours.,phishing,1
+Action Required: HR Notice: Termination list and severance package documents uploaded. Enter network password to verify your employment status.,phishing,1
+Account Overdraft Warning: You will be charged $150 penalty fee unless you wire funds to this account today.,phishing,1
+ATTENTION: Account Overdraft Warning: You will be charged $150 penalty fee unless you wire funds to this account today.,phishing,1
+CRITICAL SECURITY ALERT: Account Overdraft Warning: You will be charged $150 penalty fee unless you wire funds to this account today.,phishing,1
+[Urgent Notification] Account Overdraft Warning: You will be charged $150 penalty fee unless you wire funds to this account today.,phishing,1
+Account Overdraft Warning: You will be charged $150 penalty fee unless you wire funds to this account today. Please respond within 12 hours.,phishing,1
+Action Required: Account Overdraft Warning: You will be charged $150 penalty fee unless you wire funds to this account today.,phishing,1
+Free $500 Target gift voucher available for taking our 2-minute customer survey. Click here to claim your reward voucher.,phishing,1
+ATTENTION: Free $500 Target gift voucher available for taking our 2-minute customer survey. Click here to claim your reward voucher.,phishing,1
+CRITICAL SECURITY ALERT: Free $500 Target gift voucher available for taking our 2-minute customer survey. Click here to claim your reward voucher.,phishing,1
+[Urgent Notification] Free $500 Target gift voucher available for taking our 2-minute customer survey. Click here to claim your reward voucher.,phishing,1
+Free $500 Target gift voucher available for taking our 2-minute customer survey. Click here to claim your reward voucher. Please respond within 12 hours.,phishing,1
+Action Required: Free $500 Target gift voucher available for taking our 2-minute customer survey. Click here to claim your reward voucher.,phishing,1
+USPS Alert: Package tracking #9400111899562919 has arrived at sorting hub but address is missing. Update address at http://usps-address-confirm.top,phishing,1
+ATTENTION: USPS Alert: Package tracking #9400111899562919 has arrived at sorting hub but address is missing. Update address at http://usps-address-confirm.top,phishing,1
+CRITICAL SECURITY ALERT: USPS Alert: Package tracking #9400111899562919 has arrived at sorting hub but address is missing. Update address at http://usps-address-confirm.top,phishing,1
+[Urgent Notification] USPS Alert: Package tracking #9400111899562919 has arrived at sorting hub but address is missing. Update address at http://usps-address-confirm.top,phishing,1
+USPS Alert: Package tracking #9400111899562919 has arrived at sorting hub but address is missing. Update address at http://usps-address-confirm.top Please respond within 12 hours.,phishing,1
+Action Required: USPS Alert: Package tracking #9400111899562919 has arrived at sorting hub but address is missing. Update address at http://usps-address-confirm.top,phishing,1
+BANK ALERT: $980.00 charge attempted at Target Store. Reply YES to confirm or click http://bank-fraud-cancel.cc to cancel.,phishing,1
+ATTENTION: BANK ALERT: $980.00 charge attempted at Target Store. Reply YES to confirm or click http://bank-fraud-cancel.cc to cancel.,phishing,1
+CRITICAL SECURITY ALERT: BANK ALERT: $980.00 charge attempted at Target Store. Reply YES to confirm or click http://bank-fraud-cancel.cc to cancel.,phishing,1
+[Urgent Notification] BANK ALERT: $980.00 charge attempted at Target Store. Reply YES to confirm or click http://bank-fraud-cancel.cc to cancel.,phishing,1
+BANK ALERT: $980.00 charge attempted at Target Store. Reply YES to confirm or click http://bank-fraud-cancel.cc to cancel. Please respond within 12 hours.,phishing,1
+Action Required: BANK ALERT: $980.00 charge attempted at Target Store. Reply YES to confirm or click http://bank-fraud-cancel.cc to cancel.,phishing,1
+EZPass Toll: You have unpaid highway toll balance of $12.50. Settle balance today to avoid $50 DMV late penalty fee: http://ezpass-toll-settle.info,phishing,1
+ATTENTION: EZPass Toll: You have unpaid highway toll balance of $12.50. Settle balance today to avoid $50 DMV late penalty fee: http://ezpass-toll-settle.info,phishing,1
+CRITICAL SECURITY ALERT: EZPass Toll: You have unpaid highway toll balance of $12.50. Settle balance today to avoid $50 DMV late penalty fee: http://ezpass-toll-settle.info,phishing,1
+[Urgent Notification] EZPass Toll: You have unpaid highway toll balance of $12.50. Settle balance today to avoid $50 DMV late penalty fee: http://ezpass-toll-settle.info,phishing,1
+EZPass Toll: You have unpaid highway toll balance of $12.50. Settle balance today to avoid $50 DMV late penalty fee: http://ezpass-toll-settle.info Please respond within 12 hours.,phishing,1
+Action Required: EZPass Toll: You have unpaid highway toll balance of $12.50. Settle balance today to avoid $50 DMV late penalty fee: http://ezpass-toll-settle.info,phishing,1
+Your Netflix subscription has expired. Update credit card billing details to avoid cancellation of streaming: http://netflix-billing-renew.cc,phishing,1
+ATTENTION: Your Netflix subscription has expired. Update credit card billing details to avoid cancellation of streaming: http://netflix-billing-renew.cc,phishing,1
+CRITICAL SECURITY ALERT: Your Netflix subscription has expired. Update credit card billing details to avoid cancellation of streaming: http://netflix-billing-renew.cc,phishing,1
+[Urgent Notification] Your Netflix subscription has expired. Update credit card billing details to avoid cancellation of streaming: http://netflix-billing-renew.cc,phishing,1
+Your Netflix subscription has expired. Update credit card billing details to avoid cancellation of streaming: http://netflix-billing-renew.cc Please respond within 12 hours.,phishing,1
+Action Required: Your Netflix subscription has expired. Update credit card billing details to avoid cancellation of streaming: http://netflix-billing-renew.cc,phishing,1
+ATT Alert: You have an overpayment refund of $68.40. Deposit into your bank account today at http://att-refund-online.info,phishing,1
+ATTENTION: ATT Alert: You have an overpayment refund of $68.40. Deposit into your bank account today at http://att-refund-online.info,phishing,1
+CRITICAL SECURITY ALERT: ATT Alert: You have an overpayment refund of $68.40. Deposit into your bank account today at http://att-refund-online.info,phishing,1
+[Urgent Notification] ATT Alert: You have an overpayment refund of $68.40. Deposit into your bank account today at http://att-refund-online.info,phishing,1
+ATT Alert: You have an overpayment refund of $68.40. Deposit into your bank account today at http://att-refund-online.info Please respond within 12 hours.,phishing,1
+Action Required: ATT Alert: You have an overpayment refund of $68.40. Deposit into your bank account today at http://att-refund-online.info,phishing,1
+"PayPal Security SMS: Verification code 849201. If you did not request this, secure your account at http://paypal-sms-auth.cc",phishing,1
+"ATTENTION: PayPal Security SMS: Verification code 849201. If you did not request this, secure your account at http://paypal-sms-auth.cc",phishing,1
+"CRITICAL SECURITY ALERT: PayPal Security SMS: Verification code 849201. If you did not request this, secure your account at http://paypal-sms-auth.cc",phishing,1
+"[Urgent Notification] PayPal Security SMS: Verification code 849201. If you did not request this, secure your account at http://paypal-sms-auth.cc",phishing,1
+"PayPal Security SMS: Verification code 849201. If you did not request this, secure your account at http://paypal-sms-auth.cc Please respond within 12 hours.",phishing,1
+"Action Required: PayPal Security SMS: Verification code 849201. If you did not request this, secure your account at http://paypal-sms-auth.cc",phishing,1
+Chase Mobile: Unusual login from Chrome on Windows. Review sign-in activity: http://chase-mobile-sec.top,phishing,1
+ATTENTION: Chase Mobile: Unusual login from Chrome on Windows. Review sign-in activity: http://chase-mobile-sec.top,phishing,1
+CRITICAL SECURITY ALERT: Chase Mobile: Unusual login from Chrome on Windows. Review sign-in activity: http://chase-mobile-sec.top,phishing,1
+[Urgent Notification] Chase Mobile: Unusual login from Chrome on Windows. Review sign-in activity: http://chase-mobile-sec.top,phishing,1
+Chase Mobile: Unusual login from Chrome on Windows. Review sign-in activity: http://chase-mobile-sec.top Please respond within 12 hours.,phishing,1
+Action Required: Chase Mobile: Unusual login from Chrome on Windows. Review sign-in activity: http://chase-mobile-sec.top,phishing,1
+GitHub Pull Request #42: 'Implement rate limiting and security headers' was approved by reviewer. Ready to merge to main branch.,safe,0
+"Hi team, GitHub Pull Request #42: 'Implement rate limiting and security headers' was approved by reviewer. Ready to merge to main branch.",safe,0
+Update: GitHub Pull Request #42: 'Implement rate limiting and security headers' was approved by reviewer. Ready to merge to main branch.,safe,0
+FYI: GitHub Pull Request #42: 'Implement rate limiting and security headers' was approved by reviewer. Ready to merge to main branch.,safe,0
+Good morning! GitHub Pull Request #42: 'Implement rate limiting and security headers' was approved by reviewer. Ready to merge to main branch. Thanks.,safe,0
+Meeting notes: GitHub Pull Request #42: 'Implement rate limiting and security headers' was approved by reviewer. Ready to merge to main branch.,safe,0
+Jenkins CI/CD Build #182 succeeded: All 124 unit tests and integration tests passed in 4m 12s.,safe,0
+"Hi team, Jenkins CI/CD Build #182 succeeded: All 124 unit tests and integration tests passed in 4m 12s.",safe,0
+Update: Jenkins CI/CD Build #182 succeeded: All 124 unit tests and integration tests passed in 4m 12s.,safe,0
+FYI: Jenkins CI/CD Build #182 succeeded: All 124 unit tests and integration tests passed in 4m 12s.,safe,0
+Good morning! Jenkins CI/CD Build #182 succeeded: All 124 unit tests and integration tests passed in 4m 12s. Thanks.,safe,0
+Meeting notes: Jenkins CI/CD Build #182 succeeded: All 124 unit tests and integration tests passed in 4m 12s.,safe,0
+Code Review: Left comments on backend router authentication middleware. Please take a look when you have time.,safe,0
+"Hi team, Code Review: Left comments on backend router authentication middleware. Please take a look when you have time.",safe,0
+Update: Code Review: Left comments on backend router authentication middleware. Please take a look when you have time.,safe,0
+FYI: Code Review: Left comments on backend router authentication middleware. Please take a look when you have time.,safe,0
+Good morning! Code Review: Left comments on backend router authentication middleware. Please take a look when you have time. Thanks.,safe,0
+Meeting notes: Code Review: Left comments on backend router authentication middleware. Please take a look when you have time.,safe,0
+Docker Compose config updated with new environment variable for database connection pool size.,safe,0
+"Hi team, Docker Compose config updated with new environment variable for database connection pool size.",safe,0
+Update: Docker Compose config updated with new environment variable for database connection pool size.,safe,0
+FYI: Docker Compose config updated with new environment variable for database connection pool size.,safe,0
+Good morning! Docker Compose config updated with new environment variable for database connection pool size. Thanks.,safe,0
+Meeting notes: Docker Compose config updated with new environment variable for database connection pool size.,safe,0
+PostgreSQL migration completed successfully on staging cluster. No downtime recorded during schema migration.,safe,0
+"Hi team, PostgreSQL migration completed successfully on staging cluster. No downtime recorded during schema migration.",safe,0
+Update: PostgreSQL migration completed successfully on staging cluster. No downtime recorded during schema migration.,safe,0
+FYI: PostgreSQL migration completed successfully on staging cluster. No downtime recorded during schema migration.,safe,0
+Good morning! PostgreSQL migration completed successfully on staging cluster. No downtime recorded during schema migration. Thanks.,safe,0
+Meeting notes: PostgreSQL migration completed successfully on staging cluster. No downtime recorded during schema migration.,safe,0
+Documentation preview for API version 2.0 has been deployed to development site for feedback.,safe,0
+"Hi team, Documentation preview for API version 2.0 has been deployed to development site for feedback.",safe,0
+Update: Documentation preview for API version 2.0 has been deployed to development site for feedback.,safe,0
+FYI: Documentation preview for API version 2.0 has been deployed to development site for feedback.,safe,0
+Good morning! Documentation preview for API version 2.0 has been deployed to development site for feedback. Thanks.,safe,0
+Meeting notes: Documentation preview for API version 2.0 has been deployed to development site for feedback.,safe,0
+Python 3.12 compatibility test suite passed on all microservices.,safe,0
+"Hi team, Python 3.12 compatibility test suite passed on all microservices.",safe,0
+Update: Python 3.12 compatibility test suite passed on all microservices.,safe,0
+FYI: Python 3.12 compatibility test suite passed on all microservices.,safe,0
+Good morning! Python 3.12 compatibility test suite passed on all microservices. Thanks.,safe,0
+Meeting notes: Python 3.12 compatibility test suite passed on all microservices.,safe,0
+Stack Overflow notification: Your answer on 'FastAPI dependency injection best practices' received 15 upvotes.,safe,0
+"Hi team, Stack Overflow notification: Your answer on 'FastAPI dependency injection best practices' received 15 upvotes.",safe,0
+Update: Stack Overflow notification: Your answer on 'FastAPI dependency injection best practices' received 15 upvotes.,safe,0
+FYI: Stack Overflow notification: Your answer on 'FastAPI dependency injection best practices' received 15 upvotes.,safe,0
+Good morning! Stack Overflow notification: Your answer on 'FastAPI dependency injection best practices' received 15 upvotes. Thanks.,safe,0
+Meeting notes: Stack Overflow notification: Your answer on 'FastAPI dependency injection best practices' received 15 upvotes.,safe,0
+New release v1.4.0 is now published to npm and PyPI repository.,safe,0
+"Hi team, New release v1.4.0 is now published to npm and PyPI repository.",safe,0
+Update: New release v1.4.0 is now published to npm and PyPI repository.,safe,0
+FYI: New release v1.4.0 is now published to npm and PyPI repository.,safe,0
+Good morning! New release v1.4.0 is now published to npm and PyPI repository. Thanks.,safe,0
+Meeting notes: New release v1.4.0 is now published to npm and PyPI repository.,safe,0
+Kubernetes deployment rollout complete for authentication service pods in us-east-1.,safe,0
+"Hi team, Kubernetes deployment rollout complete for authentication service pods in us-east-1.",safe,0
+Update: Kubernetes deployment rollout complete for authentication service pods in us-east-1.,safe,0
+FYI: Kubernetes deployment rollout complete for authentication service pods in us-east-1.,safe,0
+Good morning! Kubernetes deployment rollout complete for authentication service pods in us-east-1. Thanks.,safe,0
+Meeting notes: Kubernetes deployment rollout complete for authentication service pods in us-east-1.,safe,0
+"Weekly team sync meeting agenda: Sprint review, quarterly deliverables, and Q&A. Let me know if you want to add any topics.",safe,0
+"Hi team, Weekly team sync meeting agenda: Sprint review, quarterly deliverables, and Q&A. Let me know if you want to add any topics.",safe,0
+"Update: Weekly team sync meeting agenda: Sprint review, quarterly deliverables, and Q&A. Let me know if you want to add any topics.",safe,0
+"FYI: Weekly team sync meeting agenda: Sprint review, quarterly deliverables, and Q&A. Let me know if you want to add any topics.",safe,0
+"Good morning! Weekly team sync meeting agenda: Sprint review, quarterly deliverables, and Q&A. Let me know if you want to add any topics. Thanks.",safe,0
+"Meeting notes: Weekly team sync meeting agenda: Sprint review, quarterly deliverables, and Q&A. Let me know if you want to add any topics.",safe,0
+"Hey team, are we still meeting for lunch at the cafeteria around 12:30 PM today?",safe,0
+"Hi team, Hey team, are we still meeting for lunch at the cafeteria around 12:30 PM today?",safe,0
+"Update: Hey team, are we still meeting for lunch at the cafeteria around 12:30 PM today?",safe,0
+"FYI: Hey team, are we still meeting for lunch at the cafeteria around 12:30 PM today?",safe,0
+"Good morning! Hey team, are we still meeting for lunch at the cafeteria around 12:30 PM today? Thanks.",safe,0
+"Meeting notes: Hey team, are we still meeting for lunch at the cafeteria around 12:30 PM today?",safe,0
+Quarterly all-hands presentation slides have been attached for anyone who missed the live stream.,safe,0
+"Hi team, Quarterly all-hands presentation slides have been attached for anyone who missed the live stream.",safe,0
+Update: Quarterly all-hands presentation slides have been attached for anyone who missed the live stream.,safe,0
+FYI: Quarterly all-hands presentation slides have been attached for anyone who missed the live stream.,safe,0
+Good morning! Quarterly all-hands presentation slides have been attached for anyone who missed the live stream. Thanks.,safe,0
+Meeting notes: Quarterly all-hands presentation slides have been attached for anyone who missed the live stream.,safe,0
+HR Announcement: Open enrollment period for health insurance benefits begins next Monday. Informational webinar scheduled for Wednesday.,safe,0
+"Hi team, HR Announcement: Open enrollment period for health insurance benefits begins next Monday. Informational webinar scheduled for Wednesday.",safe,0
+Update: HR Announcement: Open enrollment period for health insurance benefits begins next Monday. Informational webinar scheduled for Wednesday.,safe,0
+FYI: HR Announcement: Open enrollment period for health insurance benefits begins next Monday. Informational webinar scheduled for Wednesday.,safe,0
+Good morning! HR Announcement: Open enrollment period for health insurance benefits begins next Monday. Informational webinar scheduled for Wednesday. Thanks.,safe,0
+Meeting notes: HR Announcement: Open enrollment period for health insurance benefits begins next Monday. Informational webinar scheduled for Wednesday.,safe,0
+Reminder: Office will be closed on Monday in observance of Memorial Day holiday.,safe,0
+"Hi team, Reminder: Office will be closed on Monday in observance of Memorial Day holiday.",safe,0
+Update: Reminder: Office will be closed on Monday in observance of Memorial Day holiday.,safe,0
+FYI: Reminder: Office will be closed on Monday in observance of Memorial Day holiday.,safe,0
+Good morning! Reminder: Office will be closed on Monday in observance of Memorial Day holiday. Thanks.,safe,0
+Meeting notes: Reminder: Office will be closed on Monday in observance of Memorial Day holiday.,safe,0
+Please review the attached project budget spreadsheet for next quarter's cloud infrastructure expenses.,safe,0
+"Hi team, Please review the attached project budget spreadsheet for next quarter's cloud infrastructure expenses.",safe,0
+Update: Please review the attached project budget spreadsheet for next quarter's cloud infrastructure expenses.,safe,0
+FYI: Please review the attached project budget spreadsheet for next quarter's cloud infrastructure expenses.,safe,0
+Good morning! Please review the attached project budget spreadsheet for next quarter's cloud infrastructure expenses. Thanks.,safe,0
+Meeting notes: Please review the attached project budget spreadsheet for next quarter's cloud infrastructure expenses.,safe,0
+Good morning! Here are the meeting notes and action items from yesterday's client discovery session.,safe,0
+"Hi team, Good morning! Here are the meeting notes and action items from yesterday's client discovery session.",safe,0
+Update: Good morning! Here are the meeting notes and action items from yesterday's client discovery session.,safe,0
+FYI: Good morning! Here are the meeting notes and action items from yesterday's client discovery session.,safe,0
+Good morning! Good morning! Here are the meeting notes and action items from yesterday's client discovery session. Thanks.,safe,0
+Meeting notes: Good morning! Here are the meeting notes and action items from yesterday's client discovery session.,safe,0
+Welcome our new senior security engineer Alex to the team! Alex joins us from the incident response group.,safe,0
+"Hi team, Welcome our new senior security engineer Alex to the team! Alex joins us from the incident response group.",safe,0
+Update: Welcome our new senior security engineer Alex to the team! Alex joins us from the incident response group.,safe,0
+FYI: Welcome our new senior security engineer Alex to the team! Alex joins us from the incident response group.,safe,0
+Good morning! Welcome our new senior security engineer Alex to the team! Alex joins us from the incident response group. Thanks.,safe,0
+Meeting notes: Welcome our new senior security engineer Alex to the team! Alex joins us from the incident response group.,safe,0
+Don't forget to submit your weekly timesheet in the employee portal before 5:00 PM on Friday afternoon.,safe,0
+"Hi team, Don't forget to submit your weekly timesheet in the employee portal before 5:00 PM on Friday afternoon.",safe,0
+Update: Don't forget to submit your weekly timesheet in the employee portal before 5:00 PM on Friday afternoon.,safe,0
+FYI: Don't forget to submit your weekly timesheet in the employee portal before 5:00 PM on Friday afternoon.,safe,0
+Good morning! Don't forget to submit your weekly timesheet in the employee portal before 5:00 PM on Friday afternoon. Thanks.,safe,0
+Meeting notes: Don't forget to submit your weekly timesheet in the employee portal before 5:00 PM on Friday afternoon.,safe,0
+The facilities team will be testing emergency lighting systems this Thursday at 3 PM.,safe,0
+"Hi team, The facilities team will be testing emergency lighting systems this Thursday at 3 PM.",safe,0
+Update: The facilities team will be testing emergency lighting systems this Thursday at 3 PM.,safe,0
+FYI: The facilities team will be testing emergency lighting systems this Thursday at 3 PM.,safe,0
+Good morning! The facilities team will be testing emergency lighting systems this Thursday at 3 PM. Thanks.,safe,0
+Meeting notes: The facilities team will be testing emergency lighting systems this Thursday at 3 PM.,safe,0
+Your Amazon.com order #103-8271629 has shipped! Track package in your official Amazon mobile app.,safe,0
+"Hi team, Your Amazon.com order #103-8271629 has shipped! Track package in your official Amazon mobile app.",safe,0
+Update: Your Amazon.com order #103-8271629 has shipped! Track package in your official Amazon mobile app.,safe,0
+FYI: Your Amazon.com order #103-8271629 has shipped! Track package in your official Amazon mobile app.,safe,0
+Good morning! Your Amazon.com order #103-8271629 has shipped! Track package in your official Amazon mobile app. Thanks.,safe,0
+Meeting notes: Your Amazon.com order #103-8271629 has shipped! Track package in your official Amazon mobile app.,safe,0
+Receipt for your Uber ride on October 10: $24.50 charged to Visa ending in 1234. Thank you for riding with Uber.,safe,0
+"Hi team, Receipt for your Uber ride on October 10: $24.50 charged to Visa ending in 1234. Thank you for riding with Uber.",safe,0
+Update: Receipt for your Uber ride on October 10: $24.50 charged to Visa ending in 1234. Thank you for riding with Uber.,safe,0
+FYI: Receipt for your Uber ride on October 10: $24.50 charged to Visa ending in 1234. Thank you for riding with Uber.,safe,0
+Good morning! Receipt for your Uber ride on October 10: $24.50 charged to Visa ending in 1234. Thank you for riding with Uber. Thanks.,safe,0
+Meeting notes: Receipt for your Uber ride on October 10: $24.50 charged to Visa ending in 1234. Thank you for riding with Uber.,safe,0
+Your monthly bank statement for September is now ready to view. Sign in to online banking to download your statement PDF.,safe,0
+"Hi team, Your monthly bank statement for September is now ready to view. Sign in to online banking to download your statement PDF.",safe,0
+Update: Your monthly bank statement for September is now ready to view. Sign in to online banking to download your statement PDF.,safe,0
+FYI: Your monthly bank statement for September is now ready to view. Sign in to online banking to download your statement PDF.,safe,0
+Good morning! Your monthly bank statement for September is now ready to view. Sign in to online banking to download your statement PDF. Thanks.,safe,0
+Meeting notes: Your monthly bank statement for September is now ready to view. Sign in to online banking to download your statement PDF.,safe,0
+Spotify Premium receipt: Your monthly subscription of $10.99 has been renewed. You can manage subscription settings in your account.,safe,0
+"Hi team, Spotify Premium receipt: Your monthly subscription of $10.99 has been renewed. You can manage subscription settings in your account.",safe,0
+Update: Spotify Premium receipt: Your monthly subscription of $10.99 has been renewed. You can manage subscription settings in your account.,safe,0
+FYI: Spotify Premium receipt: Your monthly subscription of $10.99 has been renewed. You can manage subscription settings in your account.,safe,0
+Good morning! Spotify Premium receipt: Your monthly subscription of $10.99 has been renewed. You can manage subscription settings in your account. Thanks.,safe,0
+Meeting notes: Spotify Premium receipt: Your monthly subscription of $10.99 has been renewed. You can manage subscription settings in your account.,safe,0
+Google Calendar reminder: Dentist appointment tomorrow at 10:00 AM at Downtown Dental Clinic.,safe,0
+"Hi team, Google Calendar reminder: Dentist appointment tomorrow at 10:00 AM at Downtown Dental Clinic.",safe,0
+Update: Google Calendar reminder: Dentist appointment tomorrow at 10:00 AM at Downtown Dental Clinic.,safe,0
+FYI: Google Calendar reminder: Dentist appointment tomorrow at 10:00 AM at Downtown Dental Clinic.,safe,0
+Good morning! Google Calendar reminder: Dentist appointment tomorrow at 10:00 AM at Downtown Dental Clinic. Thanks.,safe,0
+Meeting notes: Google Calendar reminder: Dentist appointment tomorrow at 10:00 AM at Downtown Dental Clinic.,safe,0
+Flight confirmation: Your Delta Airlines flight DL-482 from SFO to JFK is confirmed for November 15. Seat 14A.,safe,0
+"Hi team, Flight confirmation: Your Delta Airlines flight DL-482 from SFO to JFK is confirmed for November 15. Seat 14A.",safe,0
+Update: Flight confirmation: Your Delta Airlines flight DL-482 from SFO to JFK is confirmed for November 15. Seat 14A.,safe,0
+FYI: Flight confirmation: Your Delta Airlines flight DL-482 from SFO to JFK is confirmed for November 15. Seat 14A.,safe,0
+Good morning! Flight confirmation: Your Delta Airlines flight DL-482 from SFO to JFK is confirmed for November 15. Seat 14A. Thanks.,safe,0
+Meeting notes: Flight confirmation: Your Delta Airlines flight DL-482 from SFO to JFK is confirmed for November 15. Seat 14A.,safe,0
+"Python Weekly Issue #620: Highlights on modern asynchronous frameworks, typing developments, and data science tooling.",safe,0
+"Hi team, Python Weekly Issue #620: Highlights on modern asynchronous frameworks, typing developments, and data science tooling.",safe,0
+"Update: Python Weekly Issue #620: Highlights on modern asynchronous frameworks, typing developments, and data science tooling.",safe,0
+"FYI: Python Weekly Issue #620: Highlights on modern asynchronous frameworks, typing developments, and data science tooling.",safe,0
+"Good morning! Python Weekly Issue #620: Highlights on modern asynchronous frameworks, typing developments, and data science tooling. Thanks.",safe,0
+"Meeting notes: Python Weekly Issue #620: Highlights on modern asynchronous frameworks, typing developments, and data science tooling.",safe,0
+"Thanks for dinner yesterday, it was wonderful catching up with everyone! Let's do it again next month.",safe,0
+"Hi team, Thanks for dinner yesterday, it was wonderful catching up with everyone! Let's do it again next month.",safe,0
+"Update: Thanks for dinner yesterday, it was wonderful catching up with everyone! Let's do it again next month.",safe,0
+"FYI: Thanks for dinner yesterday, it was wonderful catching up with everyone! Let's do it again next month.",safe,0
+"Good morning! Thanks for dinner yesterday, it was wonderful catching up with everyone! Let's do it again next month. Thanks.",safe,0
+"Meeting notes: Thanks for dinner yesterday, it was wonderful catching up with everyone! Let's do it again next month.",safe,0
+Your library books are due in 3 days: Clean Code and Designing Data-Intensive Applications.,safe,0
+"Hi team, Your library books are due in 3 days: Clean Code and Designing Data-Intensive Applications.",safe,0
+Update: Your library books are due in 3 days: Clean Code and Designing Data-Intensive Applications.,safe,0
+FYI: Your library books are due in 3 days: Clean Code and Designing Data-Intensive Applications.,safe,0
+Good morning! Your library books are due in 3 days: Clean Code and Designing Data-Intensive Applications. Thanks.,safe,0
+Meeting notes: Your library books are due in 3 days: Clean Code and Designing Data-Intensive Applications.,safe,0
+Apple invoice for iCloud 50GB storage plan: $0.99 billed to your card ending in 5543.,safe,0
+"Hi team, Apple invoice for iCloud 50GB storage plan: $0.99 billed to your card ending in 5543.",safe,0
+Update: Apple invoice for iCloud 50GB storage plan: $0.99 billed to your card ending in 5543.,safe,0
+FYI: Apple invoice for iCloud 50GB storage plan: $0.99 billed to your card ending in 5543.,safe,0
+Good morning! Apple invoice for iCloud 50GB storage plan: $0.99 billed to your card ending in 5543. Thanks.,safe,0
+Meeting notes: Apple invoice for iCloud 50GB storage plan: $0.99 billed to your card ending in 5543.,safe,0
