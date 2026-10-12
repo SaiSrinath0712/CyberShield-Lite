@@ -476,17 +476,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="inj-payload-input">Payload Text</label>
-                                <textarea id="inj-payload-input" class="form-input" style="height: 120px; resize: none;" placeholder="e.g. SELECT * FROM users WHERE username = 'admin' OR '1'='1' --" ondragover="event.preventDefault();" ondrop="handleInjectionDrop(event);" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <div class="drop-zone" id="injection-drop-zone" ondragover="event.preventDefault(); this.style.borderColor='var(--neon-cyan)';" ondragleave="this.style.borderColor='var(--border-color)';" ondrop="handleInjectionDrop(event)" onclick="document.getElementById('injection-file-input').click()">
-                                    <i class="fa-solid fa-file-import" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
-                                    <div>Drag & Drop script file (.sql/.js/.html/.py/.sh/.txt/.csv)</div>
-                                    <input type="file" id="injection-file-input" style="display: none;" accept=".sql,.js,.html,.xml,.json,.txt,.php,.asp,.py,.sh,.bat,.md,.csv" onchange="handleInjectionSelect(event)" onclick="event.stopPropagation()">
-                                </div>
-                                <div class="file-info-label" id="injection-file-info" style="display: none; margin-top: 8px; font-size: 0.75rem; color: var(--neon-cyan); text-align: center;">
-                                    <i class="fa-solid fa-file-circle-check"></i> Loaded: <span class="filename-span"></span>
-                                </div>
+                                <textarea id="inj-payload-input" class="form-input" style="height: 140px; resize: vertical;" placeholder="e.g. SELECT * FROM users WHERE username = 'admin' OR '1'='1' --" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%;">
                                 Audit Input Payload <i class="fa-solid fa-code"></i>
@@ -542,16 +532,6 @@
                             <div class="form-group">
                                 <label class="form-label" for="log-count">Failed Logins count (1 min window)</label>
                                 <input type="number" id="log-count" class="form-input" value="1" min="0" required>
-                            </div>
-                            <div class="form-group">
-                                <div class="drop-zone" id="login-drop-zone" ondragover="event.preventDefault(); this.style.borderColor='var(--neon-cyan)';" ondragleave="this.style.borderColor='var(--border-color)';" ondrop="handleLoginDrop(event)" onclick="document.getElementById('login-file-input').click()">
-                                    <i class="fa-solid fa-file-import" style="color: var(--neon-cyan); margin-bottom: 6px;"></i>
-                                    <div>Drag & Drop log/text/json file to load fields</div>
-                                    <input type="file" id="login-file-input" style="display: none;" accept=".txt,.log,.csv,.json,.xml" onchange="handleLoginSelect(event)" onclick="event.stopPropagation()">
-                                </div>
-                                <div class="file-info-label" id="login-file-info" style="display: none; margin-top: 8px; font-size: 0.75rem; color: var(--neon-cyan); text-align: center;">
-                                    <i class="fa-solid fa-file-circle-check"></i> Loaded: <span class="filename-span"></span>
-                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%;">
                                 Audit Logins <i class="fa-solid fa-user-lock"></i>
@@ -649,6 +629,6 @@
     <!-- Toast Notification container -->
     <div class="toast-container" id="toast-notifications-container"></div>
 
-    <script src="js/app.js?v=2.2.0"></script>
+    <script src="js/app.js?v=2.3.0"></script>
 </body>
 </html>
