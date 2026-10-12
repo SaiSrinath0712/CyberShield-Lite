@@ -79,6 +79,25 @@ class XSSScanResponse(BaseModel):
     is_xss: bool
     explanation: XAIExplanation
 
+# HTML Injection detector
+class HTMLScanRequest(BaseModel):
+    payload_text: str = Field(..., description="HTML markup/page source to audit")
+
+class HTMLScanResponse(BaseModel):
+    verdict: str
+    is_html_injection: bool
+    explanation: XAIExplanation
+
+# Unified Injection detector (Multi-Vector: SQLi + XSS + HTML)
+class UnifiedInjectionScanRequest(BaseModel):
+    payload_text: str = Field(..., description="Query, script, HTML markup, or multi-attack payload to audit")
+
+class UnifiedInjectionScanResponse(BaseModel):
+    verdict: str
+    is_injection: bool
+    threat_types: List[str]
+    explanation: XAIExplanation
+
 # Login brute force monitor
 class LoginScanRequest(BaseModel):
     username: str = Field(..., description="User attempting login")

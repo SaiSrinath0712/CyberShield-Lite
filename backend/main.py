@@ -13,7 +13,7 @@ from typing import List, Optional
 from backend.database import engine, Base, get_db
 from backend import models, schemas
 from backend.services.ml_service import ml_service
-from backend.services.rule_service import scan_file_extension, scan_sql_injection, scan_xss, scan_login_attempts
+from backend.services.rule_service import scan_file_extension, scan_sql_injection, scan_xss, scan_html_injection, scan_unified_injection, scan_login_attempts
 
 # Initialize Database tables
 Base.metadata.create_all(bind=engine)
@@ -156,6 +156,36 @@ def check_xss(payload: schemas.XSSScanRequest, db: Session = Depends(get_db)):
     log_scan_transaction(
         db=db,
         threat_type="XSS Attack",
+        payload=payload.payload_text,
+        verdict=result["verdict"],
+        confidence=result["explanation"]["confidence"],
+        risk_level=result["explanation"]["risk_level"],
+        explanation_dict=result["explanation"]
+    )
+    return result
+
+@app.post("/predict/html", response_model=schemas.HTMLScanResponse)
+def check_html(payload: schemas.HTMLScanRequest, db: Session = Depends(get_db)):
+    result = scan_html_injection(payload.payload_text)
+    
+    log_scan_transaction(
+        db=db,
+        threat_type="HTML Injection",
+        payload=payload.payload_text,
+        verdict=result["verdict"],
+        confidence=result["explanation"]["confidence"],
+        risk_level=result["explanation"]["risk_level"],
+        explanation_dict=result["explanation"]
+    )
+    return result
+
+@app.post("/predict/injection", response_model=schemas.UnifiedInjectionScanResponse)
+def check_unified_injection(payload: schemas.UnifiedInjectionScanRequest, db: Session = Depends(get_db)):
+    result = scan_unified_injection(payload.payload_text)
+    
+    log_scan_transaction(
+        db=db,
+        threat_type="Injection Audit",
         payload=payload.payload_text,
         verdict=result["verdict"],
         confidence=result["explanation"]["confidence"],

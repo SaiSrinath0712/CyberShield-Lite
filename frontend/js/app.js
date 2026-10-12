@@ -276,8 +276,23 @@ function setupFormHandlers() {
         
         const type = document.getElementById("inj-type").value;
         const payloadVal = document.getElementById("inj-payload-input").value;
-        const endpoint = type === "sqli" ? "/predict/sql" : "/predict/xss";
-        const bodyKey = type === "sqli" ? "query_text" : "payload_text";
+        
+        let endpoint = "/predict/injection";
+        let bodyKey = "payload_text";
+        if (type === "sqli") {
+            endpoint = "/predict/sql";
+            bodyKey = "query_text";
+        } else if (type === "xss") {
+            endpoint = "/predict/xss";
+            bodyKey = "payload_text";
+        } else if (type === "html") {
+            endpoint = "/predict/html";
+            bodyKey = "payload_text";
+        } else {
+            // Auto / Multi-Vector audit
+            endpoint = "/predict/injection";
+            bodyKey = "payload_text";
+        }
 
         try {
             const response = await fetch(endpoint, {
@@ -932,8 +947,13 @@ function processInjectionFile(file) {
             }
         } else if (ext === 'sql') {
             document.getElementById("inj-type").value = "sqli";
-        } else if (ext === 'js' || ext === 'html') {
+        } else if (ext === 'html' || ext === 'htm') {
+            document.getElementById("inj-type").value = "html";
+        } else if (ext === 'js') {
             document.getElementById("inj-type").value = "xss";
+        } else {
+            // Mixed or unknown: default to Auto Multi-Vector
+            document.getElementById("inj-type").value = "auto";
         }
 
         document.getElementById("inj-payload-input").value = text;

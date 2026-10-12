@@ -588,6 +588,113 @@ def scan_xss(payload_text: str) -> Dict[str, Any]:
     }
 
 
+# --- HTML INJECTION & MALICIOUS MARKUP DETECTOR ---
+HTML_PATTERNS = [
+    (r"(?i)<iframe\b[^>]*>", "Hidden / Clickjacking iframe injection (<iframe)"),
+    (r"(?i)<object\b[^>]*>", "Malicious ActiveX/Plugin object container (<object>)"),
+    (r"(?i)<embed\b[^>]*>", "Embedded external payload player (<embed>)"),
+    (r"(?i)<meta\b[^>]*http-equiv\s*=\s*[\"']?refresh", "Meta tag phishing auto-redirect (<meta refresh>)"),
+    (r"(?i)<base\b[^>]*href", "Base tag hijacking to hijack relative URL paths (<base href>)"),
+    (r"(?i)<link\b[^>]*rel\s*=\s*[\"']?import", "HTML import link injection (<link rel=import>)"),
+    (r"(?i)<form\b[^>]*action\s*=\s*[\"']?https?://", "Credential-harvesting external phishing form (<form action>)"),
+    (r"(?i)<style\b[^>]*>.*expression\s*\(", "CSS dynamic expression script execution (expression())"),
+    (r"(?i)data\s*:\s*text/html", "Data URI scheme HTML/script execution (data:text/html)"),
+    (r"(?i)<svg\b[^>]*onload\s*=", "SVG inline execution vector (<svg onload>)"),
+    (r"(?i)<img\b[^>]*onerror\s*=", "Image tag DOM execution (img onerror)"),
+]
+
+def scan_html_injection(payload_text: str) -> Dict[str, Any]:
+    triggered = []
+    
+    # Check HTML specific tags
+    for pattern, reason in HTML_PATTERNS:
+        if re.search(pattern, payload_text):
+            triggered.append(reason)
+            
+    # Check XSS overlap (scripts, handlers)
+    for pattern, reason in XSS_PATTERNS:
+        if re.search(pattern, payload_text) and reason not in triggered:
+            triggered.append(reason)
+            
+    is_malicious_html = len(triggered) > 0
+    verdict = "Dangerous" if is_malicious_html else "Safe"
+    risk_level = "High" if is_malicious_html else "Low"
+    confidence = 97.0 if is_malicious_html else 100.0
+    
+    reasons = triggered if is_malicious_html else ["No dangerous HTML tags, forms, or redirect scripts detected."]
+    suggestions = []
+    if is_malicious_html:
+        suggestions = [
+            "Sanitize HTML input using an allow-list HTML sanitizer (e.g., DOMPurify, Bleach).",
+            "Disallow iframe, object, embed, and meta-refresh tags from untrusted users.",
+            "Enforce strict Content Security Policy (CSP) with frame-ancestors 'none'."
+        ]
+    else:
+        suggestions = ["HTML markup conforms to safe rendering policy."]
+
+    return {
+        "verdict": verdict,
+        "is_html_injection": is_malicious_html,
+        "explanation": {
+            "verdict": verdict,
+            "threat_type": "HTML Injection / Defacement Attack" if is_malicious_html else "Safe HTML Content",
+            "confidence": confidence,
+            "risk_level": risk_level,
+            "reasons": reasons,
+            "suggestions": suggestions,
+            "features_triggered": {"matched_rules_count": len(triggered), "rules": triggered}
+        }
+    }
+
+def scan_unified_injection(payload_text: str) -> Dict[str, Any]:
+    """Scans for SQL Injection, XSS, and HTML Injection simultaneously across any payload or uploaded file."""
+    sqli_res = scan_sql_injection(payload_text)
+    xss_res = scan_xss(payload_text)
+    html_res = scan_html_injection(payload_text)
+
+    all_reasons = []
+    threat_types = []
+    if sqli_res["is_injection"]:
+        all_reasons.extend(sqli_res["explanation"]["reasons"])
+        threat_types.append("SQL Injection")
+    if xss_res["is_xss"]:
+        all_reasons.extend([r for r in xss_res["explanation"]["reasons"] if r not in all_reasons])
+        threat_types.append("XSS")
+    if html_res["is_html_injection"]:
+        all_reasons.extend([r for r in html_res["explanation"]["reasons"] if r not in all_reasons])
+        threat_types.append("HTML Injection")
+
+    is_dangerous = len(all_reasons) > 0
+    verdict = "Dangerous" if is_dangerous else "Safe"
+    risk_level = "Critical" if "SQL Injection" in threat_types else ("High" if is_dangerous else "Low")
+    confidence = 98.0 if is_dangerous else 100.0
+
+    suggestions = []
+    if "SQL Injection" in threat_types:
+        suggestions.extend(sqli_res["explanation"]["suggestions"])
+    if "XSS" in threat_types or "HTML Injection" in threat_types:
+        suggestions.extend([s for s in html_res["explanation"]["suggestions"] if s not in suggestions])
+    if not suggestions:
+        suggestions = ["Payload passed all SQL, XSS, and HTML security audits safely."]
+
+    threat_name = " + ".join(threat_types) + " Attack" if threat_types else "Safe Form/Script Payload"
+
+    return {
+        "verdict": verdict,
+        "is_injection": is_dangerous,
+        "threat_types": threat_types,
+        "explanation": {
+            "verdict": verdict,
+            "threat_type": threat_name,
+            "confidence": confidence,
+            "risk_level": risk_level,
+            "reasons": all_reasons if all_reasons else ["No SQL, XSS, or HTML injection patterns detected."],
+            "suggestions": suggestions,
+            "features_triggered": {"threat_types": threat_types, "matched_count": len(all_reasons)}
+        }
+    }
+
+
 # --- LOGIN MONITOR ---
 def scan_login_attempts(username: str, ip_address: str, failed_count: int, window: int) -> Dict[str, Any]:
     is_brute_force = False
