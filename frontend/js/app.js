@@ -285,6 +285,10 @@ function setupFormHandlers() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ [bodyKey]: payloadVal })
             });
+            if (!response.ok) {
+                const errDetail = await response.text();
+                throw new Error(`Server returned HTTP ${response.status}: ${errDetail}`);
+            }
             const data = await response.json();
             renderScannerResults("injection", data.verdict, data.explanation);
         } catch (err) {
@@ -387,7 +391,8 @@ function renderScannerResults(prefix, verdict, explanation) {
 function handleScannerError(prefix, error) {
     const placeholder = document.getElementById(`${prefix}-placeholder`);
     placeholder.style.display = "flex";
-    placeholder.innerHTML = `<i class="fa-solid fa-triangle-exclamation fa-2x" style="margin-bottom: 8px; color: var(--neon-red);"></i><p style="color: var(--neon-red);">Scanner timeout or endpoint error.</p>`;
+    const msg = (error && error.message) ? error.message : "Scanner timeout or endpoint error.";
+    placeholder.innerHTML = `<i class="fa-solid fa-triangle-exclamation fa-2x" style="margin-bottom: 8px; color: var(--neon-red);"></i><p style="color: var(--neon-red); font-size: 0.85rem; max-width: 90%; text-align: center;">${msg}</p>`;
     console.error(error);
 }
 
