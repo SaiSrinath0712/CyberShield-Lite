@@ -523,15 +523,22 @@ async function loadHistoryLogs() {
             if (log.prediction_verdict === "Dangerous") labelClass = "badge-dangerous";
             if (log.prediction_verdict === "Suspicious") labelClass = "badge-suspicious";
 
-            const payloadEscaped = log.input_payload.replace(/</g, "&lt;").replace(/>/g, "&gt;").substring(0, 80) + (log.input_payload.length > 80 ? "..." : "");
+            let riskColor = "var(--neon-green)";
+            const rl = (log.risk_level || "").toLowerCase();
+            if (rl === "critical" || rl === "high") riskColor = "var(--neon-red)";
+            else if (rl === "medium") riskColor = "var(--neon-orange)";
+
+            const rawPayload = log.input_payload || "";
+            const payloadEscaped = rawPayload.replace(/</g, "&lt;").replace(/>/g, "&gt;").substring(0, 65) + (rawPayload.length > 65 ? "..." : "");
+            const payloadTitle = rawPayload.replace(/"/g, "&quot;").substring(0, 300);
 
             tr.innerHTML = `
                 <td style="font-family: monospace; font-size: 0.8rem; line-height: 1.4;">${timeStr}</td>
                 <td><strong>${log.threat_type}</strong></td>
-                <td style="font-family: monospace; font-size: 0.8rem;"><code>${payloadEscaped}</code></td>
+                <td><code title="${payloadTitle}">${payloadEscaped}</code></td>
                 <td><span class="badge ${labelClass}">${log.prediction_verdict}</span></td>
-                <td>${log.risk_level}</td>
-                <td>${log.confidence_score.toFixed(1)}%</td>
+                <td><span style="color: ${riskColor}; font-weight: 600;">${log.risk_level}</span></td>
+                <td style="font-family: monospace; font-size: 0.82rem;">${log.confidence_score.toFixed(1)}%</td>
             `;
             tbody.appendChild(tr);
         });
