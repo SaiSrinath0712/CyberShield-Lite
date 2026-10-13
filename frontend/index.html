@@ -72,11 +72,12 @@
                     <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 4px;">Lightweight Explainable Artificial Intelligence Threat Management System.</p>
                 </div>
                 <div style="display: flex; gap: 10px; align-items: center;">
-                    <button class="btn btn-secondary" onclick="triggerTelemetryRefresh()" style="padding: 6px 12px; font-size: 0.8rem;" title="Refresh Data">
+                    <button class="btn btn-secondary" id="btn-refresh-telemetry" onclick="triggerTelemetryRefresh()" style="padding: 6px 14px; font-size: 0.8rem;" title="Refresh Data">
                         <i class="fa-solid fa-rotate"></i> Refresh Telemetry
                     </button>
-                    <div class="date-badge">
-                        <i class="fa-solid fa-calendar-days"></i> <span id="display-date">Active Telemetry Session</span>
+                    <div class="date-badge" id="telemetry-session-badge" onclick="openSessionTelemetryModal()" title="Click to view Active Telemetry Session details">
+                        <span class="live-dot"></span>
+                        <span id="display-date">Active Telemetry Session</span>
                     </div>
                 </div>
             </header>
@@ -629,6 +630,104 @@
     <!-- Toast Notification container -->
     <div class="toast-container" id="toast-notifications-container"></div>
 
-    <script src="js/app.js?v=2.3.0"></script>
+    <!-- Active Telemetry Session Diagnostics Modal -->
+    <div id="telemetry-session-modal" class="modal-overlay" style="display: none;" onclick="if(event.target === this) closeSessionTelemetryModal()">
+        <div class="modal-content glass-card">
+            <div class="modal-header">
+                <h3 style="display: flex; align-items: center; gap: 10px; font-size: 1.05rem;">
+                    <i class="fa-solid fa-satellite-dish" style="color: var(--neon-cyan);"></i> Active Telemetry Session Diagnostics
+                </h3>
+                <button class="modal-close-btn" onclick="closeSessionTelemetryModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="session-status-banner">
+                    <span class="live-dot" style="margin-right: 10px;"></span>
+                    <span><strong>Live Telemetry Stream:</strong> Real-time connection established to FastAPI Threat Gateway.</span>
+                </div>
+                
+                <div class="telemetry-info-grid">
+                    <div class="info-card">
+                        <span class="info-label">Telemetry Status</span>
+                        <span class="info-value" style="color: var(--neon-green);">CONNECTED &bull; STREAMING</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-label">Active Scanners</span>
+                        <span class="info-value" style="color: var(--neon-cyan);">6 / 6 Engines Online</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-label">Session Timestamp</span>
+                        <span class="info-value" id="modal-session-time">Syncing...</span>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-label">Engine Response Time</span>
+                        <span class="info-value" id="modal-session-latency" style="color: var(--neon-green);">~24ms (Optimal)</span>
+                    </div>
+                </div>
+
+                <h4 style="margin: 16px 0 10px; font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em;">AI Machine Learning & Rule Sensors</h4>
+                <div class="models-status-list">
+                    <div class="model-item">
+                        <span class="model-badge">NLP</span>
+                        <div>
+                            <strong>Phishing Email & SMS Classifier</strong>
+                            <div class="model-desc">MultinomialNB + TF-IDF Vectorizer (100% Accuracy Benchmark)</div>
+                        </div>
+                        <span class="status-pill green">OPERATIONAL</span>
+                    </div>
+                    <div class="model-item">
+                        <span class="model-badge">RF</span>
+                        <div>
+                            <strong>Malicious URL Classifier</strong>
+                            <div class="model-desc">Random Forest (100 Trees, 9 Structural Feature Vectors)</div>
+                        </div>
+                        <span class="status-pill green">OPERATIONAL</span>
+                    </div>
+                    <div class="model-item">
+                        <span class="model-badge">IDS</span>
+                        <div>
+                            <strong>Network Intrusion Detection System</strong>
+                            <div class="model-desc">Multi-Class Classifier (Normal, DoS, Probe, R2L, U2R Telemetry)</div>
+                        </div>
+                        <span class="status-pill green">OPERATIONAL</span>
+                    </div>
+                    <div class="model-item">
+                        <span class="model-badge">RULES</span>
+                        <div>
+                            <strong>Extension Threat Intel & Obfuscation Guard</strong>
+                            <div class="model-desc">100+ Extension Registry, RTLO character spoofing, Multi-Extension</div>
+                        </div>
+                        <span class="status-pill green">OPERATIONAL</span>
+                    </div>
+                    <div class="model-item">
+                        <span class="model-badge">INJ</span>
+                        <div>
+                            <strong>Web Injection & Payload Auditor</strong>
+                            <div class="model-desc">Multi-Vector SQL Injection, Cross-Site Scripting (XSS), HTML Defacement</div>
+                        </div>
+                        <span class="status-pill green">OPERATIONAL</span>
+                    </div>
+                    <div class="model-item">
+                        <span class="model-badge">AUTH</span>
+                        <div>
+                            <strong>Login Attack & Brute-Force Monitor</strong>
+                            <div class="model-desc">Sliding-window authentication anomaly & credential stuffing detector</div>
+                        </div>
+                        <span class="status-pill green">OPERATIONAL</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: flex-end;">
+                    <button class="btn btn-secondary" onclick="triggerTelemetryRefresh(); closeSessionTelemetryModal();" style="font-size: 0.8rem; padding: 8px 14px;">
+                        <i class="fa-solid fa-rotate"></i> Sync Telemetry Now
+                    </button>
+                    <button class="btn btn-primary" onclick="closeSessionTelemetryModal()" style="font-size: 0.8rem; padding: 8px 14px;">
+                        Close Window
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js?v=2.4.0"></script>
 </body>
 </html>

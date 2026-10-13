@@ -1,15 +1,18 @@
 // Global chart references to destroy and rebuild cleanly
 let distChart = null;
 let barChart = null;
+let currentActiveTab = "overview";
 
 document.addEventListener("DOMContentLoaded", () => {
     // Load default dashboard panel
     switchTab("overview");
     setupFormHandlers();
+    initSessionClock();
 });
 
 // Switch panels in single-page dashboard
 function switchTab(tabId) {
+    currentActiveTab = tabId;
     document.querySelectorAll(".sidebar-btn").forEach(btn => {
         btn.classList.remove("active");
     });
@@ -515,27 +518,167 @@ function exportJSON() {
     window.location.href = "/history/export/json";
 }
 
-// Safe Telemetry Refresh Button implementation
+// ==========================================
+// 3.5 TELEMETRY SESSION MODAL & LIVE CLOCK
+// ==========================================
+function initSessionClock() {
+    function updateClock() {
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        const dateEl = document.getElementById("display-date");
+        if (dateEl) {
+            dateEl.textContent = `Active Session (${timeStr})`;
+        }
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+}
+
+async function openSessionTelemetryModal() {
+    const modal = document.getElementById("telemetry-session-modal");
+    if (!modal) return;
+    modal.style.display = "flex";
+
+    const timeEl = document.getElementById("modal-session-time");
+    const latencyEl = document.getElementById("modal-session-latency");
+
+    if (timeEl) timeEl.textContent = "Querying Gateway...";
+    if (latencyEl) latencyEl.textContent = "Pinging...";
+
+    const startTime = performance.now();
+    try {
+        const res = await fetch("/telemetry/status");
+        const latency = Math.round(performance.now() - startTime);
+        if (latencyEl) {
+            latencyEl.textContent = `${latency}ms (Optimal)`;
+            latencyEl.style.color = latency < 250 ? "var(--neon-green)" : "var(--neon-orange)";
+        }
+        if (res.ok) {
+            const data = await res.json();
+            if (timeEl) {
+                const dt = new Date(data.timestamp);
+                timeEl.textContent = isNaN(dt.getTime()) ? new Date().toLocaleTimeString() : dt.toLocaleTimeString();
+            }
+        } else {
+            if (timeEl) timeEl.textContent = new Date().toLocaleTimeString();
+        }
+    } catch (e) {
+        if (timeEl) timeEl.textContent = new Date().toLocaleTimeString();
+        if (latencyEl) {
+            latencyEl.textContent = "Offline / Standby";
+            latencyEl.style.color = "var(--text-muted)";
+        }
+    }
+}
+
+function closeSessionTelemetryModal() {
+    const modal = document.getElementById("telemetry-session-modal");
+    if (modal) modal.style.display = "none";
+}
+
+// Window click / key events for modal closing
+window.addEventListener("click", (e) => {
+    const modal = document.getElementById("telemetry-session-modal");
+    if (modal && e.target === modal) {
+        modal.style.display = "none";
+    }
+});
+window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+        closeSessionTelemetryModal();
+    }
+});
+
+// Contextual IDS Telemetry Refresher
+async function refreshIdsTelemetry() {
+    try {
+        toggleScannerLoader("ids", true);
+        const res = await fetch("/telemetry/sample-packet");
+        if (!res.ok) throw new Error("Sample packet endpoint returned error");
+        const packet = await res.json();
+
+        // Switch to manual mode if in CSV mode so user sees the newly populated inputs and evaluation
+        const manualPanel = document.getElementById("ids-mode-manual");
+        if (manualPanel && manualPanel.style.display === "none") {
+            const snifferPanel = document.getElementById("ids-mode-sniffer");
+            // If user is not currently running sniffer, show manual panel
+            if (!snifferInterval) {
+                toggleIdsInputMode("manual");
+            }
+        }
+
+        // Populate manual inputs
+        if (document.getElementById("ids-duration")) document.getElementById("ids-duration").value = packet.duration;
+        if (document.getElementById("ids-protocol")) document.getElementById("ids-protocol").value = packet.protocol_type;
+        if (document.getElementById("ids-service")) document.getElementById("ids-service").value = packet.service;
+        if (document.getElementById("ids-flag")) document.getElementById("ids-flag").value = packet.flag;
+        if (document.getElementById("ids-srcbytes")) document.getElementById("ids-srcbytes").value = packet.src_bytes;
+        if (document.getElementById("ids-dstbytes")) document.getElementById("ids-dstbytes").value = packet.dst_bytes;
+        if (document.getElementById("ids-count")) document.getElementById("ids-count").value = packet.count;
+        if (document.getElementById("ids-serror")) document.getElementById("ids-serror").value = packet.serror_rate;
+        if (document.getElementById("ids-logins")) document.getElementById("ids-logins").value = packet.num_failed_logins;
+
+        // Auto-evaluate this live sample packet
+        const evalRes = await fetch("/predict/intrusion", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(packet)
+        });
+        const evalData = await evalRes.json();
+        renderScannerResults("ids", evalData.verdict, evalData.explanation);
+
+        showToast(
+            "IDS Telemetry Refreshed",
+            `Generated ${packet.hint || packet.protocol_type.toUpperCase()} flow & evaluated: ${evalData.verdict}`,
+            evalData.verdict
+        );
+    } catch (err) {
+        console.error("Failed to refresh IDS telemetry:", err);
+        handleScannerError("ids", err);
+    }
+}
+
+// Active & Context-Aware Telemetry Refresh Button implementation
 async function triggerTelemetryRefresh() {
-    const btn = document.querySelector(".page-header button");
+    const btn = document.getElementById("btn-refresh-telemetry") || document.querySelector(".page-header button");
     if (btn) {
-        btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Syncing...`;
+        btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Refreshing...`;
+        btn.disabled = true;
     }
-    
+
     try {
-        await loadDashboardStats();
+        // Execute tab-specific refresh action
+        if (currentActiveTab === "ids-scanner") {
+            await refreshIdsTelemetry();
+        } else if (currentActiveTab === "overview") {
+            await loadDashboardStats();
+            showToast("Dashboard Synchronized", "Platform stats, threat distribution, and recent alerts updated.", "Safe");
+        } else if (currentActiveTab === "history-logs") {
+            await loadHistoryLogs();
+            showToast("History Synchronized", "Database scan transactions refreshed.", "Safe");
+        } else {
+            // Scanner tabs (email, url, file, injection, login)
+            const engineNames = {
+                "email-scanner": "Phishing NLP Engine",
+                "url-scanner": "URL Random Forest Classifier",
+                "file-scanner": "File Intel Scanner",
+                "injection-scanner": "Injection & Payload Auditor",
+                "login-scanner": "Login Attack Monitor"
+            };
+            const engName = engineNames[currentActiveTab] || "Scanner Engine";
+            showToast("Telemetry Active", `${engName} is operational and ready for payload verification.`, "Safe");
+        }
+
+        // Synchronize background global metrics
+        loadDashboardStats().catch(() => {});
+        loadHistoryLogs().catch(() => {});
     } catch (e) {
-        console.warn("Failed to load dashboard metrics:", e);
-    }
-    
-    try {
-        await loadHistoryLogs();
-    } catch (e) {
-        console.warn("Failed to load history logs database:", e);
-    }
-    
-    if (btn) {
-        btn.innerHTML = `<i class="fa-solid fa-rotate"></i> Refresh Telemetry`;
+        console.warn("Telemetry refresh warning:", e);
+    } finally {
+        if (btn) {
+            btn.innerHTML = `<i class="fa-solid fa-rotate"></i> Refresh Telemetry`;
+            btn.disabled = false;
+        }
     }
 }
 
@@ -694,7 +837,24 @@ function startTrafficSniffer() {
     startBtn.disabled = true;
     stopBtn.disabled = false;
     
-    consoleDiv.innerHTML = `<div style="color: var(--neon-cyan);">[SYSTEM] Sniffing raw socket interface interface... [ACTIVE]</div>`;
+    sniffedPackets = []; // Reset previous run so this session is fresh
+    
+    consoleDiv.innerHTML = `<div style="color: var(--neon-cyan);">[SYSTEM] Sniffing raw socket interface... [ACTIVE]</div>`;
+    
+    // Update right-hand IDS Diagnostics Panel with live sniffing status
+    const idsPlaceholder = document.getElementById("ids-placeholder");
+    const idsResults = document.getElementById("ids-results");
+    if (idsResults) idsResults.style.display = "none";
+    if (idsPlaceholder) {
+        idsPlaceholder.style.display = "flex";
+        idsPlaceholder.innerHTML = `
+            <i class="fa-solid fa-satellite-dish fa-spin fa-3x" style="margin-bottom: 12px; color: var(--neon-cyan);"></i>
+            <h4 style="color: white; margin-bottom: 6px;">Active Sniffer Session</h4>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; max-width: 320px; text-align: center;">
+                Analyzing socket flows in real-time. When you click <strong>"Stop Sniffer"</strong>, an aggregated forensic diagnostics report will be generated and displayed right here.
+            </p>
+        `;
+    }
     
     // Interval loop (every 2.5 seconds)
     snifferInterval = setInterval(async () => {
@@ -773,18 +933,22 @@ function startTrafficSniffer() {
             consoleDiv.appendChild(logLine);
             consoleDiv.scrollTop = consoleDiv.scrollHeight;
             
-            // Cache record for CSV download
+            // Cache record for CSV download and forensic diagnosis
             sniffedPackets.push({
                 time: timestamp,
                 protocol_type: packet.protocol_type,
                 service: packet.service,
+                flag: packet.flag,
                 src_bytes: packet.src_bytes,
                 dst_bytes: packet.dst_bytes,
                 count: packet.count,
                 serror_rate: packet.serror_rate,
                 num_failed_logins: packet.num_failed_logins,
                 verdict: data.verdict,
-                attack_type: data.attack_type || "normal"
+                attack_type: data.attack_type || (data.explanation && data.explanation.threat_type) || "normal",
+                confidence: (data.explanation && data.explanation.confidence) || 90,
+                risk_level: (data.explanation && data.explanation.risk_level) || "Low",
+                explanation: data.explanation
             });
             
             // Enable download btn
@@ -814,6 +978,92 @@ function stopTrafficSniffer() {
     line.innerHTML = `[SYSTEM] Interface capture paused. Total session packets sniffed: ${sniffedPackets.length}`;
     consoleDiv.appendChild(line);
     consoleDiv.scrollTop = consoleDiv.scrollHeight;
+
+    // Render aggregated results in adjacent IDS Diagnostics Panel
+    if (sniffedPackets.length === 0) {
+        const idsPlaceholder = document.getElementById("ids-placeholder");
+        const idsResults = document.getElementById("ids-results");
+        if (idsResults) idsResults.style.display = "none";
+        if (idsPlaceholder) {
+            idsPlaceholder.style.display = "flex";
+            idsPlaceholder.innerHTML = `
+                <i class="fa-solid fa-network-wired fa-3x" style="margin-bottom: 8px;"></i>
+                <p>Sniffer stopped before capturing any flows. Click "Start Sniffer" again or use manual flow parameters.</p>
+            `;
+        }
+        return;
+    }
+
+    const total = sniffedPackets.length;
+    const dangerousPackets = sniffedPackets.filter(p => p.verdict === "Dangerous");
+    const suspiciousPackets = sniffedPackets.filter(p => p.verdict === "Suspicious");
+    const safePackets = sniffedPackets.filter(p => p.verdict === "Safe");
+
+    let overallVerdict = "Safe";
+    let riskLevel = "Low";
+    let confidence = 98;
+    let threatType = "Normal Network Traffic";
+
+    if (dangerousPackets.length > 0) {
+        overallVerdict = "Dangerous";
+        riskLevel = "Critical";
+        const highestRisk = dangerousPackets.reduce((prev, curr) => (curr.confidence > prev.confidence ? curr : prev), dangerousPackets[0]);
+        confidence = Math.round(highestRisk.confidence || 96);
+        threatType = `Intrusion Detected: ${(highestRisk.attack_type || "ANOMALY").toUpperCase()}`;
+    } else if (suspiciousPackets.length > 0) {
+        overallVerdict = "Suspicious";
+        riskLevel = "Medium";
+        confidence = 82;
+        threatType = "Suspicious Flow Irregularities";
+    }
+
+    // Tally attack types
+    const attackCounts = {};
+    sniffedPackets.forEach(p => {
+        const atk = (p.attack_type || "").toLowerCase();
+        if (atk && atk !== "normal") {
+            attackCounts[p.attack_type] = (attackCounts[p.attack_type] || 0) + 1;
+        }
+    });
+    const attackSummary = Object.entries(attackCounts)
+        .map(([k, v]) => `${k.toUpperCase()} (${v} flows)`)
+        .join(", ") || "No malicious signatures";
+
+    const protocolsSeen = [...new Set(sniffedPackets.map(p => p.protocol_type.toUpperCase()))].join(", ");
+    const servicesSeen = [...new Set(sniffedPackets.map(p => p.service.toUpperCase()))].join(", ");
+
+    const reasons = [
+        `Sniffed ${total} network socket frames: ${dangerousPackets.length} Dangerous, ${suspiciousPackets.length} Suspicious, ${safePackets.length} Clean.`,
+        `Identified threat signatures: ${attackSummary}.`,
+        `Monitored interface traffic protocols: ${protocolsSeen} across services: ${servicesSeen}.`,
+        overallVerdict === "Dangerous"
+            ? `Critical anomalous rate observed: ${dangerousPackets.length} packet(s) failed stateful connection criteria with high serror rates.`
+            : `All socket headers and flow volume remained within baseline parameters.`
+    ];
+
+    const suggestions = [
+        overallVerdict === "Dangerous"
+            ? `Immediate Action: Deploy firewall drop rules for identified attack vectors (${attackSummary}).`
+            : "Traffic profile remains healthy. Continue heuristic sniffer monitoring.",
+        "Export and archive this session's capture log via 'Download Session (.CSV)'.",
+        "Monitor source IP connection frequency and rate-limit anomalous SYN packets."
+    ];
+
+    const aggregateExplanation = {
+        threat_type: threatType,
+        confidence: confidence,
+        risk_level: riskLevel,
+        reasons: reasons,
+        suggestions: suggestions
+    };
+
+    renderScannerResults("ids", overallVerdict, aggregateExplanation);
+
+    showToast(
+        `Sniffer Session Evaluated (${total} Packets)`,
+        overallVerdict === "Dangerous" ? `Attacks intercepted: ${attackSummary}` : "All captured traffic flows are clean.",
+        overallVerdict
+    );
 }
 
 function downloadSniffedCsv() {

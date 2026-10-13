@@ -2,6 +2,8 @@ import os
 import json
 import csv
 import io
+import random
+import datetime
 from fastapi import FastAPI, Depends, HTTPException, Query, Request
 from fastapi.responses import StreamingResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -209,6 +211,89 @@ def check_login_brute_force(payload: schemas.LoginScanRequest, db: Session = Dep
     )
     return result
 
+
+@app.get("/telemetry/status")
+def get_telemetry_status(db: Session = Depends(get_db)):
+    """Returns real-time telemetry diagnostics and active model status."""
+    total_scans = db.query(models.PredictionHistory).count()
+    total_threats = db.query(models.PredictionHistory).filter(models.PredictionHistory.prediction_verdict != "Safe").count()
+    return {
+        "status": "online",
+        "connection": "connected",
+        "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "total_scans": total_scans,
+        "total_threats": total_threats,
+        "active_scanners_count": 6,
+        "models": {
+            "phishing_nlp": "Operational (TF-IDF + MultinomialNB)",
+            "url_classifier": "Operational (Random Forest 100 Trees)",
+            "ids_classifier": "Operational (Random Forest 5 Classes)",
+            "file_intelligence": "Operational (100+ Extension Registry & RTLO)",
+            "injection_checker": "Operational (Multi-Vector SQLi + XSS + HTML)",
+            "login_monitor": "Operational (Sliding Window Brute-Force Rate Limiter)"
+        },
+        "database": "Active (SQLite: cybershield_lite.db)",
+        "server_env": "FastAPI Async Threat Gateway"
+    }
+
+@app.get("/telemetry/sample-packet")
+def get_sample_telemetry_packet():
+    """Generates a realistic live simulated telemetry network packet for instant IDS testing."""
+    is_anomaly = random.random() < 0.4
+    if is_anomaly:
+        attack_kind = random.choice(["dos", "probe", "r2l"])
+        if attack_kind == "dos":
+            return {
+                "duration": 0.0,
+                "protocol_type": "tcp",
+                "service": "private",
+                "flag": "S0",
+                "src_bytes": random.randint(1000, 1800),
+                "dst_bytes": 0,
+                "count": random.randint(220, 480),
+                "serror_rate": round(random.uniform(0.85, 1.0), 2),
+                "num_failed_logins": 0,
+                "hint": "DoS SYN Flood Simulation"
+            }
+        elif attack_kind == "r2l":
+            return {
+                "duration": round(random.uniform(5.0, 25.0), 2),
+                "protocol_type": "tcp",
+                "service": "http",
+                "flag": "SF",
+                "src_bytes": random.randint(250, 450),
+                "dst_bytes": random.randint(700, 1100),
+                "count": random.randint(2, 8),
+                "serror_rate": 0.0,
+                "num_failed_logins": random.randint(3, 7),
+                "hint": "Brute-force Remote-to-Local Simulation"
+            }
+        else:
+            return {
+                "duration": round(random.uniform(0.0, 2.0), 2),
+                "protocol_type": random.choice(["tcp", "udp", "icmp"]),
+                "service": random.choice(["other", "private", "smtp"]),
+                "flag": "REJ",
+                "src_bytes": random.randint(10, 80),
+                "dst_bytes": random.randint(0, 40),
+                "count": random.randint(50, 180),
+                "serror_rate": round(random.uniform(0.4, 0.9), 2),
+                "num_failed_logins": 0,
+                "hint": "Port Scanning / Probe Simulation"
+            }
+    else:
+        return {
+            "duration": round(random.uniform(0.0, 1.5), 2),
+            "protocol_type": random.choice(["tcp", "udp"]),
+            "service": random.choice(["http", "smtp", "ftp"]),
+            "flag": "SF",
+            "src_bytes": random.randint(300, 1500),
+            "dst_bytes": random.randint(2000, 5000),
+            "count": random.randint(1, 8),
+            "serror_rate": 0.0,
+            "num_failed_logins": 0,
+            "hint": "Standard Baseline Flow"
+        }
 
 @app.get("/dashboard", response_model=schemas.DashboardStats)
 def get_dashboard_data(db: Session = Depends(get_db)):

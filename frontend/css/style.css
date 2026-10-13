@@ -535,3 +535,184 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(0, 242, 254, 0.02);
     color: white;
 }
+
+/* Live Telemetry Pulse & Interactive Badge */
+@keyframes pulse-green {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(57, 255, 20, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(57, 255, 20, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(57, 255, 20, 0); }
+}
+
+.live-dot {
+    width: 9px;
+    height: 9px;
+    background-color: #39ff14;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 10px #39ff14;
+    animation: pulse-green 2s infinite;
+    flex-shrink: 0;
+}
+
+.date-badge {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+    user-select: none;
+}
+
+.date-badge:hover {
+    border-color: var(--neon-cyan);
+    background: rgba(0, 242, 254, 0.08);
+    color: white;
+    box-shadow: 0 0 14px rgba(0, 242, 254, 0.2);
+}
+
+/* Telemetry Diagnostics Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(3, 5, 12, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 620px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid rgba(0, 242, 254, 0.35);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 242, 254, 0.12);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.modal-close-btn:hover {
+    color: var(--neon-red);
+}
+
+.session-status-banner {
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    background: rgba(57, 255, 20, 0.08);
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    margin: 16px 0;
+    color: white;
+}
+
+.telemetry-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.info-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.info-value {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 4px;
+    font-family: monospace;
+}
+
+.models-status-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.model-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+}
+
+.model-badge {
+    background: rgba(155, 81, 224, 0.2);
+    color: var(--neon-purple);
+    font-weight: 700;
+    padding: 3px 7px;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-family: monospace;
+}
+
+.model-desc {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.status-pill {
+    margin-left: auto;
+    font-size: 0.65rem;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 700;
+}
+
+.status-pill.green {
+    background: rgba(57, 255, 20, 0.15);
+    color: var(--neon-green);
+    border: 1px solid rgba(57, 255, 20, 0.3);
+}
+

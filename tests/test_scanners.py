@@ -148,3 +148,29 @@ def test_api_dashboard():
     assert "total_scans" in data
     assert "total_threats" in data
     assert "distribution" in data
+
+def test_api_telemetry_status():
+    """Test /telemetry/status diagnostics endpoint."""
+    response = client.get("/telemetry/status")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "online"
+    assert data["connection"] == "connected"
+    assert data["active_scanners_count"] == 6
+    assert "models" in data
+    assert len(data["models"]) == 6
+
+def test_api_telemetry_sample_packet():
+    """Test /telemetry/sample-packet generator endpoint."""
+    response = client.get("/telemetry/sample-packet")
+    assert response.status_code == 200
+    data = response.json()
+    assert "duration" in data
+    assert "protocol_type" in data
+    assert "service" in data
+    assert "flag" in data
+    assert "src_bytes" in data
+    assert "dst_bytes" in data
+    assert "count" in data
+    assert "serror_rate" in data
+    assert "num_failed_logins" in data
