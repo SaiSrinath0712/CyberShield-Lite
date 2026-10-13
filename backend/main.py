@@ -4,6 +4,14 @@ import csv
 import io
 import random
 import datetime
+IST = datetime.timezone(datetime.timedelta(hours=5, minutes=30))
+
+def to_ist(dt: datetime.datetime) -> datetime.datetime:
+    if dt is None:
+        return datetime.datetime.now(IST)
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=datetime.timezone.utc)
+    return dt.astimezone(IST)
 from fastapi import FastAPI, Depends, HTTPException, Query, Request
 from fastapi.responses import StreamingResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -382,12 +390,13 @@ def export_history_csv(db: Session = Depends(get_db)):
     writer = csv.writer(output)
     
     # Header
-    writer.writerow(["ID", "Timestamp", "Threat Module", "Payload", "Verdict", "Confidence", "Risk Level"])
+    writer.writerow(["ID", "Timestamp (IST)", "Threat Module", "Payload", "Verdict", "Confidence", "Risk Level"])
     
     for log in history:
+        ist_dt = to_ist(log.created_at)
         writer.writerow([
             log.id,
-            log.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+            ist_dt.strftime("%Y-%m-%d %H:%M:%S IST"),
             log.threat_type,
             log.input_payload,
             log.prediction_verdict,
@@ -409,9 +418,11 @@ def export_history_json(db: Session = Depends(get_db)):
     
     data = []
     for log in history:
+        ist_dt = to_ist(log.created_at)
         data.append({
             "id": log.id,
-            "timestamp": log.created_at.isoformat(),
+            "timestamp_ist": ist_dt.strftime("%Y-%m-%d %H:%M:%S IST"),
+            "timestamp": ist_dt.isoformat(),
             "threat_type": log.threat_type,
             "input_payload": log.input_payload,
             "verdict": log.prediction_verdict,

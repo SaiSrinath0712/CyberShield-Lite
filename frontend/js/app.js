@@ -454,6 +454,42 @@ function showToast(title, desc, verdict) {
 }
 
 
+// Helper to convert UTC timestamps to Indian Standard Time (IST, UTC+5:30)
+function formatToIST(dateInput, multiLine = false) {
+    if (!dateInput) return "-";
+    let str = String(dateInput).trim();
+    if (!str.includes("T") && str.includes(" ")) {
+        str = str.replace(" ", "T");
+    }
+    const timePart = str.split("T")[1] || "";
+    if (!str.endsWith("Z") && !timePart.includes("+") && !timePart.includes("-")) {
+        str = str + "Z";
+    }
+    const d = new Date(str);
+    if (isNaN(d.getTime())) {
+        return String(dateInput).replace("T", " ").split(".")[0] + " IST";
+    }
+    
+    const parts = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "Asia/Kolkata",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+    }).formatToParts(d);
+    
+    const p = {};
+    parts.forEach(part => { p[part.type] = part.value; });
+    
+    if (multiLine) {
+        return `${p.year}-${p.month}-${p.day}<br><span style="color: var(--neon-cyan); font-weight: 600;">${p.hour}:${p.minute}:${p.second} IST</span>`;
+    }
+    return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute}:${p.second} IST`;
+}
+
 // ==========================================
 // 3. AUDIT TRANSACTION HISTORY LOGS
 // ==========================================
@@ -481,7 +517,7 @@ async function loadHistoryLogs() {
 
         logs.forEach(log => {
             const tr = document.createElement("tr");
-            const timeStr = log.created_at.replace("T", " ").split(".")[0];
+            const timeStr = formatToIST(log.created_at, true);
             
             let labelClass = "badge-safe";
             if (log.prediction_verdict === "Dangerous") labelClass = "badge-dangerous";
@@ -490,7 +526,7 @@ async function loadHistoryLogs() {
             const payloadEscaped = log.input_payload.replace(/</g, "&lt;").replace(/>/g, "&gt;").substring(0, 80) + (log.input_payload.length > 80 ? "..." : "");
 
             tr.innerHTML = `
-                <td style="font-family: monospace; font-size: 0.8rem;">${timeStr}</td>
+                <td style="font-family: monospace; font-size: 0.8rem; line-height: 1.4;">${timeStr}</td>
                 <td><strong>${log.threat_type}</strong></td>
                 <td style="font-family: monospace; font-size: 0.8rem;"><code>${payloadEscaped}</code></td>
                 <td><span class="badge ${labelClass}">${log.prediction_verdict}</span></td>
@@ -753,6 +789,19 @@ function processIdsCsvFile(file) {
     reader.readAsText(file);
 }
 
+function populateIdsManualInputs(p) {
+    if (!p) return;
+    if (document.getElementById("ids-duration")) document.getElementById("ids-duration").value = p.duration;
+    if (document.getElementById("ids-protocol")) document.getElementById("ids-protocol").value = p.protocol_type;
+    if (document.getElementById("ids-service")) document.getElementById("ids-service").value = p.service;
+    if (document.getElementById("ids-flag")) document.getElementById("ids-flag").value = p.flag;
+    if (document.getElementById("ids-srcbytes")) document.getElementById("ids-srcbytes").value = p.src_bytes;
+    if (document.getElementById("ids-dstbytes")) document.getElementById("ids-dstbytes").value = p.dst_bytes;
+    if (document.getElementById("ids-count")) document.getElementById("ids-count").value = p.count;
+    if (document.getElementById("ids-serror")) document.getElementById("ids-serror").value = p.serror_rate;
+    if (document.getElementById("ids-logins")) document.getElementById("ids-logins").value = p.num_failed_logins;
+}
+
 async function parseAndScanIdsCsv(text) {
     const statusDiv = document.getElementById("ids-csv-status");
     const lines = text.split("\n").map(line => line.trim()).filter(line => line.length > 0);
@@ -765,10 +814,22 @@ async function parseAndScanIdsCsv(text) {
     // Extract headers: duration, protocol_type, service, flag, src_bytes, dst_bytes, count, serror_rate, num_failed_logins
     const headers = lines[0].toLowerCase().split(",").map(h => h.trim().replace(/^["']|["']$/g, ""));
     
+    // Trigger loader in the right-hand IDS Diagnostics Panel!
+    toggleScannerLoader("ids", true);
+    const idsPlaceholder = document.getElementById("ids-placeholder");
+    if (idsPlaceholder) {
+        idsPlaceholder.innerHTML = `
+            <i class="fa-solid fa-spinner fa-spin fa-3x" style="margin-bottom: 12px; color: var(--neon-cyan);"></i>
+            <h4 style="color: white; margin-bottom: 6px;">Auditing Network Flows</h4>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; max-width: 320px; text-align: center;">
+                Ingesting ${lines.length - 1} packet flow records through IDS Random Forest Classifier...
+            </p>
+        `;
+    }
+
     let parsedCount = 0;
     let threatsCount = 0;
-    
-    // Batch promises
+    const batchResults = [];
     const promises = [];
     
     for (let i = 1; i < lines.length; i++) {
@@ -797,6 +858,7 @@ async function parseAndScanIdsCsv(text) {
             body: JSON.stringify(packet)
         }).then(res => res.json())
           .then(data => {
+              batchResults.push({ packet, data });
               if (data.verdict !== "Safe") threatsCount++;
           }).catch(err => console.error("Batch scan row error:", err));
           
@@ -810,7 +872,7 @@ async function parseAndScanIdsCsv(text) {
         }
     }
     
-    // Complete
+    // Status block below drop zone
     statusDiv.innerHTML = `
         <span style="color: var(--neon-green); font-weight: 700;"><i class="fa-solid fa-circle-check"></i> Ingestion Scan Complete!</span>
         <div style="margin-top: 8px; font-size: 0.8rem; color: var(--text-secondary);">
@@ -818,8 +880,95 @@ async function parseAndScanIdsCsv(text) {
             Threats Intercepted: <strong style="color: var(--neon-red);">${threatsCount}</strong>
         </div>
     `;
+
+    // Process and display diagnostic results directly into the right-hand IDS Diagnostics Panel!
+    if (batchResults.length === 0) {
+        handleScannerError("ids", new Error("No valid network packet rows could be scanned from CSV."));
+        return;
+    }
+
+    const dangerousItems = batchResults.filter(r => r.data.verdict === "Dangerous");
+    const suspiciousItems = batchResults.filter(r => r.data.verdict === "Suspicious");
+    const safeItems = batchResults.filter(r => r.data.verdict === "Safe");
+
+    // Populate manual input parameters with the primary anomalous packet for user visibility
+    const primaryPacket = dangerousItems.length > 0 
+        ? dangerousItems[0].packet 
+        : (suspiciousItems.length > 0 ? suspiciousItems[0].packet : batchResults[0].packet);
+    populateIdsManualInputs(primaryPacket);
+
+    let overallVerdict = "Safe";
+    let riskLevel = "Low";
+    let confidence = 98;
+    let threatType = "Clean Network Traffic (Normal Flow)";
+
+    if (dangerousItems.length > 0) {
+        overallVerdict = "Dangerous";
+        riskLevel = "High";
+        const maxThreat = dangerousItems.reduce((prev, curr) => {
+            const c1 = (curr.data.explanation && curr.data.explanation.confidence) || 0;
+            const c2 = (prev.data.explanation && prev.data.explanation.confidence) || 0;
+            return c1 > c2 ? curr : prev;
+        }, dangerousItems[0]);
+        confidence = Math.round((maxThreat.data.explanation && maxThreat.data.explanation.confidence) || 92);
+        if (confidence > 80 && dangerousItems.length > 2) riskLevel = "Critical";
+        const attackName = maxThreat.data.attack_type || (maxThreat.data.explanation && maxThreat.data.explanation.threat_type) || "DoS";
+        threatType = `Network Intrusion (${attackName.toUpperCase()})`;
+    } else if (suspiciousItems.length > 0) {
+        overallVerdict = "Suspicious";
+        riskLevel = "Medium";
+        const maxSusp = suspiciousItems.reduce((prev, curr) => {
+            const c1 = (curr.data.explanation && curr.data.explanation.confidence) || 0;
+            const c2 = (prev.data.explanation && prev.data.explanation.confidence) || 0;
+            return c1 > c2 ? curr : prev;
+        }, suspiciousItems[0]);
+        confidence = Math.round((maxSusp.data.explanation && maxSusp.data.explanation.confidence) || 75);
+        threatType = "Suspicious Flow Anomalies";
+    }
+
+    // Tally attack types
+    const attackCounts = {};
+    batchResults.forEach(r => {
+        const atk = (r.data.attack_type || (r.data.explanation && r.data.explanation.threat_type) || "normal").toLowerCase();
+        if (atk && atk !== "normal") {
+            attackCounts[atk] = (attackCounts[atk] || 0) + 1;
+        }
+    });
+    const attackList = Object.entries(attackCounts).map(([k, v]) => `${k.toUpperCase()} (${v} flows)`);
+    const attackSummary = attackList.length > 0 ? attackList.join(", ") : "None";
+
+    const protocolsSeen = [...new Set(batchResults.map(r => r.packet.protocol_type.toUpperCase()))].join(", ");
+    const servicesSeen = [...new Set(batchResults.map(r => r.packet.service.toUpperCase()))].join(", ");
+
+    const reasons = [
+        `CSV Batch Ingestion: Processed ${parsedCount} packet telemetry flows.`,
+        `${threatsCount} anomalous flows intercepted (${dangerousItems.length} Dangerous, ${suspiciousItems.length} Suspicious, ${safeItems.length} Clean).`,
+        `Detected Anomaly Vectors: ${attackSummary}.`,
+        `Interface Protocol Coverage: ${protocolsSeen} across services: ${servicesSeen}.`,
+        overallVerdict === "Dangerous"
+            ? `Critical anomalous rate: ${dangerousItems.length} packet(s) failed stateful connection criteria with high serror rates.`
+            : `All socket headers and flow volume remained within baseline parameters.`
+    ];
+
+    const suggestions = [
+        overallVerdict === "Dangerous"
+            ? `Trigger firewall black-list rules against identified source nodes generating ${attackSummary}.`
+            : "Traffic profile baseline is stable. Continue active heuristic monitoring.",
+        "Rotate user credential profiles mapped to affected workstations.",
+        "Audit local logs directories for potential payload injections and lateral movement."
+    ];
+
+    const aggregateExplanation = {
+        threat_type: threatType,
+        confidence: confidence,
+        risk_level: riskLevel,
+        reasons: reasons,
+        suggestions: suggestions
+    };
+
+    renderScannerResults("ids", overallVerdict, aggregateExplanation);
     
-    // Refresh stats
+    // Refresh dashboard stats
     loadDashboardStats();
 }
 
